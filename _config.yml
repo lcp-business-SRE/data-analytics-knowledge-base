@@ -5,8 +5,8 @@ title: "Minimal Mistakes教材サイト"
 title_separator: "|"
 name: "あなたの名前"
 description: "Minimal Mistakesテーマを使った教材サイトのサンプルです。"
-url: "https://あなたのGitHubユーザー名.github.io" # サイトのベースURL (GitHub Pagesのドメイン)
-baseurl: "/my-course" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
+url: "https://lcp-business-sre.github.io/" # サイトのベースURL (GitHub Pagesのドメイン)
+baseurl: "/data-analytics-knowledge-base" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
 repository: "あなたのGitHubユーザー名/my-course" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
 words_per_minute: 200 # 読書時間の計算用 (オプション)
 
