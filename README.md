@@ -1,27 +1,50 @@
-# Minimal Mistakes remote theme starter
+# GitHub PagesとHugo
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
 
-Contains basic configuration to get you a site with:
+## 全体の流れ
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+1. Hugoのインストール
+1. 新しいHugoサイトの作成
+1. Bookテーマの導入
+1. コンテンツの作成 (Markdown)
+1. GitHubリポジトリの作成と連携
+1. GitHub Actionsを使った自動デプロイの設定
+1. 公開と確認
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+## 1. Hugoのインストール
 
----
+```bash
+choco install hugo -confirm
+```
 
-## Troubleshooting
+インストール後、ターミナルでバージョンを確認し、正しくインストールされたことを確認します。
 
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
+```bash
+hugo version
+```
 
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+## 2. 新しいHugoサイトの作成
+
+```bash
+hugo new site my-hugo-site
+cd my-hugo-site
+```
+
+## 3. Bookテーマの導入
+```bash
+git init
+git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+```
+
+次に、`config.toml`ファイルを編集してテーマを設定します。
+
+```toml
+
+
+```
+
+```bash
+hugo new docs/introduction/_index.md # イントロダクションの章
+hugo new docs/basic-stats/_index.md # 統計の基礎の章
+hugo new docs/basic-stats/mean-median-mode.md # 平均・中央値・最頻値のページ
+```
