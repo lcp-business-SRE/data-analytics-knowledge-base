@@ -1,4 +1,4 @@
-baseURL = 'https://lcp-business-sre.github.io/'
+baseURL = 'https://lcp-business-sre.github.io/data-analytics-knowledge-base/'
 languageCode = "ja-jp"
 title = "データサイエンス育成教材"
 theme = "hugo-book"
