@@ -24,7 +24,7 @@ jobs:
           extended: true # extended版が必要な場合 (通常は必要)
 
       - name: Build Hugo site
-        env:
+        # env:
           # `hugo` コマンドで直接 --baseURL を使う場合は不要
           # BASE_URL: ${{ secrets.BASE_URL }}
         run: hugo --minify --baseURL "${{ secrets.BASE_URL }}"
