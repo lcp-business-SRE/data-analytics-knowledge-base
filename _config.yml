@@ -3,8 +3,8 @@
 locale: "ja-JP" # 日本語設定
 title: "SRE データ分析教材" # サイトのタイトル
 title_separator: "|"
-name: "あなたの名前"
-description: "Minimal Mistakesテーマを使った教材サイトのサンプルです。"
+name: "SRE Data Analytics Team" # サイトの名前
+description: "SRE Data Analytics Teamのデータ分析教材です。" # サイトの説明
 url: "https://lcp-business-sre.github.io/" # サイトのベースURL (GitHub Pagesのドメイン)
 baseurl: "/data-analytics-knowledge-base" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
 repository: "https://lcp-business-sre.github.io/data-analytics-knowledge-base" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
@@ -60,16 +60,17 @@ defaults:
       sidebar:
         nav: "docs" # _data/navigation.yml で定義したサイドバーナビゲーションのID
       # 目次を自動生成する場合 (オプションだが教材に推奨)
-      # toc: true
+      toc: true
       # toc_label: "このページの目次" # 目次のタイトル
       # toc_icon: "fa-solid fa-list-ul" # 目次のアイコン (Font Awesome)
-      # toc_sticky: true # 目次をスクロールしてもサイドバーに固定表示
+      toc_sticky: true # 目次をスクロールしてもサイドバーに固定表示
 
 # 著者情報 (オプション: 必要に応じて更新)
 author:
   name: "著者名"
   # avatar: "/assets/images/bio-photo.jpg" # アバター画像のパス (存在すれば設定)
-  bio: "Jekyll学習中の著者です。"
-  uri: "https://your-website.com" # あなたのウェブサイト
+  bio: "SRE Data Analytics Teamの一員です。" # 簡単な自己紹介
+  location: "Tokyo, Japan" # 所在地
+  uri: "https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol" # あなたのウェブサイト
   email: "your@email.com"
-  github: "your_github_username" # あなたのGitHubユーザー名
+  github: "lcp-business-SRE" # あなたのGitHubユーザー名
