@@ -2,20 +2,20 @@
 # 【重要】docs: の下の階層、および children: の下の階層のインデントを正確に確認！
 docs:
   - title: "教材トップ"
-    url: /
+    url: "/"
   - title: "第1章: 導入"
     children: # ここが重要！ 正しくインデントされているか
       - title: "1.0 第1章概要"
-        url: /chapter1/
+        url: "/chapter1/"
       - title: "1.1 Jekyllとは"
-        url: /chapter1/section1-1/
+        url: "/chapter1/section1-1/"
       - title: "1.2 静的サイトの利点"
-        url: /chapter1/section1-2/
+        url: "/chapter1/section1-2/"
   - title: "第2章: 環境構築"
     children: # ここも重要！
       - title: "2.0 第2章概要"
-        url: /chapter2/
+        url: "/chapter2/"
       - title: "2.1 Rubyのインストール"
-        url: /chapter2/section2-1/
+        url: "/chapter2/section2-1/"
       - title: "2.2 Jekyllのインストール"
-        url: /chapter2/section2-2/
+        url: "/chapter2/section2-2/"
