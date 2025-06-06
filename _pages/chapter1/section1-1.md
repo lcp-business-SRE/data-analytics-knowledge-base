@@ -1,4 +1,7 @@
 ---
-title: 1.1 Jekyllとは
-permalink: /chapter1/section1-1/ # navigation.yml の url: /chapter1/section1-1/ と一致
+title: "1.1 Jekyllとは"
+layout: single # または archive など、サイドバーをサポートするレイアウト
+permalink: /chapter1/section1-1/ # _config.yml の baseurl を含めた完全なパス
+sidebar:
+  nav: "docs" # _data/navigation.yml で定義したナビゲーションのID
 ---

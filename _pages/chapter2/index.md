@@ -1,8 +1,9 @@
 ---
-title: 第2章: 環境構築 - 概要
-# layout: single
-# sidebar: nav: docs
-permalink: /chapter2/ # 第2章の概要ページへのパーマリンク
+title: "1.1 Jekyllとは"
+layout: single # または archive など、サイドバーをサポートするレイアウト
+permalink: /chapter2/ # _config.yml の baseurl を含めた完全なパス
+sidebar:
+  nav: "docs" # _data/navigation.yml で定義したナビゲーションのID
 ---
 
 ## 第2章: 環境構築

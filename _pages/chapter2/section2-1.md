@@ -1,8 +1,9 @@
 ---
 title: 2.1 Rubyのインストール
-# layout: single
-# sidebar: nav: docs
-permalink: /chapter2/section2-1/ # 第2章1節へのパーマリンク
+layout: single # または archive など、サイドバーをサポートするレイアウト
+permalink: /chapter2/section2-1/ # _config.yml の baseurl を含めた完全なパス
+sidebar:
+  nav: "docs" # _data/navigation.yml で定義したナビゲーションのID
 ---
 
 ## 2.1 Rubyのインストール
