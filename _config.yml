@@ -79,9 +79,9 @@ defaults:
 
 # 著者情報 (オプション: 必要に応じて更新)
 author:
-  name: "著者名"
+  name: "LECIP SRE"
   # avatar: "/assets/images/bio-photo.jpg" # アバター画像のパス (存在すれば設定)
-  bio: "SRE Data Analytics Team" # 簡単な自己紹介
+  bio: "Data Analytics Team" # 簡単な自己紹介
   location: "Tokyo, Japan" # 所在地
   uri: "https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol" # あなたのウェブサイト
   email: "your@email.com"
