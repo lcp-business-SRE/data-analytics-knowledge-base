@@ -5,6 +5,12 @@ on:
     branches:
       - main # mainブランチにプッシュされたときに実行
 
+# ここに permissions ブロックを追加
+permissions:
+  contents: write # リポジトリの内容を読み書きする権限 (submodule fetchや.nojekyll作成に必要)
+  pages: write    # GitHub Pages にデプロイする権限
+  id-token: write # OpenID Connect を使用する場合に必要 (通常はPagesデプロイに含む)
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
