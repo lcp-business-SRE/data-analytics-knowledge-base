@@ -1,115 +1,75 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# _config.yml
+# サイトの基本設定
+locale: "ja-JP" # 日本語設定
+title: "Minimal Mistakes教材サイト"
+title_separator: "|"
+name: "あなたの名前"
+description: "Minimal Mistakesテーマを使った教材サイトのサンプルです。"
+url: "https://あなたのGitHubユーザー名.github.io" # サイトのベースURL (GitHub Pagesのドメイン)
+baseurl: "/my-course" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
+repository: "あなたのGitHubユーザー名/my-course" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
+words_per_minute: 200 # 読書時間の計算用 (オプション)
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: MM
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
-search: true
-
-# Build settings
-markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-# Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-include:
-  - _pages
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
+# テーマ設定
+remote_theme: "mmistakes/minimal-mistakes@4.24.0" # Minimal MistakesテーマをGemで読み込む
 plugins:
+  - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
-  - jemoji
+  - jekyll-remote-theme
   - jekyll-include-cache
 
-author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
-  links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+# 【重要】Minimal Mistakesのスキン設定をコメントアウトまたは削除
+# これにより、_sass/custom/_colors.scss で完全に色を制御します。
+# minimal_mistakes_skin: "default"
 
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+# Markdownレンダリング設定
+kramdown:
+  auto_ids: true
+  auto_id_prefix: "markdown-"
+  syntax_highlighter: rouge # コードハイライトエンジン
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true # コードブロックに行番号を表示
 
+# 除外ファイル (ビルド時に処理しないファイル/ディレクトリ)
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # docs/ はMinimal Mistakesのドキュメントなので、削除したい場合はこの行を有効にする
+  # - docs/ 
+  # CNAME はGitHub Pagesカスタムドメイン用なので、不要なら削除してこの行を有効にする
+  # - CNAME 
+
+# 各ページのデフォルト設定
 defaults:
-  # _posts
+  # _pages ディレクトリ内のすべてのMarkdownファイルに適用
   - scope:
-      path: ""
-      type: posts
+      path: "_pages" # このパス以下のファイルに適用
     values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
+      layout: "single" # Minimal Mistakesの標準的なページレイアウト
+      # サイドバーナビゲーションを有効にする設定
+      sidebar:
+        nav: "docs" # _data/navigation.yml で定義したサイドバーナビゲーションのID
+      # 目次を自動生成する場合 (オプションだが教材に推奨)
+      # toc: true
+      # toc_label: "このページの目次" # 目次のタイトル
+      # toc_icon: "fa-solid fa-list-ul" # 目次のアイコン (Font Awesome)
+      # toc_sticky: true # 目次をスクロールしてもサイドバーに固定表示
 
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+# 著者情報 (オプション: 必要に応じて更新)
+author:
+  name: "著者名"
+  # avatar: "/assets/images/bio-photo.jpg" # アバター画像のパス (存在すれば設定)
+  bio: "Jekyll学習中の著者です。"
+  uri: "https://your-website.com" # あなたのウェブサイト
+  email: "your@email.com"
+  github: "your_github_username" # あなたのGitHubユーザー名

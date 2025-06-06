@@ -1,9 +1,23 @@
-main:
-  - title: "Posts"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "About"
-    url: /about/
+# _data/navigation.yml
+
+# 'docs'というIDのナビゲーションを定義 (これは _config.yml の sidebar: nav: "docs" に対応します)
+docs:
+  - title: "教材トップ"
+    url: / # サイトのルート（トップページ）へのリンク
+  - title: "第1章: 導入"
+    # 'children' を使って子項目を定義すると、サイドバーに階層構造（折りたたみ可能）が生成されます
+    children:
+      - title: "1.0 第1章概要"
+        url: /chapter1/ # このURLは _pages/chapter1/index.md の permalink と一致させます
+      - title: "1.1 Jekyllとは"
+        url: /chapter1/section1-1/ # _pages/chapter1/section1-1.md の permalink と一致させます
+      - title: "1.2 静的サイトの利点" # 必要に応じて追加のセクション
+        url: /chapter1/section1-2/
+  - title: "第2章: 環境構築"
+    children:
+      - title: "2.0 第2章概要"
+        url: /chapter2/
+      - title: "2.1 Rubyのインストール"
+        url: /chapter2/section2-1/
+      - title: "2.2 Jekyllのインストール" # 必要に応じて追加のセクション
+        url: /chapter2/section2-2/
