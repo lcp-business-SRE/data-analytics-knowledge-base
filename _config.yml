@@ -74,8 +74,8 @@ defaults:
         nav: "docs" # _data/navigation.yml で定義したサイドバーナビゲーションのID
       # 目次を自動生成する場合 (オプションだが教材に推奨)
       toc: true
-      # toc_label: "このページの目次" # 目次のタイトル
-      # toc_icon: "fa-solid fa-list-ul" # 目次のアイコン (Font Awesome)
+      toc_label: "このページの目次" # 目次のタイトル
+      toc_icon: "fa-solid fa-list-ul" # 目次のアイコン (Font Awesome)
       toc_sticky: true # 目次をスクロールしてもサイドバーに固定表示
 
 # 著者情報 (オプション: 必要に応じて更新)
