@@ -57,6 +57,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md # READMEファイルは除外
   # docs/ はMinimal Mistakesのドキュメントなので、削除したい場合はこの行を有効にする
   # - docs/ 
   # CNAME はGitHub Pagesカスタムドメイン用なので、不要なら削除してこの行を有効にする
