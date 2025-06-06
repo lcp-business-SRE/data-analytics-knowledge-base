@@ -1,5 +1,10 @@
-+++
-date = '2025-06-07T01:59:16+09:00'
-draft = true
-title = 'TOP'
-+++
+---
+title: "Basic Stats"
+weight: 1
+# bookFlatSection: false
+# bookToc: true
+# bookHidden: false
+# bookCollapseSection: false
+# bookComments: false
+# bookSearchExclude: false
+---
