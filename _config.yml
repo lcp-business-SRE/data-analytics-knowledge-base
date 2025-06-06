@@ -1,13 +1,13 @@
 # _config.yml
 # サイトの基本設定
 locale: "ja-JP" # 日本語設定
-title: "Minimal Mistakes教材サイト"
+title: "SRE データ分析教材" # サイトのタイトル
 title_separator: "|"
 name: "あなたの名前"
 description: "Minimal Mistakesテーマを使った教材サイトのサンプルです。"
 url: "https://lcp-business-sre.github.io/" # サイトのベースURL (GitHub Pagesのドメイン)
 baseurl: "/data-analytics-knowledge-base" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
-repository: "あなたのGitHubユーザー名/my-course" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
+repository: "https://lcp-business-sre.github.io/data-analytics-knowledge-base" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
 words_per_minute: 200 # 読書時間の計算用 (オプション)
 
 # テーマ設定
