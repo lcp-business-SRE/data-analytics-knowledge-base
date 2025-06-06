@@ -7,6 +7,11 @@ on:
     branches:
       - master # main ブランチにプッシュされたときに実行
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write # これが重要！
+
 jobs:
   build:
     runs-on: ubuntu-latest
