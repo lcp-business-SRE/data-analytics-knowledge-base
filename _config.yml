@@ -11,7 +11,8 @@ repository: "https://lcp-business-sre.github.io/data-analytics-knowledge-base" #
 words_per_minute: 200 # 読書時間の計算用 (オプション)
 
 # テーマ設定
-remote_theme: "mmistakes/minimal-mistakes@4.24.0" # Minimal MistakesテーマをGemで読み込む
+# remote_theme: "mmistakes/minimal-mistakes@4.24.0" # Minimal MistakesテーマをGemで読み込む
+remote_theme: "mmistakes/minimal-mistakes@4.27.1"
 
 # minimal_mistakes_skin: "default" # Minimal Mistakesのスキン設定 (オプション)
 minimal_mistakes_skin: "aqua"
