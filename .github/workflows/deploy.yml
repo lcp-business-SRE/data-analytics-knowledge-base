@@ -1,18 +1,14 @@
+# .github/workflows/deploy.yml
+
 name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
     branches:
-      - main # mainブランチにプッシュされたときに実行
-
-# ここに permissions ブロックを追加
-permissions:
-  contents: write # リポジトリの内容を読み書きする権限 (submodule fetchや.nojekyll作成に必要)
-  pages: write    # GitHub Pages にデプロイする権限
-  id-token: write # OpenID Connect を使用する場合に必要 (通常はPagesデプロイに含む)
+      - main # main ブランチにプッシュされたときに実行
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,17 +20,30 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest' # または '0.126.1' など特定のバージョンa
+          hugo-version: 'latest' # または '0.126.1' など特定のバージョン
           extended: true # extended版が必要な場合 (通常は必要)
 
       - name: Build Hugo site
-        run: hugo --minify --baseURL "${{ secrets.BASE_URL }}" # baseURLをSecretsから取得
+        env:
+          # BASE_URL を環境変数として渡す（必要に応じて）
+          # `hugo` コマンドで直接 --baseURL を使う場合は不要
+          # BASE_URL: ${{ secrets.BASE_URL }}
+        run: hugo --minify --baseURL "${{ secrets.BASE_URL }}"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        # if: github.ref == 'refs/heads/main' # mainブランチからのみデプロイ
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3 # ここで成果物をアップロード
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public # Hugoの出力ディレクトリ
-          cname: # カスタムドメインを使用する場合（任意）
-          # branch: gh-pages # GitHub Pagesでgh-pagesブランチを使用する場合（通常は不要、デフォルトでgh-pages）
+          path: ./public # Hugoの出力ディレクトリ
+
+  deploy: # デプロイは別のジョブとして定義するのが一般的
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # build ジョブの後に実行
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # ここで GitHub Pages にデプロイa
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # トークンは自動で渡されるため with: で明示的に書かない場合も多い
