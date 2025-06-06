@@ -12,6 +12,10 @@ words_per_minute: 200 # 読書時間の計算用 (オプション)
 
 # テーマ設定
 remote_theme: "mmistakes/minimal-mistakes@4.24.0" # Minimal MistakesテーマをGemで読み込む
+
+# minimal_mistakes_skin: "default" # Minimal Mistakesのスキン設定 (オプション)
+minimal_mistakes_skin: "aqua"
+
 plugins:
   - jekyll-feed
   - jekyll-paginate
@@ -20,9 +24,14 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
+logo: "/assets/images/bio-photo.png" # サイトロゴのパス (存在すれば設定) 
+
 # 【重要】Minimal Mistakesのスキン設定をコメントアウトまたは削除
 # これにより、_sass/custom/_colors.scss で完全に色を制御します。
 # minimal_mistakes_skin: "default"
+
+enable_emoji: true # 絵文字を有効にする
+enable_copy_button: true # コードブロックにコピー機能を追加
 
 # Markdownレンダリング設定
 kramdown:
@@ -32,6 +41,9 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true # コードブロックに行番号を表示
+
+search_enabled: true # 検索機能を有効にする
+search: true
 
 # 除外ファイル (ビルド時に処理しないファイル/ディレクトリ)
 exclude:
@@ -69,7 +81,7 @@ defaults:
 author:
   name: "著者名"
   # avatar: "/assets/images/bio-photo.jpg" # アバター画像のパス (存在すれば設定)
-  bio: "SRE Data Analytics Teamの一員です。" # 簡単な自己紹介
+  bio: "SRE Data Analytics Team" # 簡単な自己紹介
   location: "Tokyo, Japan" # 所在地
   uri: "https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol" # あなたのウェブサイト
   email: "your@email.com"
