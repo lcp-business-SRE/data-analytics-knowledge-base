@@ -7,7 +7,7 @@ name: "SRE Data Analytics Team" # サイトの名前
 description: "SRE Data Analytics Teamのデータ分析教材です。" # サイトの説明
 url: "https://lcp-business-sre.github.io/" # サイトのベースURL (GitHub Pagesのドメイン)
 baseurl: "/data-analytics-knowledge-base" # GitHub Pagesのサブパス (例: /my-course)。ユーザーページなら ""
-repository: "https://lcp-business-sre.github.io/data-analytics-knowledge-base" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
+# repository: "https://lcp-business-sre.github.io/data-analytics-knowledge-base" # GitHubリポジトリ名 (GitHub Pagesにプッシュする場合)
 words_per_minute: 200 # 読書時間の計算用 (オプション)
 
 # テーマ設定
@@ -19,7 +19,7 @@ minimal_mistakes_skin: "aqua"
 
 plugins:
   - jekyll-feed
-  - jekyll-paginate
+  - jekyll-paginate-
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-remote-theme
