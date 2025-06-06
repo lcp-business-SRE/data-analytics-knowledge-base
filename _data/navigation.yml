@@ -1,23 +1,21 @@
 # _data/navigation.yml
-
-# 'docs'というIDのナビゲーションを定義 (これは _config.yml の sidebar: nav: "docs" に対応します)
+# 【重要】docs: の下の階層、および children: の下の階層のインデントを正確に確認！
 docs:
   - title: "教材トップ"
-    url: / # サイトのルート（トップページ）へのリンク
+    url: /
   - title: "第1章: 導入"
-    # 'children' を使って子項目を定義すると、サイドバーに階層構造（折りたたみ可能）が生成されます
-    children:
+    children: # ここが重要！ 正しくインデントされているか
       - title: "1.0 第1章概要"
-        url: /chapter1/ # このURLは _pages/chapter1/index.md の permalink と一致させます
+        url: /chapter1/
       - title: "1.1 Jekyllとは"
-        url: /chapter1/section1-1/ # _pages/chapter1/section1-1.md の permalink と一致させます
-      - title: "1.2 静的サイトの利点" # 必要に応じて追加のセクション
+        url: /chapter1/section1-1/
+      - title: "1.2 静的サイトの利点"
         url: /chapter1/section1-2/
   - title: "第2章: 環境構築"
-    children:
+    children: # ここも重要！
       - title: "2.0 第2章概要"
         url: /chapter2/
       - title: "2.1 Rubyのインストール"
         url: /chapter2/section2-1/
-      - title: "2.2 Jekyllのインストール" # 必要に応じて追加のセクション
+      - title: "2.2 Jekyllのインストール"
         url: /chapter2/section2-2/
