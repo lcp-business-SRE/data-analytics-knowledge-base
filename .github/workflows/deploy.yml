@@ -5,7 +5,7 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - main # main ブランチにプッシュされたときに実行
+      - master # main ブランチにプッシュされたときに実行
 
 jobs:
   build:
