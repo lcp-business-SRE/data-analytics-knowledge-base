@@ -24,7 +24,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest' # または '0.126.1' など特定のバージョン
+          hugo-version: 'latest' # または '0.126.1' など特定のバージョンa
           extended: true # extended版が必要な場合 (通常は必要
 
       - name: Build Hugo site
