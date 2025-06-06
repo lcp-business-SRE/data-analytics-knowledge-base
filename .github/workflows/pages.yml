@@ -8,5 +8,5 @@ on:
 
 jobs:
   build_and_deploy:
-    uses: lcp-business-SRE/knowledge-base-for-leveraging-data-analytics/.github/workflows/jekyll-gh-pages.yml@main
-    # uses: noraworld/jekyll-build-pages/.github/workflows/jekyll-gh-pages.yml@main
+    # uses: lcp-business-SRE/knowledge-base-for-leveraging-data-analytics/.github/workflows/jekyll-gh-pages.yml@main
+    uses: noraworld/jekyll-build-pages/.github/workflows/jekyll-gh-pages.yml@main
