@@ -1,0 +1,34 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # mainブランチにプッシュされたときに実行
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true # themes/hugo-book を取得するため
+          fetch-depth: 0 # 歴史全体を取得（必要に応じて）
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest' # または '0.126.1' など特定のバージョン
+          extended: true # extended版が必要な場合 (通常は必要)
+
+      - name: Build Hugo site
+        run: hugo --minify --baseURL "${{ secrets.BASE_URL }}" # baseURLをSecretsから取得
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main' # mainブランチからのみデプロイ
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # Hugoの出力ディレクトリ
+          cname: # カスタムドメインを使用する場合（任意）
+          # branch: gh-pages # GitHub Pagesでgh-pagesブランチを使用する場合（通常は不要、デフォルトでgh-pages）
