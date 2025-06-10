@@ -3,15 +3,13 @@ name: Deploy to GitHub Pages
 defaults:
   run:
     shell: bash
-    working-directory: ./data-analytics-guides
+    working-directory: ./data-analytics-guides # このディレクトリ内でrunコマンドが実行される
 
 on:
   push:
     branches:
       # - main
-      - master
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+      - master # masterブランチへのpushでトリガー
 
 jobs:
   build:
@@ -25,27 +23,28 @@ jobs:
         with:
           node-version: 18
           cache: npm
+          # ここが重要: ロックファイルのパスを明示的に指定
+          cache-dependency-path: ./data-analytics-guides/package-lock.json # または yarn.lock
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci # package-lock.jsonに基づいて依存関係をインストール
       - name: Build website
-        run: npm build
+        run: npm run build # Docusaurus のビルドコマンド
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          # working-directoryが適用されるため、./build は ./data-analytics-guides/build となる
+          path: build 
 
   deploy:
     name: Deploy to GitHub Pages
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write # to deploy to Pages
       id-token: write # to verify the deployment originates from an appropriate source
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
