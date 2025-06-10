@@ -34,8 +34,10 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # working-directoryが適用されるため、./build は ./data-analytics-guides/build となる
-          path: build 
+          # Docusaurus のビルド出力ディレクトリへのパスを修正
+          # working-directoryが適用されるrunコマンドとは異なり、
+          # このアクションはリポジトリのルートを基準にパスを解釈します。
+          path: ./data-analytics-guides/build 
 
   deploy:
     name: Deploy to GitHub Pages
