@@ -15,10 +15,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://github.com/lcp-business-SRE',
+  url: 'https://github.com/lcp-business-SRE/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/data-analytics-knowledge-base/data-analytics-guides/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
