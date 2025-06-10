@@ -1,8 +1,8 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
+akiba:
+  name: Akiba Manabu
+  title: Data Platform Engineer
+  # url: 
+  # image_url: https://github.com/yangshun.png
   page: true
   socials:
     x: yangshunz
@@ -10,14 +10,14 @@ yangshun:
     github: yangshun
     newsletter: https://www.greatfrontend.com
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
+matsumoto:
+  name: Matsumoto Yukina
+  title: Data analytics Engineer
+  # url: https://sebastienlorber.com
+  # image_url: https://github.com/slorber.png
+  page: true
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    # permalink: '/all-sebastien-lorber-articles'
   socials:
     x: sebastienlorber
     linkedin: sebastienlorber

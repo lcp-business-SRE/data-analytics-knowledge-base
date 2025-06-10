@@ -1,8 +1,8 @@
 {
-  "label": "Tutorial - Basics",
+  "label": "データ分析 - Basics",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "5 minutes to learn the most important Docusaurus concepts."
+    "description": "データ分析を行なううえで基本的に知っておくべきこと。"
   }
 }

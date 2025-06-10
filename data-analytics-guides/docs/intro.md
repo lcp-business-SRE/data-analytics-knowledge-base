@@ -2,46 +2,37 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# データ分析学習サイトへようこそ！
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## データ分析学習サイト：未来を拓くデータサイエンティストへの道
 
-## Getting Started
+「データは21世紀の石油」—この言葉が示すように、データは現代ビジネスの成長エンジンです。あなたもこの強力な資源を使いこなしたいと思いませんか？
 
-Get started by **creating a new site**.
+この学習サイトは、データサイエンティストとしての一歩を踏み出したい方、あるいは今の仕事にデータ分析の視点を取り入れてビジネスを加速させたい方のために作られました。単にツールの使い方を覚えるだけでなく、データからビジネスのヒントを見つけ出し、具体的なアクションに結びつけるための実践的なスキルと思考法を身につけられます。
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+たった5つのステップで、あなたも「データで語れる人」に！
+このサイトでは、データサイエンスの学習を厳選された5つのステップで構成しています。順に進めるだけで、データサイエンティストに不可欠な知識とスキルが、自然とあなたのものになります。
 
-### What you'll need
+## 1. データの「見える化」で、隠れた真実を暴く！
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+データは、ただ集めるだけでは宝の持ち腐れ。複雑な数字の羅列から、パターンやトレンドを瞬時に読み解くには、視覚化の力が不可欠です。このセクションでは、データの種類や特性を理解し、棒グラフ、折れ線グラフ、散布図といった基本的なグラフ作成スキルを習得。さらに、TableauやPower BIといったBIツールの活用法もマスターし、あなたのメッセージを「見える化」する力を養います。
 
-## Generate a new site
+## 2. ビジネスの「なぜ？」をデータで解き明かす！
 
-Generate a new Docusaurus site using the **classic template**.
+データ分析は、ビジネスの課題を解決するために存在します。このステップでは、市場調査や顧客理解といったビジネスの根幹を学び、分析のゴールを明確にするためのKPI（重要業績評価指標）設定のノウハウを身につけます。分析結果をただ出すだけでなく、それをどうビジネス戦略に落とし込み、真の価値を生み出すかに焦点を当てます。
 
-The classic template will automatically be added to your project after you run the command:
+## 3. データに隠された「意味」を見抜く、統計学の羅針盤
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+データが何を語っているのか、正確に理解するには統計学の知識が欠かせません。このセクションでは、データの全体像を把握する記述統計と、データから未来を予測する推測統計の基本を学びます。さらに、確率や確率分布の概念、そしてビジネスの意思決定で重要な相関関係と因果関係の違いを明確に理解できるようになります。
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## 4. 未来を予測する「魔法」？ 機械学習の基礎をマスター！
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+現代のデータ分析で、機械学習は強力な武器となります。このセクションでは、予測や分類に使う教師あり学習、そして未知のパターンを発見する教師なし学習の概要を学びます。代表的なアルゴリズムの仕組みを理解し、機械学習がどんなビジネス課題に応用できるのか、そしてその可能性と限界をしっかり把握しましょう。
 
-## Start your site
+## 5. データ分析を「仕事」にする！実践で磨くスキル
 
-Run the development server:
+学んだ知識を「使える力」に変えるには、実践あるのみです。このセクションでは、具体的なビジネス課題を題材に、データ分析のプロセスを最初から最後まで経験します。分析結果をどう解釈し、それを具体的なアクションにどう繋げるのか。データに基づいた継続的な改善サイクルを構築する能力を、あなたのものにしましょう。
 
-```bash
-cd my-website
-npm run start
-```
+この学習サイトでの学びを終える頃には、あなたはデータという羅針盤を手に、ビジネスの未来を切り拓くデータサイエンティストとしての確かな基礎を築いているはずです。
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+さあ、あなたもデータとビジネスを繋ぐ、 exciting な旅に出発しませんか？
