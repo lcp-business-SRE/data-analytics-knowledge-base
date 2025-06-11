@@ -1,3 +1,15 @@
+imai:
+  name: Imai Ryosuke
+  title: Data Technical Manager
+  # url: 
+  # image_url: https://avatars.githubusercontent.com/u/197852206?s=400&u=c841aa7c748fb55c6aeba9f215b0b060956bbb24&v=4
+  page: true
+  socials:
+    x: yangshunz
+    linkedin: yangshun
+    github: yangshun
+    newsletter: https://www.greatfrontend.com
+
 akiba:
   name: Akiba Manabu
   title: Data Platform Engineer

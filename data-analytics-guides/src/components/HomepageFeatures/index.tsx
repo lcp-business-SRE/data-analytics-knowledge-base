@@ -11,32 +11,34 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'データ分析ノウハウを集約',
+    Svg: require('@site/static/img/top_1.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        データ分析初学者から中級者までに必要な、実務で必要な基礎だけでなく
+        実践的な分析の流れを、ステップバイステップで身につけることができる.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'データ基盤技術の理解',
+    Svg: require('@site/static/img/top_2.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        データ分析を行なううえで重要となるデータ基盤技術についても開設します。
+        昨今はデータ分析基盤は様々なサービスをつなぎ合わせて構築することが一般的です。
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'データ分析界隈のニュース',
+    Svg: require('@site/static/img/top_3.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        データ分析界隈のニュースやトピックを定期的に更新し、最新の技術やトレンドをキャッチアップできます。
+        また、データ分析に関する書籍やオンラインコースのレビューも掲載し、学習リソースを充実させます。
+        `blog`で発信します。
+
       </>
     ),
   },

@@ -1,12 +1,12 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+infomation:
+  label: 情報提供
+  permalink: /Infomation
+  description: 情報提供やアナウンス
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+dataanalytics:
+  label: データ分析
+  permalink: /DataAnalytics
+  description: データ分析に関する情報提供
 
 docusaurus:
   label: Docusaurus
