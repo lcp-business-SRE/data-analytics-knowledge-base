@@ -3,7 +3,7 @@ sidebar_position: 1
 custom_react_root: false # コメント有無
 ---
 
-# 0. はじめに
+# はじめに
 
 ## 学習参考サイト
 
