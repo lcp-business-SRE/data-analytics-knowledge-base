@@ -1,50 +1,82 @@
-# GitHub PagesとHugo
+# データ分析学習サイトプロジェクト
+
+[![Deploy to GitHub Pages](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/actions/workflows/deploy.yml/badge.svg)](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/your-username/your-repo?style=social)](https://github.com/your-username/your-repo/stargazers)
+
+## 概要
+
+このプロジェクトは、データ分析に関する学習コンテンツを提供することを目的としたウェブサイトです。データ分析の基礎から応用まで、幅広いトピックをカバーしています。
+
+## 特徴
+
+* **学習コンテンツ**: データ分析の基礎から応用までの豊富な教材を提供。
+* **インタラクティブなデモ**: 実際のデータ分析ツールを使ったデモを通じて、学習効果を高めます。
+* **コミュニティサポート**: フォーラムやチャットを通じて、他の学習者と交流し、質問や情報交換が可能です。
+* **オープンソース**: プロジェクトはオープンソースであり、誰でも貢献できます。
+
+## デモ (オプション)
+
+サイトトップ
+
+![サイトトップ](img/top.png)
+
+## インストール
+
+プロジェクトをローカル環境でセットアップし、実行するための手順を説明します。
+
+### 前提条件
+
+このプロジェクトは Meta社が開発している [Docusaurus](https://docusaurus.io/) を使用して構築されています。ローカル環境でプロジェクトをセットアップし、実行するためには以下のソフトウェアが必要です。
 
 
-## 全体の流れ
+1. Gitのインストール
+   - プロジェクトをクローンするために必要です。
+   - [Gitのインストール方法](https://git-scm.com/book/ja/v2/はじめに-Gitをインストールする)を参照してください。
+2. Node.jsのインストール
+   - プロジェクトの依存関係を管理するために必要です。
+   - [Node.jsのインストール方法](https://nodejs.org/ja/download/)を参照してください。
+   - バージョンは18.0以上推奨です。
 
-1. Hugoのインストール
-1. 新しいHugoサイトの作成
-1. Bookテーマの導入
-1. コンテンツの作成 (Markdown)
-1. GitHubリポジトリの作成と連携
-1. GitHub Actionsを使った自動デプロイの設定
-1. 公開と確認
+:::note info
+Node.js version 18.0 or above (which can be checked by running node -v). You can use nvm to manage multiple Node.js versions on a single machine.
+When installing Node.js, it is recommended to check all checkboxes related to dependencies.
+[ Docusaurus - Installation - Requirements](https://docusaurus.io/docs/installation#requirements)
+:::
 
-## 1. Hugoのインストール
+### 手順
+
+#### プロジェクトのリポジトリをクローン
 
 ```bash
-choco install hugo -confirm
+git clone [git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git](git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git)
 ```
 
-インストール後、ターミナルでバージョンを確認し、正しくインストールされたことを確認します。
+#### プロジェクトディレクトリへ移動
+
+クローン後、プロジェクトディレクトリに移動します。
 
 ```bash
-hugo version
+cd data-analytics-guides
 ```
 
-## 2. 新しいHugoサイトの作成
+#### 依存関係のインストール
+
+Docusaurus プロジェクトには、様々なパッケージが依存関係として含まれています。これらをインストールする必要があります。通常、package.json ファイルに記載されている依存関係を npm を使ってインストールします。
 
 ```bash
-hugo new site my-hugo-site
-cd my-hugo-site
+npm install
 ```
 
-## 3. Bookテーマの導入
-```bash
-git init
-git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
-```
+#### ローカル開発サーバーの起動
 
-次に、`config.toml`ファイルを編集してテーマを設定します。
-
-```toml
-
-
-```
+Docusaurus では、ローカル開発サーバーを起動して、リアルタイムで変更を確認できます。
 
 ```bash
-hugo new docs/introduction/_index.md # イントロダクションの章
-hugo new docs/basic-stats/_index.md # 統計の基礎の章
-hugo new docs/basic-stats/mean-median-mode.md # 平均・中央値・最頻値のページ
+npm start
 ```
+
+これにより、ブラウザが自動的に開き、ローカルサーバーでサイトを確認できます。変更は保存するたびに自動的に反映されます。
+
+[http://localhost:3000](http://localhost:3000)
+
