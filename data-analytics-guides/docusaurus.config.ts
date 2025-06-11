@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+// import remarkMermaid from 'remark-mermaid';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -54,6 +55,11 @@ const config: Config = {
     //   },
     // ],
   ],
+  
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 
   presets: [
     [
@@ -68,6 +74,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
+          // remarkPlugins: [remarkMermaid], // mermaid
         },
         blog: {
           showReadingTime: true,
@@ -79,7 +86,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
-          // Useful options to enforce blogging best practices
+          // remarkPlugins: [remarkMermaid], // mermaid
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -93,6 +100,9 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'SRE DataAnalytics',
@@ -152,7 +162,8 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} SRE Data Analytics Project, Inc. Built with Docusaurus.`,
     },
-    mermaid: true, // Enable Mermaid diagrams
+    // mermaid: true, // Enable Mermaid diagrams
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
