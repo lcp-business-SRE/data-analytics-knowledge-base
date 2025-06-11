@@ -45,6 +45,17 @@ const config: Config = {
         trackingID: 'G-LDY25SJG9H', // GA4ID
         anonymizeIP: true,
       },
+      '@docusaurus/plugin-content-blog', // または他のプラグイン
+      {
+        // ...他のブログ/ドキュメント設定...
+      },
+    ],
+    // ここにDisqusプラグインを追加
+    [
+      '@docusaurus/plugin-disqus',
+      {
+        shortname: 'data-analytics-guides', // ここにDisqusショートネーム
+      },
     ],
     // もしUniversal Analytics (UA-から始まるID) を使う場合はこちら
     // [
@@ -68,7 +79,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides/docs',
+            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
         },
         blog: {
           showReadingTime: true,
@@ -79,7 +90,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides/blog',
+            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',

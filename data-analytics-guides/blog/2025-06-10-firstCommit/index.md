@@ -3,6 +3,7 @@ slug: first-post
 title: サイト開設の挨拶
 authors: [imai]
 tags: [infomation]
+custom_react_root: true # コメント有無
 ---
 
 SREチームのデータ分析サイトを作成しました。
