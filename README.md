@@ -79,3 +79,10 @@ npm start
 
 [http://localhost:3000](http://localhost:3000)
 
+
+## Docusaurus事体の構築方法
+
+この環境そのものの構築方法については、[Docusaurusセットアップ](docusaurus.md)を参照してください。
+
+## コントリビュート
+このプロジェクトはオープンソースであり、誰でも貢献できます。管理者にお問い合わせください。

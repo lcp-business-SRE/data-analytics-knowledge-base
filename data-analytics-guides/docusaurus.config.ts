@@ -37,16 +37,38 @@ const config: Config = {
     locales: ['ja'],
   },
 
+  // Google Analytics の設定をここに追加
+  plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-LDY25SJG9H', // GA4ID
+        anonymizeIP: true,
+      },
+    ],
+    // もしUniversal Analytics (UA-から始まるID) を使う場合はこちら
+    // [
+    //   '@docusaurus/plugin-google-analytics',
+    //   {
+    //     trackingID: 'UA-XXXXXXXXX-X', // ★あなたのUAトラッキングIDに置き換えてください
+    //     anonymizeIP: true,
+    //   },
+    // ],
+  ],
+
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateAuthor : true,    // 最終更新者の名前を表示するかどうか (boolean)。
+          showLastUpdateTime : true,      // 最終更新日時を表示するかどうか (boolean)。
+          breadcrumbs: true,          // パンくずリストを表示するかどうか (boolean)。 
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides/docs',
         },
         blog: {
           showReadingTime: true,
@@ -57,7 +79,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides/blog',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -84,7 +106,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: '学習コンテンツ',
+          label: 'Main',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
