@@ -36,12 +36,26 @@
 2. Node.jsのインストール
    - プロジェクトの依存関係を管理するために必要です。
    - [Node.jsのインストール方法](https://nodejs.org/ja/download/)を参照してください。
-   - バージョンは18.0以上推奨です。
+
+ちなみに、Docusaurusの公式サイトでは、Node.jsのバージョンは18.0以上を推奨しています。
 
 > [!NOTE]
 > Node.js version 18.0 or above (which can be checked by running node -v). You can use nvm to manage multiple Node.js versions on a single machine.
 > When installing Node.js, it is recommended to check all checkboxes related to dependencies.
 > - 引用元 [ Docusaurus - Installation - Requirements](https://docusaurus.io/docs/installation#requirements)
+
+今回、静的サイトジェネレータ―として Docusaurus を選択した理由は、ドキュメントサイトに特化しており、非常に使いやすいのが特徴です。Meta (旧Facebook) が開発しており、多くのオープンソースプロジェクトのドキュメントサイトで採用されています。
+
+[採用例 - Docusaurus Site Showcase](https://docusaurus.io/showcase?tags=favorite)
+
+他にも、以下を試しましたが、気軽なドキュメントサイトという点では、一番使いやすいと感じました。
+
+- Hugo（[公式](https://gohugo.io/)）
+- MkDocs（[公式](https://www.mkdocs.org/)）
+- jekyll（[公式](https://jekyllrb.com/)）
+
+## Docusaurusのセットアップとローカル開発
+
 
 ### 手順
 
