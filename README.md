@@ -38,7 +38,7 @@
    - [Node.jsのインストール方法](https://nodejs.org/ja/download/)を参照してください。
    - バージョンは18.0以上推奨です。
 
-[!note]
+> [!NOTE]
 > Node.js version 18.0 or above (which can be checked by running node -v). You can use nvm to manage multiple Node.js versions on a single machine.
 > When installing Node.js, it is recommended to check all checkboxes related to dependencies.
 > - 引用元 [ Docusaurus - Installation - Requirements](https://docusaurus.io/docs/installation#requirements)
