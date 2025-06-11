@@ -3,8 +3,6 @@ sidebar_position: 3
 custom_react_root: true # コメント有無
 ---
 
-import DisqusComments from '@site/src/components/DisqusComments'; 
-
 # 3. 統計学の基礎
 
 データ分析の根幹となる統計学の基本的な概念を理解します。
@@ -45,5 +43,3 @@ import DisqusComments from '@site/src/components/DisqusComments';
 - 統計的な知識を意識しながら、データ分析の結果を解釈する練習をする。
 
 ## コメント
-
-<DisqusComments />

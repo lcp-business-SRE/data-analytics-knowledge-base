@@ -84,5 +84,19 @@ npm start
 
 この環境そのものの構築方法については、[Docusaurusセットアップ](docusaurus.md)を参照してください。
 
+## GoogleAnalyticsを利用したアクセス解析
+
+Google Analyticsを利用して、サイトのアクセス解析を行っています。
+Google Analyticsの管理画面は以下のリンクからアクセスできます。
+
+[GoogleAnalytics](https://analytics.google.com/analytics/web/?hl=ja#/p492893539/reports/intelligenthome?params=_u..nav%3Dmaui)
+
+## Disqusを利用したコメント管理
+
+Disqusを利用して、サイトにコメント機能を追加しています。
+
+Disqusの管理画面は以下のリンクからアクセスできます。
+[https://data-analytics-guides.disqus.com/admin/](https://data-analytics-guides.disqus.com/admin/)
+
 ## コントリビュート
 このプロジェクトはオープンソースであり、誰でも貢献できます。管理者にお問い合わせください。

@@ -3,8 +3,6 @@ sidebar_position: 2
 custom_react_root: true # コメント有無
 ---
 
-import DisqusComments from '@site/src/components/DisqusComments'; 
-
 # 2. ビジネス視点とデータ理解
 
 市場の要求やビジネスの目標を理解し、データ分析の目的を明確にするための知識を習得します。
@@ -48,5 +46,3 @@ import DisqusComments from '@site/src/components/DisqusComments';
 - 可視化されたデータをもとに、チームでディスカッションし、改善提案を行う。
 
 ## コメント
-
-<DisqusComments />
