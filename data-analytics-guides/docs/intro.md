@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import DisqusComments from '@site/src/components/DisqusComments'; 
+
 # データ分析学習サイトへようこそ！
 
 ## データ分析学習サイト：未来を拓くデータサイエンティストへの道
@@ -36,3 +38,5 @@ sidebar_position: 1
 この学習サイトでの学びを終える頃には、あなたはデータという羅針盤を手に、ビジネスの未来を切り拓くデータサイエンティストとしての確かな基礎を築いているはずです。
 
 さあ、あなたもデータとビジネスを繋ぐ、 exciting な旅に出発しませんか？
+
+<DisqusComments />
