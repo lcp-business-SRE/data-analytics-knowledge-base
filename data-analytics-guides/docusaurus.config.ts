@@ -152,6 +152,7 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} SRE Data Analytics Project, Inc. Built with Docusaurus.`,
     },
+    mermaid: true, // Enable Mermaid diagrams
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
