@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 custom_react_root: true # コメント有無
 ---
-
-import DisqusComments from '@site/src/components/DisqusComments'; 
 
 
 # 5. 実践的なデータ分析
@@ -45,5 +43,3 @@ import DisqusComments from '@site/src/components/DisqusComments';
 - 成功事例や失敗事例から学び、自身の分析スキルを向上させる。
 
 ## コメント
-
-<DisqusComments />

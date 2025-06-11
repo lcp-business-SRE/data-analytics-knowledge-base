@@ -6,8 +6,6 @@ tags: [infomation]
 custom_react_root: true # コメント有無
 ---
 
-import DisqusComments from '@site/src/components/DisqusComments'; 
-
 SREチームのデータ分析サイトを作成しました。
 
 ![データ分析](./dataanalytics.png)
@@ -28,5 +26,3 @@ SREチームのデータ分析サイトを作成しました。
 ### 最後に
 
 私たちは、データ分析のコミュニティを築き、情報を共有し合うことを大切にしています。もし、あなたがデータ分析に興味を持っているなら、ぜひこのサイトをフォローしてください。また、フィードバックや質問があれば、お気軽にお問い合わせください。
-
-<DisqusComments />

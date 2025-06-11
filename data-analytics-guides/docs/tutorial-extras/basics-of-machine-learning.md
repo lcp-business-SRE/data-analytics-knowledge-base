@@ -1,9 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 custom_react_root: true # コメント有無
 ---
-
-import DisqusComments from '@site/src/components/DisqusComments'; 
 
 # 4. 機械学習の基礎
 
@@ -45,5 +43,3 @@ import DisqusComments from '@site/src/components/DisqusComments';
 - 機械学習の専門家がいる場合は、積極的に質問し、知識を深める
 
 ## コメント
-
-<DisqusComments />

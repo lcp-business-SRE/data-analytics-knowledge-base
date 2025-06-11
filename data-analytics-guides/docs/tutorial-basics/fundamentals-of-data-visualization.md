@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 custom_react_root: true # コメント有無
 ---
 
