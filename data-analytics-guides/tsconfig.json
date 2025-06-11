@@ -1,8 +1,11 @@
+// tsconfig.json
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".", // これがカレントディレクトリ（プロジェクトルート）を指しているか
+    "paths": {
+      "@site/*": ["./src/*"] // これが src ディレクトリを指しているか
+    }
   },
   "exclude": [".docusaurus", "build"]
 }

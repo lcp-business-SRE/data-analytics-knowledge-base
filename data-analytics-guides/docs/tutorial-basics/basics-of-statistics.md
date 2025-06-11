@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
+custom_react_root: true # コメント有無
 ---
+
+import DisqusComments from '@site/src/components/DisqusComments'; 
 
 # 3. 統計学の基礎
 
@@ -12,7 +15,7 @@ sidebar_position: 3
 
 ## 詳細
 
-### 記述統計と推測統計の概要:
+### 記述統計と推測統計の概要
 
 - 平均、中央値、最頻値、分散、標準偏差などの記述統計の指標とその意味を理解する。
 - 母集団と標本の概念、標本から母集団を推測する推測統計の基本的な考え方を学ぶ。
@@ -43,4 +46,4 @@ sidebar_position: 3
 
 ## コメント
 
-<Disqus />
+<DisqusComments />

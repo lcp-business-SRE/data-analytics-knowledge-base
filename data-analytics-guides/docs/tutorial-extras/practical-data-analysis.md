@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+custom_react_root: true # コメント有無
 ---
 
 # 5. 実践的なデータ分析
@@ -42,4 +43,4 @@ sidebar_position: 2
 
 ## コメント
 
-<Disqus />
+<DisqusComments />

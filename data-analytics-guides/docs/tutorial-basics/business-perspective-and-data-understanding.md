@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
+custom_react_root: true # コメント有無
 ---
+
+import DisqusComments from '@site/src/components/DisqusComments'; 
 
 # 2. ビジネス視点とデータ理解
 
@@ -46,4 +49,4 @@ sidebar_position: 2
 
 ## コメント
 
-<Disqus />
+<DisqusComments />

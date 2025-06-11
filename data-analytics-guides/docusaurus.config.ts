@@ -37,32 +37,20 @@ const config: Config = {
     locales: ['ja'],
   },
 
-  // Google Analytics の設定をここに追加
   plugins: [
+    // Google Analytics (GA4) の設定
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-LDY25SJG9H', // GA4ID
+        trackingID: 'G-LDY25SJG9H', // ★あなたのGA4測定IDに置き換えてください
         anonymizeIP: true,
       },
-      '@docusaurus/plugin-content-blog', // または他のプラグイン
-      {
-        // ...他のブログ/ドキュメント設定...
-      },
     ],
-    // ここにDisqusプラグインを追加
-    [
-      '@docusaurus/plugin-disqus',
-      {
-        shortname: 'data-analytics-guides', // ここにDisqusショートネーム
-      },
-    ],
-    // もしUniversal Analytics (UA-から始まるID) を使う場合はこちら
+    // Disqus の設定
     // [
-    //   '@docusaurus/plugin-google-analytics',
+    //   '@docusaurus/plugin-disqus',
     //   {
-    //     trackingID: 'UA-XXXXXXXXX-X', // ★あなたのUAトラッキングIDに置き換えてください
-    //     anonymizeIP: true,
+    //     shortname: 'data-analytics-guides', // ★あなたのDisqusショートネームに置き換えてください
     //   },
     // ],
   ],

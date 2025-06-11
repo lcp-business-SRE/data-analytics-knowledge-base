@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
+custom_react_root: true # コメント有無
 ---
+
+import DisqusComments from '@site/src/components/DisqusComments'; 
 
 # 1. データの可視化の基礎
 
@@ -44,4 +47,4 @@ sidebar_position: 1
 
 ## コメント
 
-<Disqus />
+<DisqusComments />

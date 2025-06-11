@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+custom_react_root: true # コメント有無
 ---
 
 # 4. 機械学習の基礎
@@ -43,4 +44,4 @@ sidebar_position: 1
 
 ## コメント
 
-<Disqus />
+<DisqusComments />
