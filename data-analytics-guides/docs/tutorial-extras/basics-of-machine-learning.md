@@ -3,6 +3,8 @@ sidebar_position: 1
 custom_react_root: true # コメント有無
 ---
 
+import DisqusComments from '@site/src/components/DisqusComments'; 
+
 # 4. 機械学習の基礎
 
 より高度なデータ分析手法である機械学習の基本的な概念を理解します。

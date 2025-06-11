@@ -3,6 +3,9 @@ sidebar_position: 2
 custom_react_root: true # コメント有無
 ---
 
+import DisqusComments from '@site/src/components/DisqusComments'; 
+
+
 # 5. 実践的なデータ分析
 
 これまでに習得した知識を統合し、実際のビジネス課題に対してデータ分析を実行する能力を養います。
