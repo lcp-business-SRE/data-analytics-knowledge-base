@@ -59,7 +59,7 @@ export default function Home(): ReactNode {
       <main>
         <HomepageFeatures />
         <div className={styles.homepageFooterContent}>
-          <CustomFooterMarkdownContent />
+          {/* <CustomFooterMarkdownContent /> */}
         </div>
       </main>
     </Layout>

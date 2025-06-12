@@ -135,8 +135,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'データ分析入門について',
-              to: '/docs/intro',
+              label: 'データ分析',
+              to: '/docs/data-analysis/fundamentals',
+            },
+            {
+              label: 'データ基盤',
+              to: '/docs/data-platform/fundamentals',
             },
           ],
         },
