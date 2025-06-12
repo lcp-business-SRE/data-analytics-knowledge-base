@@ -48,8 +48,8 @@
   justify-content: center;
   text-align: left; /* テキストは左寄せ */
   color: var(--ifm-navbar-background-color); /* 背景色に合わせて文字色を白系に */
-  font-size: 1.1rem; /* フォントサイズ調整 */
-  line-height: 1.6; /* 行間調整 */
+  font-size: 1.3rem; /* フォントサイズ調整 def:1.1 */
+  line-height: 1.8; /* 行間調整 def 1.6 */
 }
 
 /* もし右側に画像ではなくテキストを入れるなら、以下のように img スタイルは削除/コメントアウト */

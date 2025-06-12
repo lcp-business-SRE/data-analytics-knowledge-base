@@ -1,0 +1,20 @@
+.imageContainer {
+  text-align: center; /* コンテナ内の画像を中央寄せ */
+  margin: 2rem auto; /* 上下余白と、左右autoでコンテナ自体も中央寄せ */
+  max-width: 100%; /* 親要素の幅を超えないように */
+  /* 必要であれば、背景色やボーダーなども追加できます */
+}
+
+.imageContainer img {
+  display: block; /* img はデフォルトでインライン要素なので、ブロック要素にして中央揃えを効かせる */
+  margin: 0 auto; /* ブロック要素に対して中央揃え */
+  max-width: 100%; /* 親コンテナの幅を超えない */
+  height: auto; /* アスペクト比を維持 */
+}
+
+.imageCaption {
+  font-size: 0.9em;
+  color: var(--ifm-font-color-secondary); /* Docusaurusの二次的な文字色 */
+  margin-top: 0.8em;
+  text-align: center; /* キャプションも中央寄せ */
+}
