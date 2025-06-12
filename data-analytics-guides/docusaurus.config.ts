@@ -16,7 +16,6 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  // url: 'https://github.com/',
   url: 'https://lcp-business-SRE.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
@@ -47,15 +46,8 @@ const config: Config = {
         anonymizeIP: true,
       },
     ],
-    // Disqus の設定
-    // [
-    //   '@docusaurus/plugin-disqus',
-    //   {
-    //     shortname: 'data-analytics-guides', // ★あなたのDisqusショートネームに置き換えてください
-    //   },
-    // ],
   ],
-  
+  // marmaidの利用設定
   markdown: {
     mermaid: true,
   },
@@ -111,11 +103,22 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        // データ分析ドキュメントへのリンク
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
+          sidebarId: 'dataAnalysisSidebar', // sidebars.ts で定義したID
           position: 'left',
-          label: 'Main',
+          label: 'データ分析', // ナビゲーションバーに表示されるテキスト
+          // ドキュメントの最初のページへのリンク（オプション、設定しない場合 Docusaurus が自動で解決）
+          to: '/docs/data-analysis/fundamentals/index',
+        },
+        // データ基盤ドキュメントへのリンク
+        {
+          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
+          sidebarId: 'dataPlatformSidebar', // sidebars.ts で定義したID
+          position: 'left',
+          label: 'データ基盤', // ナビゲーションバーに表示されるテキスト
+          to: '/docs/data-platform/fundamentals/index',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {

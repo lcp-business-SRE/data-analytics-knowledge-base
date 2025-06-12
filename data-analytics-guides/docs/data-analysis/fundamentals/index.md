@@ -1,9 +1,14 @@
 ---
 sidebar_position: 1
+title: この章で学ぶこと
 custom_react_root: false # コメント有無
+tags: [データ分析, 基礎]
 ---
 
-# はじめに
+データ分析の基礎に関するドキュメントの概要ページです。
+
+
+
 
 ## 学習参考サイト
 

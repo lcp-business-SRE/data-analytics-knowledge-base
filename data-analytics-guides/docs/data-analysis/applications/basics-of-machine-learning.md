@@ -1,5 +1,8 @@
 ---
 sidebar_position: 2
+title: 4. 機械学習の基礎
+description: より高度なデータ分析手法である機械学習の基本的な概念を理解します。
+tags: [データ分析, 応用, 機械学習]
 custom_react_root: true # コメント有無
 ---
 

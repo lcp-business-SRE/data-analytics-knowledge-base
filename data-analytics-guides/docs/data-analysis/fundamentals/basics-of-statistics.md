@@ -1,5 +1,8 @@
 ---
 sidebar_position: 4
+title: 3. 統計学の基礎
+description: データ分析の根幹となる統計学の基本的な概念を理解します。
+tags: [データ分析, 基礎, 統計学]
 custom_react_root: true # コメント有無
 ---
 

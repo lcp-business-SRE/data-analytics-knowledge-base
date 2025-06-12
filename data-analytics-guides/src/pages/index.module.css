@@ -1,23 +1,197 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* src/pages/index.module.css */
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 450px; /* ★★★ 高さを確保。コンテンツに合わせて調整 ★★★ */
+
+  /* ★★★ 背景を画像なしの単色（グラデーション）にする ★★★ */
+  /* markuplint.dev のような青紫系のグラデーションをイメージ */
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
+  /* 必要に応じて色を調整してください */
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2rem 0; /* 左右のパディングを0にする */
+    min-height: auto; /* モバイルでは高さ固定を解除 */
   }
 }
 
-.buttons {
+/* ★★★ 新しい Flexbox コンテナのスタイル ★★★ */
+.heroContent {
+  display: flex; /* Flexbox を有効にする */
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: space-between; /* 左右の要素を両端に配置 */
+  padding: 0 var(--ifm-spacing-horizontal); /* 左右にDocusaurus標準のパディング */
+  height: 100%; /* 親要素の高さに合わせる */
+  max-width: var(--ifm-container-width); /* コンテンツの最大幅を制限 */
+  margin: 0 auto; /* 中央揃え */
+}
+
+/* ★★★ 左側のテキストコンテンツのスタイル ★★★ */
+.heroTextContent {
+  flex: 1; /* 利用可能なスペースを占有 */
+  padding-right: var(--ifm-spacing-horizontal); /* 右側のコンテンツとの間にスペース */
+  text-align: left; /* テキストは左寄せ */
+  max-width: 60%; /* テキストが広がりすぎないように最大幅を設定 */
+}
+
+/* ★★★ 右側の説明テキストコンテンツのスタイル ★★★ */
+.heroRightContent {
+  flex-shrink: 0; /* 縮小させない */
+  margin-left: var(--ifm-spacing-horizontal); /* 左側のコンテンツとの間にスペース */
+  width: 40%; /* 幅を設定 */
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: left; /* テキストは左寄せ */
+  color: var(--ifm-navbar-background-color); /* 背景色に合わせて文字色を白系に */
+  font-size: 1.1rem; /* フォントサイズ調整 */
+  line-height: 1.6; /* 行間調整 */
+}
+
+/* もし右側に画像ではなくテキストを入れるなら、以下のように img スタイルは削除/コメントアウト */
+/* .heroImageContent img { */
+/* max-width: 100%; */
+/* height: auto; */
+/* display: block; */
+/* } */
+
+
+/* ★★★ 既存のボタンコンテナのスタイル（左寄せになるように調整） ★★★ */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start; /* ★★★ ボタンを左寄せに ★★★ */
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* 個々のボタンのスタイル（背景が単色なので、透明度調整を推奨） */
+.buttons .button {
+  min-width: 180px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: var(--ifm-navbar-background-color); /* 背景が暗いので白系の文字色 */
+  border: 1px solid var(--ifm-navbar-background-color); /* 枠線も白系に */
+  background-color: rgba(255, 255, 255, 0.1); /* 半透明にして背景色を透かす */
+  backdrop-filter: blur(3px); /* 少しぼかし効果 */
+}
+
+.buttons .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2); /* ホバー時に少し透過度を上げる */
+  color: var(--ifm-navbar-background-color);
+}
+
+/* Hero Section のテキストスタイル（背景色に合わせて白系に） */
+.hero__title {
+  color: var(--ifm-navbar-background-color);
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* テキストに軽い影をつけて読みやすく */
+}
+
+.hero__subtitle {
+  color: var(--ifm-navbar-background-color);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* テキストに軽い影をつけて読みやすく */
+}
+
+/* ホームページ下部のカスタムコンテンツのスタイル（変更なし） */
+.homepageFooterContent {
+  text-align: left;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin-top: 4rem;
+  margin-bottom: 0;
+
+  max-width: var(--ifm-container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(var(--ifm-spacing-horizontal) * 2);
+  padding-right: calc(var(--ifm-spacing-horizontal) * 2);
+}
+
+.homepageFooterContent h2,
+.homepageFooterContent h3,
+.homepageFooterContent p,
+.homepageFooterContent ul,
+.homepageFooterContent ol {
+  text-align: left;
+}
+
+.homepageFooterContent a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+.homepageFooterContent hr {
+  border-color: var(--ifm-color-emphasis-300);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+/* ★★★ レスポンシブ対応の考慮 ★★★ */
+@media screen and (max-width: 996px) { /* PCとモバイルの切り替えポイント */
+  .heroContent {
+    flex-direction: column; /* 縦並びにする */
+    align-items: flex-start; /* モバイルでは左揃え */
+    padding: 0 var(--ifm-spacing-horizontal); /* 左右のパディングを維持 */
+  }
+
+  .heroTextContent {
+    max-width: 100%; /* 幅をフルにする */
+    padding-right: 0;
+    margin-bottom: 2rem; /* 右側コンテンツとの間にスペース */
+    text-align: center; /* モバイルではテキストも中央揃え */
+  }
+  
+  .heroTextContent .hero__title,
+  .heroTextContent .hero__subtitle {
+    text-align: center; /* モバイルではタイトル・サブタイトルも中央寄せ */
+  }
+
+  .heroRightContent {
+    width: 100%; /* モバイルでの幅をフルにする */
+    margin-left: 0;
+    margin-top: 0; /* 必要に応じて調整 */
+    text-align: center; /* モバイルでは右側コンテンツも中央寄せ */
+  }
+
+  .buttons {
+    justify-content: center; /* ボタンも中央寄せに */
+  }
+
+  /* ホームページ下部のコンテンツのレスポンシブ調整はそのまま */
+  .homepageFooterContent {
+    padding-left: var(--ifm-spacing-horizontal);
+    padding-right: var(--ifm-spacing-horizontal);
+  }
+}
+
+@media screen and (max-width: 768px) { /* さらに小さいモバイル画面 */
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+  .buttons .button {
+    min-width: 150px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
 }
