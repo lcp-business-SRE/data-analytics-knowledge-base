@@ -1,8 +1,8 @@
 ---
-slug : first-post
-title : Github Copilotを使ったログデータ整形への挑戦
+slug : location-get
+title : GitHub Copilotを使ったログデータ整形への挑戦
 authors : [akiba]
-tags: [dataanalytics]
+tags: [データ分析,Firehose,AWS,Gemini,GitHub Copilot]
 ---
 
 ## 初めに
@@ -10,7 +10,7 @@ tags: [dataanalytics]
 QUICKRIDEではユーザーが特定の操作を行った時に位置情報データを取得しています。
 やり方もアプリからFirehoseを経由してS3にデータを流し込むだけのシンプルな物で、取ったデータを使っていないこと以外は何ら問題がないと思われていました。
 
-![LocationData](./Location_ポンチ絵.png "大雑把が過ぎる図")
+![LocationData](./Location-Get-System.png "大雑把が過ぎる図")
 大雑把な構成図
 
 ## 問題発覚
@@ -43,7 +43,7 @@ S3にあるログとGitのログをさかのぼったり、上手く動いてい
 Firehoseに入力するデータ形式が問題でした。
 というのもFirehoseに入力するデータ自体はbinaryでもStringijyしたJsonでもよく、どちらも保存してくれるのですが保存結果に違いがあるようで、
 
-```JS
+```JavaScript
 //アプリ側のデータ送信部
 data: `${JSON.stringify(joinedData)},\n`
 //バックエンドのデータ送信部
@@ -62,9 +62,9 @@ Geminiとともに討ち死にしてから数か月後、お客様の位置情�
 そして色々修正案を返してきたGemini君もついには二つのバージョンの間を行ったり来たりするのみとなり、埒が明かない状態に……
 「Geminiには無理だったか。」そう思い、ついにGeminiを見捨て、GithubCopilotへの乗り換えを決意しました。
 
-## GithubCpilotに頼る
+## GitHub Copilotに頼る
 
-まずGithubCopilot君にGemini君との話し合いの成果と変換したいテキストを渡し、
+まずGitHub Copilot 君にGemini君との話し合いの成果と変換したいテキストを渡し、
 
 ```
 このテキストをパースしたい
@@ -120,9 +120,9 @@ function parseCustomLogContent(fileContent) {
 
 ## その後
 
-調子に乗った私は複数ファイルの一括変換・Apache Parquetへの変換などGithubCopilotに投げつけ、そしてCopilotはそれを次々と成功させていきました。
+調子に乗った私は複数ファイルの一括変換・Apache Parquetへの変換などGitHub Copilotに投げつけ、そしてCopilotはそれを次々と成功させていきました。
 そしてセットアップがいらないLooker Studioで地図上に表示するも……
-![アメリカにいる](./アメリカにいる！.png "アメリカにいる！")
+![アメリカにいる](./In-America!.png "アメリカにいる！")
 そうですこのデータは開発環境のデータ。そして、エミュレータのデフォルト位置情報はアメリカ西海岸。当然ながらシリコンバレーに集中したログに、これ以上は本番環境データを使わなければと悟りました。
 ようやくそれっぽい絵が出ると期待した私でしたが、それを実現するのはまだ先になりそうです。
 
@@ -133,10 +133,10 @@ function parseCustomLogContent(fileContent) {
 2. garbage in garbage out
 結局いいデータをとらないと何にもならない。その現実を突きつけられました。
 3. AIとはさみは使いよう
-最後はデータの問題で思った絵は得られませんでしたが、GithubCopilotの力は本物だと確信。きっとこっぴどく振ったGeminiももっとうまく使う方法はあったのかもしれません。
+最後はデータの問題で思った絵は得られませんでしたが、GitHub Copilotの力は本物だと確信。きっとこっぴどく振ったGeminiももっとうまく使う方法はあったのかもしれません。
 
 ## おまけ
 
-Geminiのコードを見たGithubCopilotの返答
-![切れ味が鋭い](./GithubCopilotの返答.png "真っ二つ")
+Geminiのコードを見たGitHub Copilotの返答
+![切れ味が鋭い](./Answer-Of-GitHubCopilot.png "真っ二つ")
 ここまでぶった切られると気持ちよさすら感じる
