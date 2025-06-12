@@ -10,7 +10,7 @@ tags: [データ分析,Firehose,AWS,Gemini,GitHub Copilot]
 QUICKRIDEではユーザーが特定の操作を行った時に位置情報データを取得しています。
 やり方もアプリからFirehoseを経由してS3にデータを流し込むだけのシンプルな物で、取ったデータを使っていないこと以外は何ら問題がないと思われていました。
 
-![LocationData](./Location-Get-System.png "大雑把が過ぎる図")
+![LocationData](./location-get-system.png "大雑把が過ぎる図")
 大雑把な構成図
 
 ## 問題発覚
@@ -67,7 +67,7 @@ Geminiとともに討ち死にしてから数か月後、お客様の位置情�
 
 まずGitHub Copilot 君にGemini君との話し合いの成果と変換したいテキストを渡し、
 
-```
+```Prompt
 このテキストをパースしたい
 今のコードではうまくいかない
 ```
@@ -76,7 +76,7 @@ Geminiとともに討ち死にしてから数か月後、お客様の位置情�
 これで行けるのでは？そう思いエラーが出るたびに修正を要求すること5往復。どんどん雲行きが怪しくなってくる。
 私はついにGeminiとの思い出をあきらめ最初からやり直すことに。
 
-```
+```Prompt
 一度やり直します
 このテキストを正規のJSONとしてパースしたいです
 ```
@@ -123,7 +123,7 @@ function parseCustomLogContent(fileContent) {
 
 調子に乗った私は複数ファイルの一括変換・Apache Parquetへの変換などGitHub Copilotに投げつけ、そしてCopilotはそれを次々と成功させていきました。
 そしてセットアップがいらないLooker Studioで地図上に表示するも……
-![アメリカにいる](./In-America!.png "アメリカにいる！")
+![アメリカにいる](./in-america!.png "アメリカにいる！")
 そうですこのデータは開発環境のデータ。そして、エミュレータのデフォルト位置情報はアメリカ西海岸。当然ながらシリコンバレーに集中したログに、これ以上は本番環境データを使わなければと悟りました。
 ようやくそれっぽい絵が出ると期待した私でしたが、それを実現するのはまだ先になりそうです。
 
@@ -139,5 +139,5 @@ function parseCustomLogContent(fileContent) {
 ## おまけ
 
 Geminiのコードを見たGitHub Copilotの返答
-![切れ味が鋭い](./Answer-Of-GitHubCopilot.png "真っ二つ")
+![切れ味が鋭い](./answer-of-github-copilot.png "真っ二つ")
 ここまでぶった切られると気持ちよさすら感じる
