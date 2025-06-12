@@ -46,6 +46,7 @@ Firehoseに入力するデータ形式が問題でした。
 ```JavaScript
 //アプリ側のデータ送信部
 data: `${JSON.stringify(joinedData)},\n`
+
 //バックエンドのデータ送信部
 Data: Buffer.from(JSON.stringify(itemToPut) + ',\n') 
 
