@@ -120,6 +120,14 @@ const config: Config = {
           label: 'データ基盤', // ナビゲーションバーに表示されるテキスト
           to: '/docs/data-platform/fundamentals/index',
         },
+        // データ分析関連情報ドキュメントへのリンク
+        {
+          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
+          sidebarId: 'dataInformationSidebar', // sidebars.ts で定義したID
+          position: 'left',
+          label: '関連情報', // ナビゲーションバーに表示されるテキスト
+          to: '/docs/data-informations/index',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/lcp-business-SRE/data-analytics-knowledge-base',
@@ -142,7 +150,10 @@ const config: Config = {
               label: 'データ基盤',
               to: '/docs/data-platform/fundamentals',
             },
-          ],
+            {
+              label: '関連情報',
+              to: '/docs/data-informations',
+            },          ],
         },
         {
           title: 'Community',

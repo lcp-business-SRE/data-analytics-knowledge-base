@@ -44,7 +44,7 @@
 > When installing Node.js, it is recommended to check all checkboxes related to dependencies.
 > - 引用元 [ Docusaurus - Installation - Requirements](https://docusaurus.io/docs/installation#requirements)
 
-今回、静的サイトジェネレータ―として Docusaurus を選択した理由は、ドキュメントサイトに特化しており、非常に使いやすいのが特徴です。Meta (旧Facebook) が開発しており、多くのオープンソースプロジェクトのドキュメントサイトで採用されています。
+今回、静的サイトジェネレータ―として Docusaurus を選択した理由は、ドキュメントサイトに特化しており、非常に使いやすいからです。Meta (旧Facebook) が開発しており、多くのオープンソースプロジェクトのドキュメントサイトで採用されています。
 
 [採用例 - Docusaurus Site Showcase](https://docusaurus.io/showcase?tags=favorite)
 
@@ -54,15 +54,25 @@
 - MkDocs（[公式](https://www.mkdocs.org/)）
 - jekyll（[公式](https://jekyllrb.com/)）
 
-## Docusaurusのセットアップとローカル開発
+## この環境はGitHub Pageで公開しています
 
+このプロジェクトは、GitHub Pagesを利用して公開されています。GitHub Pagesは、GitHubリポジトリから静的なウェブサイトをホストするためのサービスです。
+GitHub Actionsを利用して、リポジトリに変更が加えられた際に自動的にサイトが更新されます。
+
+タイミングは、masterブランチへのプッシュ後、約2分程度で反映されます。
+
+ビルドエラーが発生した際は、速やかに修正し、再度プッシュしてください。[GitHub Actions](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/actions)のログを確認することで、エラーの詳細を把握できます。
+
+ワークフローイベントの詳細は [deploy.yml](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/blob/master/.github/workflows/deploy.yml)を参照してください。
+
+## Docusaurusのセットアップとローカル開発
 
 ### 手順
 
 #### プロジェクトのリポジトリをクローン
 
 ```bash
-git clone [git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git](git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git)
+git clone git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git
 ```
 
 #### プロジェクトディレクトリへ移動
@@ -93,10 +103,28 @@ npm start
 
 [http://localhost:3000](http://localhost:3000)
 
+#### よくある問題
+
+Docusaurusの開発において、変更が反映されない、表示がおかしい、予期せぬエラーが発生するといった問題が発生した際には、以下の手順を試してみてください。
+
+1. **キャッシュのクリア**: ブラウザのキャッシュをクリアして、最新の状態を確認します。
+
+```bash
+npm run clear
+npm start
+```
+
+2. **依存関係の再インストール**: 依存関係が正しくインストールされていない場合があります。以下のコマンドで再インストールを試みます。
+
+```bash
+rm -rf node_modules
+npm install
+```
 
 ## Docusaurus事体の構築方法
 
 この環境そのものの構築方法については、[Docusaurusセットアップ](docusaurus.md)を参照してください。
+※一から構築する場合なので、このリポジトリをそのまま使う場合は読み飛ばしてもらって構いません。
 
 ## GoogleAnalyticsを利用したアクセス解析
 
@@ -108,9 +136,11 @@ Google Analyticsの管理画面は以下のリンクからアクセスできま�
 ## Disqusを利用したコメント管理
 
 Disqusを利用して、サイトにコメント機能を追加しています。
+管理画面から、記事のコメントを管理できます。Disqusは、ユーザーが記事にコメントを残すことができるプラットフォームで、コミュニティとのインタラクションを促進します。
 
 Disqusの管理画面は以下のリンクからアクセスできます。
 [https://data-analytics-guides.disqus.com/admin/](https://data-analytics-guides.disqus.com/admin/)
 
 ## コントリビュート
+
 このプロジェクトはオープンソースであり、誰でも貢献できます。管理者にお問い合わせください。
