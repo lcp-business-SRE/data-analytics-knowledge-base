@@ -6,17 +6,18 @@
   overflow: hidden;
   min-height: 450px; /* ★★★ 高さを確保。コンテンツに合わせて調整 ★★★ */
 
-  /* ★★★ 背景を画像なしの単色（グラデーション）にする ★★★ */
-  /* markuplint.dev のような青紫系のグラデーションをイメージ */
-  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
-  /* 必要に応じて色を調整してください */
-}
+  /* ★★★ ここを海の波のようなグラデーションに変更 ★★★ */
+  /* 明るい水色から深い青へのグラデーション */
+  /* background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%); スカイブルーからスチールブルー */
+  /* または、より波打つような色合いの例 */
+  background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 20%, #0d47a1 100%); /* 明るい水色、中間の青、深い青 */
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem 0; /* 左右のパディングを0にする */
-    min-height: auto; /* モバイルでは高さ固定を解除 */
-  }
+  /* オプション：波のテクスチャを追加する場合 */
+  background-image: url('/img/wave-pattern.svg'), linear-gradient(135deg, #1f637e 0%, #3082c5 100%);
+  background-size: cover; /* 画像の表示サイズを調整 */
+  background-blend-mode: overlay; /* 画像とグラデーションの合成モード
+
+  /* 必要に応じて色を調整してください */
 }
 
 /* ★★★ 新しい Flexbox コンテナのスタイル ★★★ */
