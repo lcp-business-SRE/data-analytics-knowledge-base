@@ -24,12 +24,12 @@ function HomepageHeader() {
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/data-analysis/fundamentals">
+              to="/docs/data-analysis">
               データ分析はこちら
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/data-platform/fundamentals">
+              to="/docs/data-platform">
               データ基盤はこちら
             </Link>
           </div>
