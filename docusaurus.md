@@ -97,6 +97,7 @@ npx docusaurus generate docs <ドキュメント名>
 ### 基本設定を変更する
 
 mdファイルのヘッダ部分に以下のような記載があります。
+これはDocusaurusの設定で、ページのメタデータを定義しています。
 
 ```markdown
 ---
@@ -114,6 +115,16 @@ custom_react_root: true # コメント有無
 - `description`: ページの説明を指定します。検索エンジンやSNSでのプレビューに使用されます。
 - `tags`: ページに関連するタグを指定します。これにより、同じタグを持つページがグループ化されます。 
 - `custom_react_root`: 対象ページにコメント入力欄を追加したくない場合は `false` にしてください。デフォルト `true` です。
+- `draft`: ページをドラフト状態にする場合は `true` に設定します。これにより、公開されず、プレビューのみ可能になります。
+- `hide_table_of_contents`: ページの目次を非表示にする場合は `true` に設定します。目次が不要なページで使用します。
+- `hide_title`: ページのタイトルを非表示にする場合は `true` に設定します。タイトルが不要なページで使用します。
+- `hide_edit_url`: ページの編集リンクを非表示にする場合は `true` に設定します。編集リンクが不要なページで使用します。
+- `unlisted`: ページを非公開にする場合は `true` に設定します。公開されず、サイトマップにも含まれません。
+- `slug`: ページのURLパスを指定します。デフォルトはページのファイル名ですが、カスタマイズできます。例えば、`slug: '/custom-path'` と設定すると、URLが `https://<username>.github.io/<repository-name>/custom-path` になります。
+
+```markdown
+
+詳細は [Markdown front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages#hide_table_of_contents) を参照してください。
 
 ## 新規ページ作成（blogページ）
 
