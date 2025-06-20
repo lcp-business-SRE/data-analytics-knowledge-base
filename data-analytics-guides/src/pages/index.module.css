@@ -12,7 +12,7 @@
   /* または、より波打つような色合いの例 */
   background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 20%, #0d47a1 100%); /* 明るい水色、中間の青、深い青 */
 
-  /* オプション：波のテクスチャを追加する場合 */
+  /* オプション：波のテクスチャを追加する場合こちらで作成(https://svgwave.in/) */
   background-image: url('/img/wave-pattern.svg'), linear-gradient(135deg, #1f637e 0%, #3082c5 100%);
   background-size: cover; /* 画像の表示サイズを調整 */
   background-blend-mode: overlay; /* 画像とグラデーションの合成モード

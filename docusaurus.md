@@ -115,18 +115,254 @@ custom_react_root: true # コメント有無
 - `tags`: ページに関連するタグを指定します。これにより、同じタグを持つページがグループ化されます。 
 - `custom_react_root`: 対象ページにコメント入力欄を追加したくない場合は `false` にしてください。デフォルト `true` です。
 
-
-
-
-
-
-
-
 ## 新規ページ作成（blogページ）
 
+---
 
-## よく使うページ表現（Markdown記法など）
+## おすすめ情報
 
+### Docusaurusの公式ドキュメント
+
+Docusaurusの公式ドキュメントは、非常に充実しており、各種機能や設定方法について詳しく説明されています。特に、以下のセクションが役立ちます。
+
+- [Docusaurusのインストール](https://docusaurus.io/docs/installation)
+- [Docusaurusの設定](https://docusaurus.io/docs/configuration)
+- [Docusaurusのカスタマイズ](https://docusaurus.io/docs/customization)
+- [DocusaurusのMarkdownガイド](https://docusaurus.io/docs/markdown-features)
+
+### ページ内マークダウン
+
+Docusaurusでは、Markdownを使用してページを作成できます。以下は、Docusaurusでよく使われるMarkdownの記法です。
+
+#### 見出し
+
+見出しは`#`を使用して作成します。`#`の数が多いほど、見出しのレベルが下がります。
+一般的には3つのレベルまでの使用を推奨しています。
+
+```markdown
+# 見出し1
+## 見出し2 
+### 見出し3
+```
+
+#### リスト
+
+リストは、`-`、`*`、または数字を使用して作成します。
+
+```markdown
+- アイテム1
+- アイテム2
+1. アイテム1
+2. アイテム2
+```
+
+#### リンク
+
+リンクは、`[リンクテキスト](URL)`の形式で作成します。
+
+```markdown
+[Google](https://www.google.com)
+```
+
+#### 画像
+
+画像は、`![代替テキスト](画像URL)`の形式で作成します。
+
+```markdown
+![画像の説明](https://example.com/image.png)
+```
+
+#### タブ
+
+Docusaurus は、MDX<Tabs>のおかげで Markdown で使用できるコンポーネントを提供します。
+
+
+
+
+#### コードブロック
+
+コードブロックは、バッククォート3つで囲むことで作成します。
+
+```markdown
+```javascript
+console.log('Hello, World!');
+```
+```
+
+コードブロックの言語を指定することで、シンタックスハイライトが適用されます。
+言語の後に`title=`を追加することで (間にスペースを入れてください)、コード ブロックにタイトルを追加できます。
+
+```markdown
+```jsx title="/src/components/HelloCodeTitle.js"
+function HelloCodeTitle(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+```
+
+#### 注釈
+注釈は、`:::note`を使用して作成します。
+
+```markdown
+:::note
+これは注釈です。
+:::
+:::tip
+これはヒントです。
+:::
+:::warning
+これは警告です。
+:::
+:::danger
+これは危険です。
+:::
+:::caution
+これは注意です。
+:::
+```
+
+オプションでタイトルを指定することもできます。
+
+```markdown
+:::note[タイトル]
+これは注釈です。
+:::
+```
+
+#### タブ
+
+Docusaurus は、MDX`<Tabs>`のおかげで Markdown で使用できるコンポーネントを提供します。
+
+````markdown
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+```
+
+#### 引用
+
+引用は、`>`を使用して作成します。
+
+```markdown
+> これは引用です。
+```
+
+#### テーブル
+
+テーブルは、`|`を使用して作成します。
+
+```markdown
+| ヘッダー1 | ヘッダー2 |
+| --- | --- |
+| セル1 | セル2 |
+```
+左寄せ、中央寄せ、右寄せのセルを作成するには、`:`を使用します。
+
+```markdown
+| 左寄せ | 中央寄せ | 右寄せ |
+| :--- | :---: | ---: |
+| セル1 | セル2 | セル3 |
+```
+
+#### 強調
+
+強調は、`*`または`_`を使用して作成します。
+```markdown
+*イタリック***ボールド**
+```
+
+#### 水平線
+
+水平線は、`---`または`***`を使用して作成します。
+
+```markdown
+---
+```
+
+#### タグ
+
+タグは、`<tag>`の形式で作成します。Docusaurusでは、
+タグを使用してページを分類することができます。
+
+```markdown
+<tag>タグ名</tag>
+```
+
+#### タイトルと説明
+
+タイトルと説明は、ページのメタデータとして設定できます。Docusaurusでは、以下のように設定します。
+
+```markdown
+---
+title: ページのタイトル
+description: ページの説明
+---
+```
+
+#### タスクリスト
+
+タスクリストは、`- [ ]`または`- [x]`を使用して作成します。
+
+```markdown
+- [ ] タスク1
+- [x] タスク2
+```
+
+#### 数式
+
+数式は、`$`で囲むことで作成します。Docusaurusでは
+KaTeXを使用して数式をレンダリングします。
+
+```markdown
+$E=mc^2$
+```
+
+#### コメント
+
+コメントは、`<!-- コメント内容 -->`の形式で作成します。
+```markdown
+<!-- これはコメントです -->
+```
+
+#### カスタムHTML
+
+Docusaurusでは、Markdown内にカスタムHTMLを埋め込むこともできます。
+
+```markdown
+<div class="custom-class">
+  これはカスタムHTMLです。
+</div>
+```
+
+#### カスタムReactコンポーネント
+
+Docusaurusでは、カスタムReactコンポーネントをMarkdown内で使用することもできます。
+
+```markdown
+import MyComponent from '@site/src/components/MyComponent';
+<MyComponent />
+```
+
+#### 注意点
+
+- Markdownの記法は、Docusaurusのバージョンによって異なる場合があります。最新のドキュメントを参照してください。
+- Docusaurusでは、Markdownの拡張機能がいくつか提供されています。これにより、よりリッチなコンテンツを作成できます。
+- Markdown内での画像やリンクのパスは、プロジェクトのルートディレクトリからの相対パスで指定することが推奨されます。
+  - 例: `![画像の説明](/img/example.png)` のように、`/img/`ディレクトリに画像を配置することができます。
+  - 相対パスを使用する場合は、`./`や`../`を使ってディレクトリを移動することもできます。
+  - 画像やリンクのパスは、プロジェクトの構造に応じて適切に設定してください。
+  - 画像やリンクのパスは、Docusaurusのビルドプロセスで正しく解決されるように、プロジェクトのルートディレクトリからの相対パスを使用することが推奨されます。
 
 
 ## 参考資料
