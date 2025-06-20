@@ -186,6 +186,7 @@ custom_react_root: true # コメント有無
 ```markdown
 
 詳細は [Markdown front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages#hide_table_of_contents) を参照してください。
+```
 
 ## 新規ページ作成（blogページ）
 
@@ -299,7 +300,7 @@ function HelloCodeTitle(props) {
 
 Docusaurus は、MDX`<Tabs>`のおかげで Markdown で使用できるコンポーネントを提供します。
 
-````markdown
+```markdown
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
