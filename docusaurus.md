@@ -1,82 +1,60 @@
-# Docusaurus を利用したSREデータ分析サイトの構築
+# SREデータ分析サイト構築ガイド（Docusaurus利用）
 
-## はじめに
+## 概要
 
-このドキュメントは、Docusaurusを使用してSREデータ分析サイトを構築するための手順と設定を提供します。
-また、各種カスタイマイズした内容やページ作成時の注意点についても説明します。
+本ドキュメントは、Docusaurus（バージョン3.8）を用いたSREデータ分析サイトの構築手順、設定方法、およびカスタマイズ例を体系的に解説します。
 
 ## 前提条件
 
-Docusaurusは 2025年6月時点の最新バージョンである [Docusaurus 3.8](https://docusaurus.io/blog/releases/3.8) を使用しています。
+- Docusaurus 3.8（2025年6月時点の最新版）を使用します。
+- Node.js、npmがインストールされていることを前提とします。
 
-## セットアップと各種設定
+## セットアップ手順
 
-### まずはインストール
+### インストール
 
-基本的には[公式](https://docusaurus.io/docs/installation)の手順で構築できるが、いくつか設定する箇所があるので、以下の手順を参考にしてください。
+公式ドキュメント（[インストールガイド](https://docusaurus.io/docs/installation)）に従い、以下のコマンドでプロジェクトを作成します。
 
-``` bash
+```bash
 npx create-docusaurus@latest my-website classic
 cd my-website
 ```
 
-### プロジェクトのディレクトリ構成
+### ディレクトリ構成
 
-プロジェクトのディレクトリ構成は以下のようになります。
+プロジェクトの主なディレクトリ構成は以下の通りです。
 
 ```plaintext
-my-website
-├── blog
-│   ├── 2019-05-28-hola.md
-│   ├── 2019-05-29-hello-world.md
-│   └── 2020-05-30-welcome.md
-├── docs
-│   ├── doc1.md
-│   ├── doc2.md
-│   ├── doc3.md
-│   └── mdx.md
-├── src
-│   ├── css
-│   │   └── custom.css
-│   └── pages
-│       ├── styles.module.css
-│       └── index.js
-├── static
-│   └── img
+my-website/
+├── blog/
+├── docs/
+├── src/
+│   ├── css/
+│   └── pages/
+├── static/
 ├── docusaurus.config.js
 ├── package.json
 ├── README.md
 ├── sidebars.js
-└── yarn.lock    
+└── yarn.lock
 ```
 
-主要ディレクトリやファイルの説明は以下。
+- `blog/`：ブログ記事用Markdownファイル（不要な場合は削除可）
+- `docs/`：ドキュメント用Markdownファイル
+- `src/`：カスタムReactコンポーネントやページ
+- `static/`：静的ファイル（画像等）
+- `docusaurus.config.js`：サイト全体の設定ファイル
+- `sidebars.js`：ドキュメントサイドバーの順序設定
 
-- `/blog/`
-  - ブログのMarkdownファイルが格納
-  - ブログプラグインを無効にしている場合はこのディレクトリを削除できます。また、pathオプションを設定した後にディレクトリ名を変更することもできます。詳細は[ブログガイド](https://docusaurus.io/docs/blog)を参照してください。
-- `/docs/`
-  - ドキュメント用のMarkdownファイル
-  - ドキュメントサイドバーの表示順序をカスタマイズできますsidebars.js。ドキュメントプラグインを無効にしている場合はこのディレクトリを削除できます。また、オプションを設定した後にディレクトリ名を変更することもできます。詳細は[ドキュメントガイド](https://docusaurus.io/docs/docs-introduction)をご覧ください。
-- `/src/`
-  - ページやカスタムReactコンポーネントなどの非ドキュメントファイル
-  - 非ドキュメントファイルを厳密にここに置く必要はありませんが、集中管理されたディレクトリに置くことで、何らかのリンティングや処理が必要になった場合に指定しやすくなります。
-- `/src/pages`
-  - このディレクトリ内のJSX/TSX/MDXファイルはウェブサイトのページに変換されます。詳細は[ページガイド](https://docusaurus.io/docs/creating-pages)をご覧ください。
-- `/static/build`
-  - 静的ディレクトリ。ここにある内容はすべて最終ディレクトリのルートにコピーされます。
-- `/docusaurus.config.js`
-  - サイト設定を含む設定ファイル
-- `/sidebars.js`
-  - ドキュメントがサイドバー内のドキュメントの順序を指定するために使用されます
+詳細は[公式ガイド](https://docusaurus.io/docs/docs-introduction)を参照してください。
 
-### デザインのカスタマイズ
+## デザインカスタマイズ
 
-#### カラーパレットの変更
+### カラーパレットの変更
 
-Docusaurusでは、カラーパレットを簡単に変更できます。以下のコードを `src/css/custom.css` に追加することで、サイト全体のカラーパレットを変更できます。
+`src/css/custom.css`に以下を追加し、カラーパレットを調整します。
 
-```css:src/css/custom.css
+```css
 :root {
   --ifm-color-primary: #006290;
   --ifm-color-primary-dark: #005882;
@@ -85,11 +63,9 @@ Docusaurusでは、カラーパレットを簡単に変更できます。以下�
   --ifm-color-primary-light: #006c9e;
   --ifm-color-primary-lighter: #0071a6;
   --ifm-color-primary-lightest: #007fbb;
-  --ifm-background-color: #ffffff; /* ライトモードの主要な背景色 */
-  --ifm-code-background: #f6f7f8; /* コードブロックの背景色 */
+  --ifm-background-color: #ffffff;
+  --ifm-code-background: #f6f7f8;
 }
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #7fc3e2;
   --ifm-color-primary-dark: #62b6db;
@@ -98,67 +74,46 @@ Docusaurusでは、カラーパレットを簡単に変更できます。以下�
   --ifm-color-primary-light: #9cd0e9;
   --ifm-color-primary-lighter: #aad7ec;
   --ifm-color-primary-lightest: #d5ebf6;
-  /* 背景色の調整 */
-  --ifm-background-color: #1a1a2e; /* 例: 深いネイビーブルー */
-
-  --ifm-background-surface-color: #21213e; /* カードや強調エリアの背景色 */
-  --ifm-code-background: #23233c; /* コードブロックの背景色 */
-
-  /* テキスト色の調整 */
-  --ifm-font-color-base: #f0f0f0; /* 基本のテキスト色を明るく */
-  --ifm-font-color-secondary: #aaaaaa; /* 二次的なテキスト色 */
-
-  /* ボーダー色の調整 */
-  --ifm-color-emphasis-300: #44445c; /* 控えめなボーダー色 */
-  --ifm-color-emphasis-200: #33334c; /* より控えめなボーダー色 */
-  --ifm-color-emphasis-100: #2a2a40; /* 最も控えめなボーダー色 */
-
-  /* ナビゲーションバーの調整 */
-  --ifm-navbar-background-color: #21213e; /* ダークモードのナビゲーションバーの背景色 */
-  
+  --ifm-background-color: #1a1a2e;
+  --ifm-background-surface-color: #21213e;
+  --ifm-code-background: #23233c;
+  --ifm-font-color-base: #f0f0f0;
+  --ifm-font-color-secondary: #aaaaaa;
+  --ifm-color-emphasis-300: #44445c;
+  --ifm-color-emphasis-200: #33334c;
+  --ifm-color-emphasis-100: #2a2a40;
+  --ifm-navbar-background-color: #21213e;
 }
 ```
 
-#### フォントの変更
+### フォントの変更
 
-標準のフォントはフォント文字の線幅が太く、読みやすいですが、少し重い印象があります。教材サイトでは、読みやすさを重視し、フォントを変更しました。
+読みやすさを重視し、以下のフォント設定を`src/css/custom.css`に追加します。
 
-```css:src/css/custom.css
+```css
 :root {
   --ifm-font-family-base: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
   --ifm-font-family-monospace: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
-  --ifm-font-family-family: var(--ifm-font-family-base);
 }
 ```
 
-## GitHub Pagesへのデプロイするための必要な設定
+## GitHub Pagesへのデプロイ
 
-### `docusaurus.config.js` の設定
-以下の設定を `docusaurus.config.js` に追加または修正します。
+### `docusaurus.config.js` の設定例
 
-```javascript:docusaurus.config.js
+```js
 module.exports = {
-  // ... 他の設定 ...
   url: 'https://<username>.github.io',
   baseUrl: '/<repository-name>/',
-  // ... 他の設定 ...
+  // ...その他の設定
 };
 ```
 
-## 新規ページ作成（Docページ）
+## 新規ページ作成（ドキュメント）
 
-新しいドキュメントページを作成するには、以下のコマンドを実行します。
+新しいドキュメントページは、`docs/`ディレクトリにMarkdownファイルを追加することで作成できます。
 
-```bash
-npx docusaurus generate docs <ドキュメント名>
-```
-
-ですが、面倒なので既存のページをコピーしてください。
-
-### 基本設定を変更する
-
-mdファイルのヘッダ部分に以下のような記載があります。
-これはDocusaurusの設定で、ページのメタデータを定義しています。
+ページのメタデータはファイル冒頭にFront Matter形式で記述します。
 
 ```markdown
 ---
@@ -166,274 +121,59 @@ sidebar_position: 2
 title: 1. データの可視化の基礎
 description: データを分かりやすく表現するための基本的な知識とスキルを習得します。
 tags: [データ分析, 基礎, 可視化]
-custom_react_root: true # コメント有無
+custom_react_root: true
 ---
 ```
 
-これらは docusaurus の設定で、以下のような意味があります。
-- `sidebar_position`: サイドバーでの表示順序を指定します。数値が小さいほど上に表示されます。
-- `title`: ページのタイトルを指定します。
-- `description`: ページの説明を指定します。検索エンジンやSNSでのプレビューに使用されます。
-- `tags`: ページに関連するタグを指定します。これにより、同じタグを持つページがグループ化されます。 
-- `custom_react_root`: 対象ページにコメント入力欄を追加したくない場合は `false` にしてください。デフォルト `true` です。
-- `draft`: ページをドラフト状態にする場合は `true` に設定します。これにより、公開されず、プレビューのみ可能になります。
-- `hide_table_of_contents`: ページの目次を非表示にする場合は `true` に設定します。目次が不要なページで使用します。
-- `hide_title`: ページのタイトルを非表示にする場合は `true` に設定します。タイトルが不要なページで使用します。
-- `hide_edit_url`: ページの編集リンクを非表示にする場合は `true` に設定します。編集リンクが不要なページで使用します。
-- `unlisted`: ページを非公開にする場合は `true` に設定します。公開されず、サイトマップにも含まれません。
-- `slug`: ページのURLパスを指定します。デフォルトはページのファイル名ですが、カスタマイズできます。例えば、`slug: '/custom-path'` と設定すると、URLが `https://<username>.github.io/<repository-name>/custom-path` になります。
-
-```markdown
-
-詳細は [Markdown front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages#hide_table_of_contents) を参照してください。
-```
-
-## 新規ページ作成（blogページ）
-
----
-
-## おすすめ情報
-
-### Docusaurusの公式ドキュメント
-
-Docusaurusの公式ドキュメントは、非常に充実しており、各種機能や設定方法について詳しく説明されています。特に、以下のセクションが役立ちます。
-
-- [Docusaurusのインストール](https://docusaurus.io/docs/installation)
-- [Docusaurusの設定](https://docusaurus.io/docs/configuration)
-- [Docusaurusのカスタマイズ](https://docusaurus.io/docs/customization)
-- [DocusaurusのMarkdownガイド](https://docusaurus.io/docs/markdown-features)
-
-### ページ内マークダウン
-
-Docusaurusでは、Markdownを使用してページを作成できます。以下は、Docusaurusでよく使われるMarkdownの記法です。
-
-#### 見出し
-
-見出しは`#`を使用して作成します。`#`の数が多いほど、見出しのレベルが下がります。
-一般的には3つのレベルまでの使用を推奨しています。
-
-```markdown
-# 見出し1
-## 見出し2 
-### 見出し3
-```
-
-#### リスト
-
-リストは、`-`、`*`、または数字を使用して作成します。
-
-```markdown
-- アイテム1
-- アイテム2
-1. アイテム1
-2. アイテム2
-```
-
-#### リンク
-
-リンクは、`[リンクテキスト](URL)`の形式で作成します。
-
-```markdown
-[Google](https://www.google.com)
-```
-
-#### 画像
-
-画像は、`![代替テキスト](画像URL)`の形式で作成します。
-
-```markdown
-![画像の説明](https://example.com/image.png)
-```
-
-#### コードブロック
-
-コードブロックは、バッククォート3つで囲むことで作成します。
-
-```markdown
-```javascript
-console.log('Hello, World!');
-```
-```
-
-コードブロックの言語を指定することで、シンタックスハイライトが適用されます。
-言語の後に`title=`を追加することで (間にスペースを入れてください)、コード ブロックにタイトルを追加できます。
-
-```markdown
-```jsx title="/src/components/HelloCodeTitle.js"
-function HelloCodeTitle(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-```
-```
-
-#### Admonition（注意書きや警告文）
-
-注釈は、`:::note`を使用して作成します。
-
-```markdown
-:::note
-これは注釈です。
-:::
-:::tip
-これはヒントです。
-:::
-:::warning
-これは警告です。
-:::
-:::danger
-これは危険です。
-:::
-:::caution
-これは注意です。
-:::
-```
-
-オプションでタイトルを指定することもできます。
-
-```markdown
-:::note[タイトル]
-これは注釈です。
-:::
-```
-
-#### タブ
-
-Docusaurus は、MDX`<Tabs>`のおかげで Markdown で使用できるコンポーネントを提供します。
-
-```markdown
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value="apple" label="Apple" default>
-    This is an apple 🍎
-  </TabItem>
-  <TabItem value="orange" label="Orange">
-    This is an orange 🍊
-  </TabItem>
-  <TabItem value="banana" label="Banana">
-    This is a banana 🍌
-  </TabItem>
-</Tabs>
-```
-
-#### 引用
-
-引用は、`>`を使用して作成します。
-
-```markdown
-> これは引用です。
-```
-
-#### テーブル
-
-テーブルは、`|`を使用して作成します。
-
-```markdown
-| ヘッダー1 | ヘッダー2 |
-| --- | --- |
-| セル1 | セル2 |
-```
-左寄せ、中央寄せ、右寄せのセルを作成するには、`:`を使用します。
-
-```markdown
-| 左寄せ | 中央寄せ | 右寄せ |
-| :--- | :---: | ---: |
-| セル1 | セル2 | セル3 |
-```
-
-#### 強調
-
-強調は、`*`または`_`を使用して作成します。
-```markdown
-*イタリック***ボールド**
-```
-
-#### 水平線
-
-水平線は、`---`または`***`を使用して作成します。
-
-```markdown
----
-```
-
-#### タグ
-
-タグは、`<tag>`の形式で作成します。Docusaurusでは、
-タグを使用してページを分類することができます。
-
-```markdown
-<tag>タグ名</tag>
-```
-
-#### タイトルと説明
-
-タイトルと説明は、ページのメタデータとして設定できます。Docusaurusでは、以下のように設定します。
-
-```markdown
----
-title: ページのタイトル
-description: ページの説明
----
-```
-
-#### タスクリスト
-
-タスクリストは、`- [ ]`または`- [x]`を使用して作成します。
-
-```markdown
-- [ ] タスク1
-- [x] タスク2
-```
-
-#### 数式
-
-数式は、`$`で囲むことで作成します。Docusaurusでは
-KaTeXを使用して数式をレンダリングします。
-
-```markdown
-$E=mc^2$
-```
-
-#### コメント
-
-コメントは、`<!-- コメント内容 -->`の形式で作成します。
-```markdown
-<!-- これはコメントです -->
-```
-
-#### カスタムHTML
-
-Docusaurusでは、Markdown内にカスタムHTMLを埋め込むこともできます。
-
-```markdown
-<div class="custom-class">
-  これはカスタムHTMLです。
-</div>
-```
-
-#### カスタムReactコンポーネント
-
-Docusaurusでは、カスタムReactコンポーネントをMarkdown内で使用することもできます。
-
-```markdown
-import MyComponent from '@site/src/components/MyComponent';
-<MyComponent />
-```
-
-#### 注意点
-
-- Markdownの記法は、Docusaurusのバージョンによって異なる場合があります。最新のドキュメントを参照してください。
-- Docusaurusでは、Markdownの拡張機能がいくつか提供されています。これにより、よりリッチなコンテンツを作成できます。
-- Markdown内での画像やリンクのパスは、プロジェクトのルートディレクトリからの相対パスで指定することが推奨されます。
-  - 例: `![画像の説明](/img/example.png)` のように、`/img/`ディレクトリに画像を配置することができます。
-  - 相対パスを使用する場合は、`./`や`../`を使ってディレクトリを移動することもできます。
-  - 画像やリンクのパスは、プロジェクトの構造に応じて適切に設定してください。
-  - 画像やリンクのパスは、Docusaurusのビルドプロセスで正しく解決されるように、プロジェクトのルートディレクトリからの相対パスを使用することが推奨されます。
-
+各項目の意味：
+
+- `sidebar_position`: サイドバーでの表示順序
+- `title`: ページタイトル
+- `description`: ページ説明（SEOやSNSプレビュー用）
+- `tags`: ページ分類用タグ
+- `custom_react_root`: コメント欄の有無（`false`で非表示）
+- `draft`: 下書き状態（`true`で非公開）
+- `hide_table_of_contents`: 目次非表示
+- `hide_title`: タイトル非表示
+- `hide_edit_url`: 編集リンク非表示
+- `unlisted`: サイトマップ非掲載
+- `slug`: URLパスのカスタマイズ
+
+詳細は[Front Matter公式ドキュメント](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages#hide_table_of_contents)を参照してください。
+
+## Markdown記法ガイド
+
+Docusaurusでは標準的なMarkdown記法に加え、独自の拡張機能も利用できます。
+
+### 主な記法例
+
+- 見出し：`#` ～ `###`
+- リスト：`-`、`*`、数字
+- リンク：`[テキスト](URL)`
+- 画像：`![説明](URL)`
+- コードブロック：\`\`\`言語名
+- Admonition（注釈）：`:::note` など
+- タブ：`<Tabs>`コンポーネント
+- 引用：`>`
+- テーブル：`|`区切り
+- 強調：`*イタリック*`、`**ボールド**`
+- 水平線：`---`または`***`
+- タグ：`<tag>タグ名</tag>`
+- タスクリスト：`- [ ]`、`- [x]`
+- 数式：`$E=mc^2$`（KaTeX対応）
+- コメント：`<!-- コメント内容 -->`
+- カスタムHTML/Reactコンポーネントの埋め込み
+
+詳細な記法や拡張機能は[Markdownガイド](https://docusaurus.io/docs/markdown-features)を参照してください。
+
+### 注意事項
+
+- 画像やリンクのパスはプロジェクトルートからの相対パス推奨
+- Docusaurusのバージョンによって記法や機能が異なる場合があるため、常に最新ドキュメントを参照してください
 
 ## 参考資料
 
-- [公式参考](https://docusaurus.io/docs/installation)
-
-
+- [Docusaurus公式インストールガイド](https://docusaurus.io/docs/installation)
+- [Docusaurus設定ガイド](https://docusaurus.io/docs/configuration)
+- [Docusaurusカスタマイズガイド](https://docusaurus.io/docs/customization)
+- [Docusaurus Markdownガイド](https://docusaurus.io/docs/markdown-features)

@@ -6,141 +6,83 @@
 
 ## 概要
 
-このプロジェクトは、データ分析に関する学習コンテンツを提供することを目的としたウェブサイトです。データ分析の基礎から応用まで、幅広いトピックをカバーしています。
+本プロジェクトは、データ分析に関する学習コンテンツを提供するウェブサイトです。基礎から応用まで幅広いトピックを体系的にカバーしています。
 
 ## 特徴
 
-* **学習コンテンツ**: データ分析の基礎から応用までの豊富な教材を提供。
-* **インタラクティブなデモ**: 実際のデータ分析ツールを使ったデモを通じて、学習効果を高めます。
-* **コミュニティサポート**: フォーラムやチャットを通じて、他の学習者と交流し、質問や情報交換が可能です。
-* **オープンソース**: プロジェクトはオープンソースであり、誰でも貢献できます。
+- **学習コンテンツ**: データ分析の基礎から応用までの教材を体系的に提供します。
+- **インタラクティブなデモ**: 実際のデータ分析ツールを用いたデモで学習効果を高めます。
+- **コミュニティサポート**: フォーラムやチャットを通じて、他の学習者と交流・情報交換が可能です。
+- **オープンソース**: 誰でも貢献できるオープンソースプロジェクトです。
 
-## デモ (オプション)
+## デモ
 
-サイトトップ
+サイトトップ画面例：
 
 ![サイトトップ](./img/top.png)
 
-## インストール
-
-プロジェクトをローカル環境でセットアップし、実行するための手順を説明します。
+## インストール手順
 
 ### 前提条件
 
-このプロジェクトは Meta社が開発している [Docusaurus](https://docusaurus.io/) を使用して構築されています。ローカル環境でプロジェクトをセットアップし、実行するためには以下のソフトウェアが必要です。
-
-
-1. Gitのインストール
-   - プロジェクトをクローンするために必要です。
-   - [Gitのインストール方法](https://git-scm.com/book/ja/v2/はじめに-Gitをインストールする)を参照してください。
-2. Node.jsのインストール
-   - プロジェクトの依存関係を管理するために必要です。
-   - [Node.jsのインストール方法](https://nodejs.org/ja/download/)を参照してください。
-
-ちなみに、Docusaurusの公式サイトでは、Node.jsのバージョンは18.0以上を推奨しています。
+- [Git](https://git-scm.com/book/ja/v2/はじめに-Gitをインストールする)
+- [Node.js](https://nodejs.org/ja/download/)（18.0以上推奨）
 
 > [!NOTE]
-> Node.js version 18.0 or above (which can be checked by running node -v). You can use nvm to manage multiple Node.js versions on a single machine.
-> When installing Node.js, it is recommended to check all checkboxes related to dependencies.
-> - 引用元 [ Docusaurus - Installation - Requirements](https://docusaurus.io/docs/installation#requirements)
+> Node.jsは18.0以上を推奨します。バージョン確認は `node -v` で行えます。複数バージョン管理にはnvmが便利です。
 
-今回、静的サイトジェネレータ―として Docusaurus を選択した理由は、ドキュメントサイトに特化しており、非常に使いやすいからです。Meta (旧Facebook) が開発しており、多くのオープンソースプロジェクトのドキュメントサイトで採用されています。
+### セットアップ手順
 
-[採用例 - Docusaurus Site Showcase](https://docusaurus.io/showcase?tags=favorite)
+1. リポジトリのクローン
+    ```bash
+    git clone git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git
+    cd data-analytics-guides
+    ```
+2. 依存関係のインストール
+    ```bash
+    npm install
+    ```
+3. ローカル開発サーバーの起動
+    ```bash
+    npm start
+    ```
+    ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、ローカルサーバーでサイトを確認できます。
 
-他にも、以下を試しましたが、気軽なドキュメントサイトという点では、一番使いやすいと感じました。
+#### トラブルシューティング
 
-- Hugo（[公式](https://gohugo.io/)）
-- MkDocs（[公式](https://www.mkdocs.org/)）
-- jekyll（[公式](https://jekyllrb.com/)）
+- **キャッシュクリア**
+    ```bash
+    npm run clear
+    npm start
+    ```
+- **依存関係の再インストール**
+    ```bash
+    rm -rf node_modules
+    npm install
+    ```
 
-## この環境はGitHub Pageで公開しています
+## GitHub Pagesによる公開
 
-このプロジェクトは、GitHub Pagesを利用して公開されています。GitHub Pagesは、GitHubリポジトリから静的なウェブサイトをホストするためのサービスです。
-GitHub Actionsを利用して、リポジトリに変更が加えられた際に自動的にサイトが更新されます。
+本プロジェクトはGitHub Pagesでホスティングされています。GitHub Actionsにより、masterブランチへのプッシュ後、約2分で自動的にサイトが更新されます。
 
-タイミングは、masterブランチへのプッシュ後、約2分程度で反映されます。
+- ビルドエラー発生時は修正後に再度プッシュしてください。
+- エラー詳細は [GitHub Actions](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/actions) のログで確認できます。
+- ワークフローの詳細は [deploy.yml](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/blob/master/.github/workflows/deploy.yml) を参照してください。
 
-ビルドエラーが発生した際は、速やかに修正し、再度プッシュしてください。[GitHub Actions](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/actions)のログを確認することで、エラーの詳細を把握できます。
+## Docusaurusセットアップ・構築方法
 
-ワークフローイベントの詳細は [deploy.yml](https://github.com/lcp-business-SRE/data-analytics-knowledge-base/blob/master/.github/workflows/deploy.yml)を参照してください。
+この環境の詳細な構築方法は [Docusaurusセットアップ](docusaurus.md) を参照してください。
 
-## Docusaurusのセットアップとローカル開発
+## アクセス解析（Google Analytics）
 
-### 手順
+Google Analyticsを利用してサイトのアクセス解析を行っています。
+- [Google Analytics管理画面](https://analytics.google.com/analytics/web/?hl=ja#/p492893539/reports/intelligenthome?params=_u..nav%3Dmaui)
 
-#### プロジェクトのリポジトリをクローン
+## コメント管理（Disqus）
 
-```bash
-git clone git@github.com:lcp-business-SRE/data-analytics-knowledge-base.git
-```
-
-#### プロジェクトディレクトリへ移動
-
-クローン後、プロジェクトディレクトリに移動します。
-
-```bash
-cd data-analytics-guides
-```
-
-#### 依存関係のインストール
-
-Docusaurus プロジェクトには、様々なパッケージが依存関係として含まれています。これらをインストールする必要があります。通常、package.json ファイルに記載されている依存関係を npm を使ってインストールします。
-
-```bash
-npm install
-```
-
-#### ローカル開発サーバーの起動
-
-Docusaurus では、ローカル開発サーバーを起動して、リアルタイムで変更を確認できます。
-
-```bash
-npm start
-```
-
-これにより、ブラウザが自動的に開き、ローカルサーバーでサイトを確認できます。変更は保存するたびに自動的に反映されます。
-
-[http://localhost:3000](http://localhost:3000)
-
-#### よくある問題
-
-Docusaurusの開発において、変更が反映されない、表示がおかしい、予期せぬエラーが発生するといった問題が発生した際には、以下の手順を試してみてください。
-
-1. **キャッシュのクリア**: ブラウザのキャッシュをクリアして、最新の状態を確認します。
-
-```bash
-npm run clear
-npm start
-```
-
-2. **依存関係の再インストール**: 依存関係が正しくインストールされていない場合があります。以下のコマンドで再インストールを試みます。
-
-```bash
-rm -rf node_modules
-npm install
-```
-
-## Docusaurus事体の構築方法
-
-この環境そのものの構築方法については、[Docusaurusセットアップ](docusaurus.md)を参照してください。
-※一から構築する場合なので、このリポジトリをそのまま使う場合は読み飛ばしてもらって構いません。
-
-## GoogleAnalyticsを利用したアクセス解析
-
-Google Analyticsを利用して、サイトのアクセス解析を行っています。
-Google Analyticsの管理画面は以下のリンクからアクセスできます。
-
-[GoogleAnalytics](https://analytics.google.com/analytics/web/?hl=ja#/p492893539/reports/intelligenthome?params=_u..nav%3Dmaui)
-
-## Disqusを利用したコメント管理
-
-Disqusを利用して、サイトにコメント機能を追加しています。
-管理画面から、記事のコメントを管理できます。Disqusは、ユーザーが記事にコメントを残すことができるプラットフォームで、コミュニティとのインタラクションを促進します。
-
-Disqusの管理画面は以下のリンクからアクセスできます。
-[https://data-analytics-guides.disqus.com/admin/](https://data-analytics-guides.disqus.com/admin/)
+Disqusを利用してコメント機能を提供しています。
+- [Disqus管理画面](https://data-analytics-guides.disqus.com/admin/)
 
 ## コントリビュート
 
-このプロジェクトはオープンソースであり、誰でも貢献できます。管理者にお問い合わせください。
+本プロジェクトはオープンソースです。貢献希望の方は管理者までご連絡ください。
