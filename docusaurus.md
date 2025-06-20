@@ -70,6 +70,67 @@ my-website
 - `/sidebars.js`
   - ドキュメントがサイドバー内のドキュメントの順序を指定するために使用されます
 
+### デザインのカスタマイズ
+
+#### カラーパレットの変更
+
+Docusaurusでは、カラーパレットを簡単に変更できます。以下のコードを `src/css/custom.css` に追加することで、サイト全体のカラーパレットを変更できます。
+
+```css:src/css/custom.css
+:root {
+  --ifm-color-primary: #006290;
+  --ifm-color-primary-dark: #005882;
+  --ifm-color-primary-darker: #00537a;
+  --ifm-color-primary-darkest: #004565;
+  --ifm-color-primary-light: #006c9e;
+  --ifm-color-primary-lighter: #0071a6;
+  --ifm-color-primary-lightest: #007fbb;
+  --ifm-background-color: #ffffff; /* ライトモードの主要な背景色 */
+  --ifm-code-background: #f6f7f8; /* コードブロックの背景色 */
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #7fc3e2;
+  --ifm-color-primary-dark: #62b6db;
+  --ifm-color-primary-darker: #54afd8;
+  --ifm-color-primary-darkest: #2e99c9;
+  --ifm-color-primary-light: #9cd0e9;
+  --ifm-color-primary-lighter: #aad7ec;
+  --ifm-color-primary-lightest: #d5ebf6;
+  /* 背景色の調整 */
+  --ifm-background-color: #1a1a2e; /* 例: 深いネイビーブルー */
+
+  --ifm-background-surface-color: #21213e; /* カードや強調エリアの背景色 */
+  --ifm-code-background: #23233c; /* コードブロックの背景色 */
+
+  /* テキスト色の調整 */
+  --ifm-font-color-base: #f0f0f0; /* 基本のテキスト色を明るく */
+  --ifm-font-color-secondary: #aaaaaa; /* 二次的なテキスト色 */
+
+  /* ボーダー色の調整 */
+  --ifm-color-emphasis-300: #44445c; /* 控えめなボーダー色 */
+  --ifm-color-emphasis-200: #33334c; /* より控えめなボーダー色 */
+  --ifm-color-emphasis-100: #2a2a40; /* 最も控えめなボーダー色 */
+
+  /* ナビゲーションバーの調整 */
+  --ifm-navbar-background-color: #21213e; /* ダークモードのナビゲーションバーの背景色 */
+  
+}
+```
+
+#### フォントの変更
+
+標準のフォントはフォント文字の線幅が太く、読みやすいですが、少し重い印象があります。教材サイトでは、読みやすさを重視し、フォントを変更しました。
+
+```css:src/css/custom.css
+:root {
+  --ifm-font-family-base: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+  --ifm-font-family-monospace: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+  --ifm-font-family-family: var(--ifm-font-family-base);
+}
+```
+
 ## GitHub Pagesへのデプロイするための必要な設定
 
 ### `docusaurus.config.js` の設定
@@ -183,13 +244,6 @@ Docusaurusでは、Markdownを使用してページを作成できます。以�
 ![画像の説明](https://example.com/image.png)
 ```
 
-#### タブ
-
-Docusaurus は、MDX<Tabs>のおかげで Markdown で使用できるコンポーネントを提供します。
-
-
-
-
 #### コードブロック
 
 コードブロックは、バッククォート3つで囲むことで作成します。
@@ -211,7 +265,8 @@ function HelloCodeTitle(props) {
 ```
 ```
 
-#### 注釈
+#### Admonition（注意書きや警告文）
+
 注釈は、`:::note`を使用して作成します。
 
 ```markdown
