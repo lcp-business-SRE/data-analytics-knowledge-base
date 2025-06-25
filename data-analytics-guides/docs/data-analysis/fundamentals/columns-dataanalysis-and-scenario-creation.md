@@ -134,36 +134,17 @@ graph LR
 
 #### (2) 曜日・時間帯別売上の可視化
 
-```mermaid
-%% 曜日・時間帯別売上（イメージ）
-graph TD
-    MonLunch[月曜ランチ: 10万円] --> TueLunch[火曜ランチ: 8万円] --> WedLunch[水曜ランチ: 7万円]
-    ThuLunch[木曜ランチ: 6万円] --> FriLunch[金曜ランチ: 5万円]
-```
+![売上推移グラフ](./assets/graph-sample.png)
 
 - **結果**：特に平日ランチタイムの売上が大きく落ちていることが判明
 
-```vega-lite
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "description": "A simple bar chart with embedded data.",
-  "data": {
-    "values": [
-      {"a": "1:月曜", "b": 10}, {"a": "2:火曜", "b": 8}, {"a": "3:水曜", "b": 7},
-      {"a": "4:木曜", "b": 6}, {"a": "5:金曜", "b": 5}, {"a": "6:土曜", "b": 21},
-      {"a": "7:日曜", "b": 19}
-    ]
-  },
-  "mark": "bar",
-  "encoding": {
-    "x": {"field": "a", "type": "ordinal"},
-    "y": {"field": "b", "type": "quantitative"}
-  }
-}  
-```
-
-
 #### (3) 人気メニューの販売数推移
+
+```mermaid
+%% 人気メニュー販売数推移（イメージ）
+graph LR
+    Curry[カレーランチ: 30%減] --> Pasta[パスタランチ: 20%減] --> Salad[サラダランチ: 10%減]
+```
 
 - 例：カレーランチの販売数が昨年比で30%減少
 - 天候やキャンペーンの有無と重ねて分析したところ、雨天時やキャンペーン未実施時に顕著な減少が見られた
