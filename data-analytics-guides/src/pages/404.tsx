@@ -51,7 +51,7 @@ function NotFound() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/data-analysis/fundamentals/index" // あなたのサイトのドキュメントトップへのパスに変更してください
+            to="/docs/data-analysis/fundamentals/" // あなたのサイトのドキュメントトップへのパスに変更してください
           >
             ドキュメントトップへ
           </Link>
