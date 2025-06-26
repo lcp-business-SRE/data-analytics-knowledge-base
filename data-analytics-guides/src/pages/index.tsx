@@ -22,8 +22,8 @@ function HomepageHeader() {
           </Heading>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <p style={{marginBottom: '2rem'}}>
-            このサイトは、データ分析とデータ基盤に関する知識を習得するための包括的なリソースです。<br />
-            基礎から応用まで、実践的な学習コンテンツを提供しています。
+            ここは、データ分析とデータ基盤に関する知識を習得するためのサイトです。<br />
+            基礎から応用まで、実践的な学習コンテンツを提供していきます。
           </p>
           {/* <div className={styles.buttons}>
             <Link
@@ -39,15 +39,15 @@ function HomepageHeader() {
           </div> */}
         </div>
         <div className={styles.heroRightContent} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ textAlign: 'center', marginBottom: '0.25rem', fontSize: '0.98rem', fontWeight: 500 }}>
-            SRE データ分析（名前募集）
-          </div>
           <img
             src={require('@site/static/img/mascot-top.png').default}
             alt="SREデータ分析マスコット"
             className={styles.heroRightLogo}
-            style={{ display: 'block', margin: 0, maxWidth: '180px', width: '100%', height: 'auto' }}
+            style={{ display: 'block', margin: 0, maxWidth: '250px', width: '100%', height: 'auto' }}
           />
+          <div style={{ textAlign: 'center', marginBottom: '0.25rem', fontSize: '0.98rem', fontWeight: 500 }}>
+            エス・アールイー
+          </div>
         </div>
       </div>
     </header>
