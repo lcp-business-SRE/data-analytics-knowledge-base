@@ -9,6 +9,8 @@ const config: Config = {
   title: 'SRE データ分析学習サイト',
   tagline: 'データ分析のための学習コンテンツ',
   favicon: 'img/favicon.ico',
+  // 404ルーティング安定のため追加
+  trailingSlash: false,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
