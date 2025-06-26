@@ -7,8 +7,16 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import CustomFooterMarkdownContent from '@site/docs/homepage-footer-content.md';
+import TopWaveSvg from '@site/static/img/top-wave.svg'; // ここを変更
 
 import styles from './index.module.css';
+
+// type FeatureItem = {
+//   title: string;
+//   Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
+//   img?: string;
+//   description: ReactNode;
+// };
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -39,15 +47,11 @@ function HomepageHeader() {
           </div> */}
         </div>
         <div className={styles.heroRightContent} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img
-            src={require('@site/static/img/mascot-top.png').default}
+          <TopWaveSvg
             alt="SREデータ分析マスコット"
             className={styles.heroRightLogo}
-            style={{ display: 'block', margin: 0, maxWidth: '250px', width: '100%', height: 'auto' }}
+            style={{ display: 'block', margin: 0, maxWidth: '350px', width: '100%', height: 'auto' }}
           />
-          <div style={{ textAlign: 'center', marginBottom: '0.25rem', fontSize: '0.98rem', fontWeight: 500 }}>
-            エス・アールイー
-          </div>
         </div>
       </div>
     </header>

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
-title: コラム1. データ分析におけるシナリオ作成の必要性
-description: データ分析においてはシナリオ作成が一番重要だといえる。その根拠を解説します。
+title: コラム. データ分析のシナリオ作成は必要？
+description: データ分析においてはシナリオ作成が一番重要です。その根拠を解説します。
 tags: [データ分析, 基礎, シナリオ, コラム]
 custom_react_root: true # コメント有無
 ---
@@ -92,7 +92,8 @@ flowchart LR
 
 ## 5. 実践例：シナリオ作成で分析が変わる！
 
-![カフェ売上](./assets/columns-top2.jpg)
+![カフェ売上](./assets/columns-top2.jpg)  
+
 
 ここでは「カフェの売上が減少している」という課題を例に、シナリオ作成の具体的な流れと分析へのつなげ方を体験してみましょう。
 
@@ -126,8 +127,8 @@ flowchart LR
     2. 人気メニューの販売数推移を確認
     3. 天候やキャンペーンとの関係を分析
 - **成果の活用方法**：
-    - 平日ランチ限定の新メニューや割引施策を検討
-    - 人気メニューの再プロモーション
+    - 例：平日ランチ限定の新メニューや割引施策を検討
+    - 例：人気メニューの再プロモーション
 
 ---
 
@@ -210,15 +211,111 @@ flowchart LR
 #### (3) 人気メニューの販売数推移
 
 
-
-```mermaid
-%% 人気メニュー販売数推移（イメージ）
-graph LR
-    Curry[カレーランチ: 30%減] --> Pasta[パスタランチ: 20%減] --> Salad[サラダランチ: 10%減]
-```
+<SreGenericChart
+  chartType="bar"
+  chartData={{
+    labels: ['カレーランチ', 'パスタランチ', 'サラダランチ'],
+    datasets: [
+      {
+        type: 'bar',
+        label: '昨年の売り上げ',
+        data: [1400, 1000, 800],
+        backgroundColor: 'rgba(255, 159, 64, 0.7)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        borderWidth: 1
+      },
+      {
+        type: 'bar',
+        label: '今年の売り上げ',
+        data: [980, 670, 580],
+        backgroundColor: 'rgba(75, 192, 192, 0.7)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },
+    ]
+  }}
+  chartOptions={{
+    responsive: true,
+    plugins: {
+      title: { display: true, text: '人気メニュー販売額推移（今年 vs 昨年）【千円】' },
+      legend: { position: 'top' }
+    }
+  }}
+/>
 
 - 例：カレーランチの販売数が昨年比で30%減少
-- 天候やキャンペーンの有無と重ねて分析したところ、雨天時やキャンペーン未実施時に顕著な減少が見られた
+
+#### (4) 雨天時の売上推移
+
+天候別に売上を比較します。
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{
+    labels: ['晴れ', '曇り', '雨'],
+    datasets: [
+      {
+        label: '昨年の売上',
+        data: [120, 100, 90],
+        backgroundColor: 'rgba(255, 205, 86, 0.7)',
+        borderColor: 'rgba(255, 205, 86, 1)',
+        borderWidth: 1
+      },
+      {
+        label: '今年の売上',
+        data: [110, 85, 60],
+        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }
+    ]
+  }}
+  chartOptions={{
+    responsive: true,
+    plugins: {
+      title: { display: true, text: '天候別売上推移（今年 vs 昨年）' },
+      legend: { position: 'top' }
+    }
+  }}
+/>
+
+- **結果**：特に雨天時に今年の売上が大きく減少している（昨年比-33%）
+
+#### (5) キャンペーン実施有無による売上比較
+
+キャンペーンの有無で売上を比較します。
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{
+    labels: ['キャンペーン実施', 'キャンペーン未実施'],
+    datasets: [
+      {
+        label: '昨年の売上',
+        data: [130, 100],
+        backgroundColor: 'rgba(153, 102, 255, 0.7)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1
+      },
+      {
+        label: '今年の売上',
+        data: [120, 70],
+        backgroundColor: 'rgba(255, 99, 132, 0.7)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }
+    ]
+  }}
+  chartOptions={{
+    responsive: true,
+    plugins: {
+      title: { display: true, text: 'キャンペーン有無別売上比較（今年 vs 昨年）' },
+      legend: { position: 'top' }
+    }
+  }}
+/>
+
+- **結果**：キャンペーン未実施時の売上減少が顕著（昨年比-30%）、施策の有無が売上に大きく影響していることが分かる
 
 ---
 

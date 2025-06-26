@@ -162,6 +162,10 @@ const config: Config = {
           items: [
             {
               label: 'SRE Portal',
+              href: 'https://dfgv1v1zyv790.cloudfront.net/',
+            },
+            {
+              label: 'SRE MemberPortal',
               href: 'https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol',
             },
           ],
