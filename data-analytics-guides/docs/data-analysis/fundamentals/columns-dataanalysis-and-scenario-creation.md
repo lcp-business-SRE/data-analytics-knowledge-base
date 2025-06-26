@@ -136,6 +136,35 @@ graph LR
 
 ![売上推移グラフ](./assets/graph-sample.png)
 
+<SreGenericChart
+  chartType="bar"
+  chartData={{
+    labels: ['製品X', '製品Y', '製品Z'],
+    datasets: [{
+      label: '販売数',
+      data: [150, 200, 120],
+      backgroundColor: [
+        'rgba(255, 159, 64, 0.7)',
+        'rgba(153, 102, 255, 0.7)',
+        'rgba(201, 203, 207, 0.7)'
+      ],
+      borderColor: [
+        'rgba(255, 159, 64, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(201, 203, 207, 1)'
+      ],
+      borderWidth: 1
+    }]
+  }}
+  chartOptions={{
+    responsive: true,
+    plugins: {
+      title: { display: true, text: '曜日・時間帯別売上数' },
+      legend: { position: 'top' }
+    }
+  }}
+/>
+
 - **結果**：特に平日ランチタイムの売上が大きく落ちていることが判明
 
 #### (3) 人気メニューの販売数推移
