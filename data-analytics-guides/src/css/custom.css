@@ -50,3 +50,10 @@
   --ifm-navbar-background-color: #21213e; /* ダークモードのナビゲーションバーの背景色 */
   
 }
+
+/* Markdownコンテンツ内の画像を中央揃えにする */
+.markdown img {
+  display: block; /* img要素をブロックレベル要素にする */
+  margin-left: auto; /* 左マージンを自動調整 */
+  margin-right: auto; /* 右マージンを自動調整 */
+}

@@ -9,11 +9,11 @@ dataanalytics:
   description: データ分析に関する情報提供
 
 docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+  label: AWS
+  permalink: /AWS
+  description: AWSサービス
 
 hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+  label: GitHub Copilot
+  permalink: /GitHub Copilot
+  description: GitHub Copilot tag description
