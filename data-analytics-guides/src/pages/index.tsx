@@ -6,8 +6,8 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
-import CustomFooterMarkdownContent from '@site/docs/homepage-footer-content.md';
-import TopWaveSvg from '@site/static/img/top-wave.svg'; // ここを変更
+import TopWaveSvg from '@site/static/img/top-wave.svg';
+import AnimatedWave from '@site/src/components/AnimatedWave';
 
 import styles from './index.module.css';
 
@@ -21,8 +21,10 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className={clsx('container', styles.heroContent)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)} style={{position: 'relative', overflow: 'hidden'}}>
+      {/* ▼波アニメーション背景を最背面に絶対配置 */}
+      <AnimatedWave />
+      <div className={clsx('container', styles.heroContent)} style={{position: 'relative', zIndex: 1}}>
         {/* 左側：タイトル・サブタイトル・説明テキスト */}
         <div className={styles.heroTextContent}>
           <Heading as="h1" className="hero__title">
@@ -67,9 +69,6 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <div className={styles.homepageFooterContent}>
-          {/* <CustomFooterMarkdownContent /> */}
-        </div>
       </main>
     </Layout>
   );
