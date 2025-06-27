@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@docusaurus/theme-mermaid": "^3.8.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^5.2.2"
   }
 }
