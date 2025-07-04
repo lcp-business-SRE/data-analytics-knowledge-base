@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: コラム. データ分析のシナリオ作成は必要？
+title: コラム. データ分析の“設計図”を描こう！
 description: データ分析においてはシナリオ作成が一番重要です。その根拠を解説します。
 tags: [データ分析, 基礎, シナリオ, コラム]
 custom_react_root: true # コメント有無
