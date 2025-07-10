@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 title: この章の情報
 description: データ分析関連のサービス情報を集約したページです。
 tags: [情報, サービス]
