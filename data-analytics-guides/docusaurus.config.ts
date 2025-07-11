@@ -146,15 +146,15 @@ const config: Config = {
           items: [
             {
               label: 'データ分析',
-              to: '/docs/data-analysis/fundamentals',
+              to: '/docs/data-analysis/fundamentals/',
             },
             {
               label: 'データ基盤',
-              to: '/docs/data-platform/fundamentals',
+              to: '/docs/data-platform/fundamentals/',
             },
             {
               label: '関連情報',
-              to: '/docs/data-informations',
+              to: '/docs/data-informations/index',
             },          ],
         },
         {
