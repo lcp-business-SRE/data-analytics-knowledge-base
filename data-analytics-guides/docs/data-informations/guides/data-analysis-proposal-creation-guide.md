@@ -3,6 +3,7 @@ sidebar_position: 3
 title: “仮説シナリオ”で差がつく！新人エンジニアのためのデータ分析提案ガイド
 description: お客様の“本音”を引き出し、プロジェクトを成功に導くストーリー型ヒアリング＆提案術
 tags: [ビジネス理解, シナリオ, ヒアリング, 新人, 実践]
+author: Ryosuke Imai
 custom_react_root: true # コメント有無
 ---
 
