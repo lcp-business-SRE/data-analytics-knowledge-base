@@ -17,3 +17,8 @@ hola:
   label: GitHub Copilot
   permalink: /GitHub Copilot
   description: GitHub Copilot tag description
+
+gidebook:
+  label: Gidebook
+  permalink: /Gidebook
+  description: Gidebook
