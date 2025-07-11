@@ -300,7 +300,8 @@ uv run streamlit run sample_japan_visitors.py
 ブラウザが自動で開き、訪日旅行者の分布が地図とグラフで表示されます。
 ![サンプルグラフ](./assets/streamlit-sample.png)
 
----
+今回のサンプルは[こちら](https://github.com/lcp-business-SRE/streamlit-sample)にあります。
+あなたの好きなデータに置き換えて、同じようにグラフや地図を作ってみてください。
 
 ## おわりに：あなたも“アプリ職人”デビュー
 
