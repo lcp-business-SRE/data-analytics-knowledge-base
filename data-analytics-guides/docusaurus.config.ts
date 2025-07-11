@@ -154,7 +154,7 @@ const config: Config = {
             },
             {
               label: '関連情報',
-              to: '/docs/data-informations/index',
+              to: '/docs/data-informations/',
             },          ],
         },
         {
