@@ -1,6 +1,5 @@
 ---
-sidebar_position: 1
-title: セクション情報
+title: 1-0 セクション情報
 description: 実践ガイド。
 tags: [情報, ガイド]
 author: Ryosuke Imai

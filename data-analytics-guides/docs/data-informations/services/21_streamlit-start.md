@@ -1,6 +1,5 @@
 ---
-sidebar_position: 2
-title: 10分でわかる！Streamlitでデータ分析アプリを作ろう
+title: 2-1 10分でわかる！Streamlitでデータ分析アプリを作ろう
 description: 新人エンジニアでもすぐに始められる、Streamlitによるデータ分析アプリ開発の超入門ガイド。セットアップから実装、活用シーンまで、ストーリー仕立てで楽しく学べます。
 tags: [情報, ツール, 初心者, 教育]
 custom_react_root: true # コメント有無
