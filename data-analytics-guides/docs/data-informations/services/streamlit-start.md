@@ -320,6 +320,6 @@ uv run streamlit run sample_japan_visitors.py
 ## 参考リンク集
 
 - [Streamlit公式ドキュメント](https://docs.streamlit.io/)
-- [Streamlit GitHubリポジトリ]([haa](https://github.com/streamlit/streamlit))
+- [Streamlit GitHubリポジトリ](https://github.com/streamlit/streamlit)
 - [Streamlitコンポーネント一覧](https://streamlit.io/components)
 - [Pythonのスクリプトからウェブアプリを簡単に作れるStreamlitをさわってみた](https://dev.classmethod.jp/articles/streamlit-intro/)
