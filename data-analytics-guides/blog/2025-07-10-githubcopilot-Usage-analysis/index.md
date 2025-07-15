@@ -440,6 +440,10 @@ tags: [データ分析,GitHub Copilot]
 
 - 資料リンク：2025年サイボウズGitHubCopilot活用（[PDF](GitHubCopilot-saibouze.pdf)）([URL](https://speakerdeck.com/cybozuinsideout/github-copilot-utilization))
 
+また同じくサイボウズから、追加資料がこうかいされています。合わせて共有します。
+
+- [きっとあなたの知らないGitHubで使えるGitHub Copilotの機能](https://www.docswell.com/s/Kesin11/5GGJYL-2025-07-11-github-copilot-on-github#p1)
+
 #### 参考になるページ
 
 - 初期設定

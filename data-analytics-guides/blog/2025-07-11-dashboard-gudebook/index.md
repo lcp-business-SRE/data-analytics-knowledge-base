@@ -1,6 +1,6 @@
 ---
 slug : digital-dashboard-gidebook
-title : デジタル庁がデッシュボード実践ガイドブックを出してた
+title : デジタル庁がダッシュボード実践ガイドブックを出してた
 authors : [imai]
 tags: [データ分析, gidebook]
 ---
