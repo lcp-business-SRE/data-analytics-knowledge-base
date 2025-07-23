@@ -22,3 +22,9 @@ gidebook:
   label: Gidebook
   permalink: /Gidebook
   description: Gidebook
+
+report:
+  label: Report
+  permalink: /Report
+  description: Report
+ 
