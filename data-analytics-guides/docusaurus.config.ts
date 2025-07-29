@@ -55,8 +55,6 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
-
   presets: [
     [
       "classic",
@@ -207,6 +205,7 @@ const config: Config = {
         "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
       crossorigin: "anonymous",
     },
+      'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css',
   ],
 };
 

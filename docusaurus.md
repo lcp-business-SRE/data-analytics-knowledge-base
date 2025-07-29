@@ -97,6 +97,75 @@ my-website/
 }
 ```
 
+## YoutTube動画の埋め込みのためのパッケージ導入
+
+DocusaurusのページにYouTube動画を表示する一番簡単で推奨される方法は、react-lite-youtube-embed という軽量なライブラリをMDXファイル内で使うことです。これにより、ページの読み込み速度を損なうことなく、簡単に動画を埋め込むことができます。
+
+### インストール
+
+```bash
+npm install react-lite-youtube-embed
+```
+
+また、このライブラリはデフォルトのスタイルシートを必要とします。
+`docusaurus.config.js` の`stylesheets`配列に、スタイルシートのパスを追加します。
+
+```js
+export default {
+  // ...他の設定
+  stylesheets: [
+    // ...他のスタイルシート
+    'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css',
+  ],
+};
+```
+
+### グローバルコンポーネントの登録
+
+まず、swizzleコマンドを実行して、MDXコンポーネントをカスタマイズするためのファイルをプロジェクト内に作成します。
+
+```bash
+npx docusaurus swizzle @docusaurus/theme-classic MDXComponents
+```
+
+このコマンドにより、`src/theme/MDXComponents.js` ファイルが生成されます。
+このファイルに、YouTube動画を埋め込むためのコンポーネントを追加します。
+
+```js : src/theme/MDXComponents.js
+import React from 'react';
+// デフォルトのMDXComponentsをインポートします
+import MDXComponents from '@theme-original/MDXComponents';
+// YouTubeコンポーネントをインポートします
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+
+export default {
+  // デフォルトのコンポーネントをすべて維持します
+  ...MDXComponents,
+  // 'YouTube'という名前でカスタムコンポーネントを追加します
+  YouTube: LiteYouTubeEmbed,
+};
+```
+
+これで、サイト全体でYouTubeというコンポーネントが使えるようになりました。
+
+### .mdファイルでの使用
+
+あとは、動画を埋め込みたい.mdファイルで、import文なしにコンポーネントを呼び出すだけです。
+
+```markdown
+# グローバルコンポーネントを使った例
+
+`swizzle`で設定したので、`import`なしで使えます！
+
+<YouTube
+  id="ogfYd705cRs"
+  title="What is Docusaurus?"
+/>
+
+```
+
+とてもすっきり書けますね。
+
 ## GitHub Pagesへのデプロイ
 
 ### `docusaurus.config.js` の設定例
