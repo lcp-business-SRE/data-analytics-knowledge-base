@@ -1,14 +1,16 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 // import remarkMermaid from 'remark-mermaid';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'SRE データ分析学習サイト',
-  tagline: 'データ分析のための学習コンテンツ',
-  favicon: 'img/favicon.ico',
+  title: "SRE データ分析学習サイト",
+  tagline: "データ分析のための学習コンテンツ",
+  favicon: "img/favicon.ico",
   // 404ルーティング安定のため追加
   trailingSlash: false,
 
@@ -18,33 +20,33 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://lcp-business-SRE.github.io',
+  url: "https://lcp-business-SRE.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/data-analytics-knowledge-base/',
+  baseUrl: "/data-analytics-knowledge-base/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'lcp-business-SRE', // Usually your GitHub org/user name.
-  projectName: 'data-analytics-knowledge-base', // Usually your repo name.
+  organizationName: "lcp-business-SRE", // Usually your GitHub org/user name.
+  projectName: "data-analytics-knowledge-base", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'ja',
-    locales: ['ja'],
+    defaultLocale: "ja",
+    locales: ["ja"],
   },
 
   plugins: [
     // Google Analytics (GA4) の設定
     [
-      '@docusaurus/plugin-google-gtag',
+      "@docusaurus/plugin-google-gtag",
       {
-        trackingID: 'G-LDY25SJG9H', // ★あなたのGA4測定IDに置き換えてください
+        trackingID: "G-LDY25SJG9H", // ★あなたのGA4測定IDに置き換えてください
         anonymizeIP: true,
       },
     ],
@@ -53,40 +55,41 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
-
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          showLastUpdateAuthor : true,    // 最終更新者の名前を表示するかどうか (boolean)。
-          showLastUpdateTime : true,      // 最終更新日時を表示するかどうか (boolean)。
-          breadcrumbs: true,          // パンくずリストを表示するかどうか (boolean)。 
+          sidebarPath: "./sidebars.ts",
+          showLastUpdateAuthor: true, // 最終更新者の名前を表示するかどうか (boolean)。
+          showLastUpdateTime: true, // 最終更新日時を表示するかどうか (boolean)。
+          breadcrumbs: true, // パンくずリストを表示するかどうか (boolean)。
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
+            "https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides",
           // remarkPlugins: [remarkMermaid], // mermaid
+          path: "docs",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides',
+            "https://github.com/lcp-business-SRE/data-analytics-knowledge-base/tree/master/data-analytics-guides",
           // remarkPlugins: [remarkMermaid], // mermaid
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -95,91 +98,92 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     mermaid: {
-      theme: {light: 'neutral', dark: 'dark'},
+      theme: { light: "neutral", dark: "dark" },
     },
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'SRE DataAnalytics',
+      title: "SRE DataAnalytics",
       logo: {
-        alt: 'SRE データ分析学習サイト',
-        src: 'img/logo.svg',
+        alt: "SRE データ分析学習サイト",
+        src: "img/logo.svg",
       },
       items: [
         // データ分析ドキュメントへのリンク
         {
-          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
-          sidebarId: 'dataAnalysisSidebar', // sidebars.ts で定義したID
-          position: 'left',
-          label: 'データ分析', // ナビゲーションバーに表示されるテキスト
+          type: "docSidebar", // サイドバーに紐付けるためのタイプ
+          sidebarId: "dataAnalysisSidebar", // sidebars.ts で定義したID
+          position: "left",
+          label: "データ分析", // ナビゲーションバーに表示されるテキスト
           // ドキュメントの最初のページへのリンク（オプション、設定しない場合 Docusaurus が自動で解決）
-          to: '/docs/data-analysis/fundamentals/index',
+          to: "/docs/data-analysis/fundamentals/index",
         },
         // データ基盤ドキュメントへのリンク
         {
-          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
-          sidebarId: 'dataPlatformSidebar', // sidebars.ts で定義したID
-          position: 'left',
-          label: 'データ基盤', // ナビゲーションバーに表示されるテキスト
-          to: '/docs/data-platform/fundamentals/index',
+          type: "docSidebar", // サイドバーに紐付けるためのタイプ
+          sidebarId: "dataPlatformSidebar", // sidebars.ts で定義したID
+          position: "left",
+          label: "データ基盤", // ナビゲーションバーに表示されるテキスト
+          to: "/docs/data-platform/fundamentals/index",
         },
         // データ分析関連情報ドキュメントへのリンク
         {
-          type: 'docSidebar', // サイドバーに紐付けるためのタイプ
-          sidebarId: 'dataInformationSidebar', // sidebars.ts で定義したID
-          position: 'left',
-          label: '関連情報', // ナビゲーションバーに表示されるテキスト
-          to: '/docs/data-informations/index',
+          type: "docSidebar", // サイドバーに紐付けるためのタイプ
+          sidebarId: "dataInformationSidebar", // sidebars.ts で定義したID
+          position: "left",
+          label: "関連情報", // ナビゲーションバーに表示されるテキスト
+          to: "/docs/data-informations/index",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: 'https://github.com/lcp-business-SRE/data-analytics-knowledge-base',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/lcp-business-SRE/data-analytics-knowledge-base",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'データ分析',
-              to: '/docs/data-analysis/fundamentals/',
+              label: "データ分析",
+              to: "/docs/data-analysis/fundamentals/",
             },
             {
-              label: 'データ基盤',
-              to: '/docs/data-platform/fundamentals/',
+              label: "データ基盤",
+              to: "/docs/data-platform/fundamentals/",
             },
             {
-              label: '関連情報',
-              to: '/docs/data-informations/',
-            },          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'SRE Portal',
-              href: 'https://dfgv1v1zyv790.cloudfront.net/',
-            },
-            {
-              label: 'SRE MemberPortal',
-              href: 'https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol',
+              label: "関連情報",
+              to: "/docs/data-informations/",
             },
           ],
         },
         {
-          title: 'More',
+          title: "Community",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "SRE Portal",
+              href: "https://dfgv1v1zyv790.cloudfront.net/",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/lcp-business-SRE/data-analytics-knowledge-base',
+              label: "SRE MemberPortal",
+              href: "https://sites.google.com/mb.lecip.co.jp/business-dx/dx-sol",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "Blog",
+              to: "/blog",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/lcp-business-SRE/data-analytics-knowledge-base",
             },
           ],
         },
@@ -193,6 +197,16 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
+      'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css',
+  ],
 };
 
 export default config;
