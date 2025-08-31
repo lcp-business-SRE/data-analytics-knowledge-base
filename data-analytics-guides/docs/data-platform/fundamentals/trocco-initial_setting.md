@@ -31,15 +31,10 @@ Troccoはデータの抽出、変換、ロード（ETL）を簡単に行うこ�
 
 AthenaとSpreadsheetsの接続のためには以下のような接続設定が必要です。
 
-1. Athenaからデータベースを参照するための権限設定
-2. TroccoがAthenaにアクセスするための権限を付与するユーザーの作成
-3. Troccoの設定画面でAthenaの接続情報を入力
-4. Spreadsheetsの接続設定をTroccoの設定画面で行う
-5. 実際の接続をTrocco上で行う
-
-### Athenaの権限設定
-
-Athenaからデータベースの参照のための権限設定はTroccoからのアクセス許可の付与と同時に行います。
+1. TroccoがAthenaにアクセスするための権限を付与するユーザーの作成
+2. Troccoの設定画面でAthenaの接続情報を入力
+3. Spreadsheetsの接続設定をTroccoの設定画面で行う
+4. 実際の接続をTrocco上で行う
 
 ### Trocco用のIAMユーザー作成
 
