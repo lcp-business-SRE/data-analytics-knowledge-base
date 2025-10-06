@@ -1,3 +1,11 @@
+---
+sidebar_position: 6
+title: 回帰分析
+description: データ分析のための統計を学ぶために最初に知っておくべきことを書いています
+tags: [データ分析, 基礎, 統計]
+custom_react_root: true
+---
+
 # 回帰分析
 
 ## 回帰分析とは
