@@ -21,7 +21,7 @@ Pythonの環境構築は別途行っている前提です。
 まずは、**Pandas**ライブラリを用いてデータを読み込みます。
 この時、データの文字コードがShift-JISであるため、文字コード変換を別途行うか、Pandasの`read_csv`関数の引数で指定します。
 
-```python
+```Python
 import pandas as pd
 
 df_row_csv = pd.read_csv('./SSDSE-E-2025.csv', encoding='shift_jis')
@@ -42,7 +42,7 @@ df_row_csv.head(6)
 のような形で、1行目と2行目がヘッダー情報、3行目以降がデータ本体であることがわかります。
 このため、Pandasの`read_csv`関数の引数でヘッダー行を指定します。
 
-```python
+```Python
 df = pd.read_csv('./SSDSE-E-2025.csv', encoding='shift_jis', header=[2])
 df.head(6)
 ```
@@ -56,7 +56,7 @@ df.head(6)
 先ほどのコードを実行した際に、データフレームの中に全国のデータが存在することに気が付いた人もいるでしょう。
 ここでは全国のデータを除外し、47都道府県のデータのみを対象にします。
 
-```python
+```Python
 # 地域コードがR00000の行を削除
 df = df[df['地域コード'] != 'R00000']
 ```
@@ -68,7 +68,7 @@ df = df[df['地域コード'] != 'R00000']
 
 まずは、合計特殊出生率のヒストグラムを描画してみます。
 
-```python
+```Python
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -89,7 +89,7 @@ plt.show()
 
 次に、データの中心的な傾向を示す指標である**平均値**と**中央値**を算出します。
 
-```python
+```Python
 mean_fertility_rate = df['合計特殊出生率'].mean()
 print(f'合計特殊出生率の平均値: {mean_fertility_rate}')
 median_fertility_rate = df['合計特殊出生率'].median()
@@ -107,7 +107,7 @@ print(f'合計特殊出生率の中央値: {median_fertility_rate}')
 
 次に、データのばらつきを示す指標である**分散**と**標準偏差**を算出します。
 
-```python
+```Python
 variance_fertility_rate = df['合計特殊出生率'].var()
 print(f'合計特殊出生率の分散: {variance_fertility_rate}')
 std_fertility_rate = df['合計特殊出生率'].std()
@@ -156,7 +156,7 @@ $$\text{加重平均値} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$$
 今回の例では、人口の少ない鳥取県と人口の多い東京都が同じ重みで扱われてしまっていました。
 そこで、各都道府県の人口を重みとして加重平均値を計算してみましょう。
 
-```python
+```Python
 # 各都道府県の人口を重みとして加重平均値を計算
 weighted_mean_fertility_rate = (df['合計特殊出生率'] * df['総人口']).sum() / df['総人口'].sum()
 print(f'合計特殊出生率の加重平均値: {weighted_mean_fertility_rate}')
@@ -180,7 +180,7 @@ $$\text{加重標準偏差} = \sqrt{\text{加重分散}}$$
 加重分散や加重標準偏差を計算することで、不正確だったり母数が異なるデータを含む場合でも、より正確なばらつきの指標を得ることができます。
 それでは今までと同様に加重分散と加重標準偏差を計算してみましょう。
 
-```python
+```Python
 # 加重分散を計算
 weighted_variance_fertility_rate = (df['総人口'] * (df['合計特殊出生率'] - weighted_mean_fertility_rate) ** 2).sum() / df['総人口'].sum()
 print(f'合計特殊出生率の加重分散: {weighted_variance_fertility_rate}')
@@ -225,7 +225,7 @@ print(f'合計特殊出生率の加重標準偏差: {weighted_std_fertility_rate
 
 まずは目的変数が合計特殊出生率、説明変数が総人口とした単回帰分析を行います。
 
-```python
+```Python
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 import seaborn as sns
