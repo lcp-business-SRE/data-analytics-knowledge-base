@@ -41,7 +41,7 @@ graph TD
 グラフはメッセージを伝えるための道具です。  
 **まずは手持ちのデータを確認し、そのデータで「何が分かるか」「何を伝えられるか」を考えましょう。**
 
-**� データを見てから目的を決める実践的アプローチ**
+**🔍 データを見てから目的を決める実践的アプローチ**
 
 1. **手持ちのデータを眺める**
    - どんな項目（変数）があるか？
@@ -51,7 +51,7 @@ graph TD
 2. **データの特徴から可能な分析を考える**
    - 時系列データなら「変化」が見える
    - カテゴリ別データなら「比較」ができる
-   - 複数変数があるなら「関係性」が調べられる
+   - 変数が複数あるなら「関係性」が調べられる
 
 3. **伝えたいメッセージを決める**
    - このデータから何を伝えたいか？
@@ -174,31 +174,30 @@ graph TD
 #### 🧠 グラフ選択の思考フローチャート
 
 ```mermaid
-graph TD
+graph LR
     Start[データを可視化したい] --> Purpose{目的は何？}
     
-    Purpose -->|比較| Compare[比較したい]
-    Purpose -->|変化| Change[変化を見たい]
-    Purpose -->|構成| Composition[構成を見たい]
-    Purpose -->|関係性| Relation[関係性を見たい]
-    Purpose -->|分布| Distribution[分布を見たい]
-    
+    Purpose --> Compare[比較したい]
     Compare --> CompareData{データの種類は？}
     CompareData -->|質的データ| BarChart[棒グラフ]
     CompareData -->|量的データ| BarChart2[棒グラフ・折れ線グラフ]
     
+    Purpose --> Change[変化を見たい]
     Change --> ChangeData{時系列データ？}
     ChangeData -->|Yes| LineChart[折れ線グラフ]
     ChangeData -->|No| BarChart3[棒グラフで並び替え]
     
+    Purpose --> Composition[構成を見たい]
     Composition --> CompData{カテゴリ数は？}
     CompData -->|少ない（2-5個）| PieChart[円グラフ]
-    CompData -->|多い（6個以上）| StackedBar[積み上げ棒グラフ]
+    CompData -->|多い（6個以上）<br>または比較したい| StackedBar[100%積上げ棒グラフ]
     
+    Purpose --> Relation[関係性を見たい]
     Relation --> RelData{変数の数は？}
     RelData -->|2変数| Scatter[散布図]
-    RelData -->|3変数以上| ScatterMatrix[散布図行列・バブルチャート]
+    RelData -->|3変数以上| ScatterMatrix[バブルチャート]
     
+    Purpose --> Distribution[分布を見たい]
     Distribution --> DistData{データの種類は？}
     DistData -->|量的データ| Histogram[ヒストグラム・箱ひげ図]
     DistData -->|質的データ| BarChart4[棒グラフ]
