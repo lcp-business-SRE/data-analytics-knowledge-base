@@ -94,6 +94,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  themes: ['@docusaurus/theme-mermaid'],
 
   themeConfig: {
     // Replace with your project's social card
@@ -188,7 +189,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} SRE Data Analytics Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} SRE Data Analytics Project, Copyright © LECIP CORPORATION. Built with Docusaurus.`,
     },
     // mermaid: true, // Enable Mermaid diagrams
 

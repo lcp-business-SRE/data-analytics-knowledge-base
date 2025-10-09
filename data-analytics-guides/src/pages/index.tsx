@@ -11,13 +11,6 @@ import AnimatedWave from '@site/src/components/AnimatedWave';
 
 import styles from './index.module.css';
 
-// type FeatureItem = {
-//   title: string;
-//   Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
-//   img?: string;
-//   description: ReactNode;
-// };
-
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -32,7 +25,7 @@ function HomepageHeader() {
           </Heading>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <p style={{marginBottom: '2rem'}}>
-            ここは、データ分析とデータ基盤に関する知識を習得するためのサイトです。<br />
+            データ分析とデータ基盤に関する技術を習得するためのサイトです。<br />
             基礎から応用まで、実践的な学習コンテンツを提供していきます。
           </p>
           {/* <div className={styles.buttons}>
