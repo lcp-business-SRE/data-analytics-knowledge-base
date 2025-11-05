@@ -8,6 +8,8 @@ custom_react_root: true # コメント有無
 
 # なぜ、データ分析をするのにヒアリングなの？
 
+**投稿者：Ryosuke Imai (SRE CTO)** <!-- 投稿者 (役職) -->
+
 ![まずは目的の明確化！顧客とのヒアリングはどうやるの？](./assets/columns-dataanalysis-and-hearing-top.png)
 
 **あなたは「ヒアリング」と聞いて、どんなイメージを持ちますか？**
