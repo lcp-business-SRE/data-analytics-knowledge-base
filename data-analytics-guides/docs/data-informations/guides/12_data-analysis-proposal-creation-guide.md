@@ -6,8 +6,9 @@ author: Ryosuke Imai
 custom_react_root: true # コメント有無
 ---
 
-
 # “仮説シナリオ”で差がつく！新人エンジニアのためのデータ分析提案ガイド
+
+**投稿者：Ryosuke Imai (SRE CTO)** <!-- 投稿者 (役職) -->
 
 ![“仮説シナリオ”で差がつく！新人エンジニアのためのデータ分析提案ガイド](./assets/data-analysis-proposal-creation-guide-top.png)
 
