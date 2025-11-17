@@ -15,6 +15,7 @@ custom_react_root: true # コメント有無
 前回、人がグラフを一瞬で理解できる仕組みとして、**視覚属性**と**ゲシュタルトの法則**を学びました。  
 データを視覚属性に変換することで、私たちは情報を素早く理解できます。
 
+
 しかし、データを視覚属性に変換するといっても、**どの視覚属性を使うか**は**データの内容によって異なります**。  
 そこで、ここでは**データの種類**と**視覚属性との相性**について学びましょう。
 
@@ -174,12 +175,13 @@ graph LR
     B --> C[**間隔尺度**<br/>間隔が等しい]
     C --> D[**比例尺度**<br/>比率が意味を持つ]
     
-    style A fill:#ffe6e6,stroke:#ffcccc
-    style B fill:#ffcccc,stroke:#ffb3b3
-    style C fill:#cce6ff,stroke:#b3d9ff
-    style D fill:#99ccff,stroke:#80bfff
+    style A fill:#ffe6e6,stroke:#ffcccc,color:#222222
+    style B fill:#ffcccc,stroke:#ffb3b3,color:#222222
+    style C fill:#cce6ff,stroke:#b3d9ff,color:#222222
+    style D fill:#99ccff,stroke:#80bfff,color:#222222
 ```
 
+<br/>
 このように、データは**名義尺度 < 順序尺度 < 間隔尺度 < 比例尺度**の順番に情報が豊かになっていきます。  
 そのため、データを取得するときはより幅広い分析ができるよう、**なるべく情報量の多い尺度で取得**することをおすすめします。  
 
@@ -193,7 +195,7 @@ graph LR
   
 もちろん、回答者への負担なども考慮したうえで、適切な尺度でデータを取得しましょう。
 
-
+<br/>
 
 ## データの種類と視覚属性の相性
 
@@ -217,10 +219,15 @@ graph LR
 * **○**：そのデータタイプの表現に使用できる（実務で一般的に使われる）
 * **-**：そのデータタイプの表現に使用できない、または誤解を招くため使用すべきでない
 
+<br/>
+
 ### 具体例を見てみよう
+このデータの種類と視覚属性の相性が実際のグラフにどのように反映されているか見てみましょう。  
+
+#### 例1：棒グラフ
 商品A, B, Cの売上を棒グラフで比較する場合を考えてみます。  
 以下の組み合わせによってグラフが作成されています。  
-- 商品名（名義尺度）：横軸の位置
+- 商品名（名義尺度）：棒の横軸上の位置
 - 売上金額（比例尺度）：棒の長さ
 
 <SreGenericChart
@@ -245,7 +252,66 @@ graph LR
   }}
 />
 
+<br/>
 
+#### 例2：散布図
+男女別の身長・体重の関係を散布図で表現する場合を考えてみます。  
+以下の組み合わせによってグラフが作成されています。 
+
+- 身長（比例尺度）：横軸の位置
+- 体重（比例尺度）：縦軸の位置  
+- 性別（名義尺度）：点の色（色相）
+
+<SreGenericChart
+  chartType="scatter"
+  chartData={{
+    datasets: [
+      {
+        label: '男性',
+        data: [
+          {x: 165, y: 60}, {x: 170, y: 65}, {x: 175, y: 70}, 
+          {x: 168, y: 63}, {x: 172, y: 56}, {x: 178, y: 75},
+          {x: 162, y: 59}, {x: 174, y: 72}, {x: 165, y: 64}
+        ],
+        backgroundColor: 'rgba(54, 162, 235, 0.8)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        pointRadius: 3
+      },
+      {
+        label: '女性',
+        data: [
+          {x: 158, y: 50}, {x: 162, y: 55}, {x: 154, y: 52},
+          {x: 152, y: 48}, {x: 164, y: 53}, {x: 168, y: 57},
+          {x: 161, y: 54}, {x: 170, y: 64}, {x: 157, y: 49}
+        ],
+        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        pointRadius: 3
+      }
+    ]
+  }}
+  chartOptions={{
+    responsive: true,
+    plugins: {
+      legend: { display: true, position: 'top' },
+      title: { display: true, text: '性別・身長・体重の関係' }
+    },
+    scales: {
+      x: { 
+        title: { display: true, text: '身長 (cm)' },
+        min: 150,
+        max: 185
+      },
+      y: { 
+        title: { display: true, text: '体重 (kg)' },
+        min: 40,
+        max: 80
+      }
+    }
+  }}
+/>
+
+<br/>
 
 ## まとめ：次のステップへ
 
@@ -258,9 +324,11 @@ graph LR
 
 グラフ選びに迷った時は、ぜひ今回の **「データの種類と視覚属性の相性」** という視点を思い出してください！  
 
+<br/>
 
 ## 参考資料
-- [データビジュアライゼーションの教科書](https://www.shuwasystem.co.jp/book/9784798053486.html)
+- [『データビジュアライゼーションの教科書』](https://www.shuwasystem.co.jp/book/9784798053486.html)
+- [『データ視覚化のデザイン』](https://amzn.asia/d/eZEJuGJ)
 - [リッカート式尺度は何を測っていて、なぜ尺度平均値を使うのか](https://norimune.net/3650)
 - [質問紙（リッカート尺度）のデータってふつうに分析して大丈夫なのか](https://blog.statsbeginner.net/entry/2016/05/07/003352)
 - [リッカート尺度とは｜簡単解説〜5段階・7段階評価の作り方から分析、注意点まで徹底解説](https://qiqumo.jp/contents/dictionary/likertsscale/)
