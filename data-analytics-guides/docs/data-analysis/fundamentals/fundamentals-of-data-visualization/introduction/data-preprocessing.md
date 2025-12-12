@@ -4,7 +4,6 @@ title: 1-4. 目的に応じたグラフの選び方
 description: 適切なグラフを選ぶための方法を学びます。
 tags: [データ分析, 基礎, 可視化]
 custom_react_root: true # コメント有無
-draft: true
 ---
 
 # 1-4. 目的に応じたグラフの選び方
