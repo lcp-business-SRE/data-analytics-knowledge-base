@@ -3,8 +3,7 @@
 ## はじめに
 
 この記事はデータ分析基盤構築サービスであるTroccoを用いて、クラウドサービスをまたいだデータの転送を実際に行ったので、それについてまとめたものです。
-今回行ったAWS AthenaからGoogle Spreadsheetsへのデータ転送をもとに、まずは引っ掛かりやすい権限設定について解説を行います。
-その後、Troccoを用いたデータ転送を行うための方法を具体的に解説します。
+今回行ったAWS AthenaからGoogle Spreadsheetsへのデータ転送をもとに、引っ掛かりやすい権限設定を中心に、接続手順の説明を行います。
 
 ## Troccoとは
 
@@ -25,25 +24,31 @@ S3内にIceberg形式で保存されているデータはAthenaでクエリす�
 ## 前提条件
 
 - AWSアカウントを持っていること
-  - 十分な権限を持つIAMユーザーが必要です。
+  - [IAMユーザーに関する章](#trocco用のiamユーザー作成)にあるIAMユーザーを作成できる権限が必要です。
+  - 所持していない場合は、管理者に依頼してください。
 - Troccoのアカウントを持っていること
-  - フリーアカウントが利用可能です。
+  - 所持していない場合はフリーアカウントを申し込むことが可能です。
 - Athenaのデータベースが設定されていること
-  - この辺りに関しては別途ドキュメントを作成します
+  - 別途ドキュメントを作成していますので、そちらを参照してください。
 - Googleアカウントを持っていること
-  - Spreadsheetsへのデータ転送を行うために必要です。
+  - 会社のアカウントで十分です
 
-## AthenaとSpreadsheetsの接続
+## AthenaとSpreadsheetsを接続する
 
-1. Athenaからデータベースを参照するための権限設定
-2. TroccoがAthenaにアクセスするための権限を付与するユーザーの作成
+### 全体の流れ
+
+以下のような流れで、設定と接続を行いました。
+
+1. [Athenaの権限設定](#athenaの権限設定)
+2. [TroccoがAthenaにアクセスするための権限の作成](#trocco用のiamユーザー作成)
 3. Troccoの設定画面でAthenaの接続情報を入力
 4. Spreadsheetsの接続設定をTroccoの設定画面で行う
 5. 実際の接続をTrocco上で行う
 
 ### Athenaの権限設定
 
-Athenaからデータベースの参照のための権限設定はTroccoからのアクセス許可の付与と同時に行います。
+Athenaを使うためには、Athenaにデータベースの参照のための権限設定が必要になります。
+
 
 ### Trocco用のIAMユーザー作成
 
@@ -56,6 +61,7 @@ TroccoがAthenaにアクセスするためのIAMユーザーを作成します�
         {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
+            "Description": "troccoがAthenaでクエリを実行するための権限を与える",
             "Action": [
                 "athena:StartQueryExecution",
                 "athena:GetQueryResultsStream",
@@ -77,6 +83,7 @@ TroccoがAthenaにアクセスするためのIAMユーザーを作成します�
         {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
+            "Description": "troccoがAthenaでのクエリに必須であるGlueのメタデータを取得するための権限を与える",
             "Action": [
                 "glue:GetDatabase",
                 "glue:GetTable"
@@ -95,6 +102,7 @@ TroccoがAthenaにアクセスするためのIAMユーザーを作成します�
         {
             "Sid": "VisualEditor2",
             "Effect": "Allow",
+            "Description": "troccoにAthenaのクエリ結果を保存するS3バケットと、Athenaが参照するデータレイクのS3バケットへのアクセス権限を与える",
             "Action": [
                 "s3:PutObject",
                 "s3:GetObject",
