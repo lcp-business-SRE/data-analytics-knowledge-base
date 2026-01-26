@@ -790,9 +790,11 @@ flowchart LR
 また、紹介したグラフは基本的なものであり、実際にはもっと多くの種類があります。  
 しかし、それらもこの6つのグラフから派生していることがほとんどですので、最初は基本をしっかり押さえましょう。
 
-
 <br/>
 
-# 参考資料
+## 参考資料
 
-- [データビジュアライゼーションの教科書](https://www.shuwasystem.co.jp/book/9784798053486.html)
+- [『データビジュアライゼーションの教科書』](https://www.shuwasystem.co.jp/book/9784798053486.html)
+- [『データ視覚化のデザイン』](https://amzn.asia/d/eZEJuGJ)
+- [データの可視化はグラフ選びが難しい？人気ツール「Tableau」で役立つグラフの使いどころを解説](https://markezine.jp/article/detail/33654)
+- [超わかりやすい～グラフの種類と使い分け・効果的なデータ可視化を目指せ！](https://www.finereport.com/jp/analysis/datavisualgraph/)
