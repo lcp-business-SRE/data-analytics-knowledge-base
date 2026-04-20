@@ -158,8 +158,10 @@ custom_react_root: true # コメント有無
 
 グラフでの使用例を見てみましょう。
 
-> ダイバージェントカラーをシーケンシャルカラーとして使うこともできます。  
-> 区分が多く、1色のグラデーションだと濃淡の差が小さくなってしまう場合、2色のグラデーションを使うことで区分同士の色の差をわかりやすくできます。
+:::tip ダイバージェントカラーをシーケンシャルカラーとして使う
+ダイバージェントカラーをシーケンシャルカラーとして使うこともできます。  
+区分が多く、1色のグラデーションだと濃淡の差が小さくなってしまう場合、2色のグラデーションを使うことで区分同士の色の差をわかりやすくできます。
+:::
 
 ## 配色とアクセントカラーの使い分け
 
@@ -171,13 +173,380 @@ custom_react_root: true # コメント有無
 シーケンシャルカラーで配色する場合はグレー系にすることで、一部の目立たせたい部分にアクセントカラーで強調できます。  
 無彩色（白、グレー、黒）と有彩色（赤、青、緑など）を組み合わせることで、アクセントカラーがより際立ちます。  
 
-## 色覚多様性への対応
+## さまざまな色覚への対応
 
-## 迷った時に使えるパレット
+### 色覚の違いを考慮しよう
 
-先人が配色のパレットを作ってくれているので、迷ったら活用してみましょう。
+ここまで配色の使い方を紹介しましたが、色の組み合わせはよく考える必要があります。  
+色覚には個人差があり、人によっては**見分けづらい色の組み合わせ**があるからです。  
+
+以下に赤と緑を対比させるグラフを用意しました。  
+目標値の70％を超えていれば緑、下回れば赤にしています。  
+
+一般的な色覚（C型）の人はぱっと見で赤と緑の対比を認識できて便利です。  
+しかし、色覚がP型（赤を認識しづらい）やD型（緑を認識しづらい）の人は**赤と緑がどちらも茶色っぽく見えるため、対比構造が認識しづらい**です。  
+しかも、この色覚の人は男性の20人に1人、女性の500人に1人程度いるとされます。  
+つまり、**赤と緑で対比を表そうとしても、約5%の人には意図が伝わらないのです**。  
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#34a334', '#34a334', '#b32f2f', '#34a334', '#b32f2f', '#b32f2f'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'C型色覚（一般的な色覚）の見え方',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
 
 
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#a89828', '#a89828', '#6e5530', '#a89828', '#6e5530', '#6e5530'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'P型色覚の見え方（あくまで一例で、個人差があります。）',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#a89828', '#a89828', '#756c24', '#9b8d27', '#756c24', '#756c24'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'D型色覚の見え方（あくまで一例で、個人差があります。）',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+そこで重要なのが、 **カラーユニバーサルデザイン（CUD）** の考え方です。  
+CUDとは、**色覚多様性を考慮し、より多くの人に伝わりやすい配色を選ぶ**という考え方です。  
+
+CUDを意識することで、異なる色覚の人にも同じ意図を伝えやすくなります。  
+例えば、先ほどのグラフを赤と緑からオレンジと青に変えてみましょう。
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'C型色覚（一般的な色覚）の見え方',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#5577aa', '#5577aa', '#aa8a34', '#5577aa', '#aa8a34', '#aa8a34'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'P型色覚の見え方（あくまで一例で、個人差があります。）',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#4665a0', '#4665a0', '#ad9e26', '#4665a0', '#ad9e26', '#ad9e26'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'D型色覚の見え方（あくまで一例で、個人差があります。）',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#1d7e8f', '#1d7e8f', '#f75252', '#1d7e8f', '#f75252', '#f75252'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: 'T型色覚の見え方（あくまで一例で、個人差があります。）',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+/>
+
+オレンジと青に変更したことで、P型やD型の人も異なる色相として認識できるため、対比構造が認識しやすくなりました。  
+さらに少数派ですが、T型（青を認識しづらい）の人も認識できるので問題ないでしょう。
+
+### 配色以外も工夫しよう
+
+誰もが見分けられるようなカラーパレットを使うことは重要ですが、色以外の要素を工夫することも有効な手段です。  
+例えば、上記のグラフなら以下のような工夫ができます。
+
+#### ① 目標値のラインを補助として引く
+
+目標値を超えたかどうかで目標達成の有無を判別しやすくなります。
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: 'KPI達成率（%）',
+        data: [85, 72, 63, 78, 55, 68],
+        backgroundColor: [
+          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: '目標値のラインを引いたグラフ',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+      },
+    },
+  }}
+  referenceLines={[{ y: 70, label: '目標 70%' }]}
+/>
+
+#### ② 基準値からの差分を表すグラフにする
+
+目標値を超えたか下回ったかが棒グラフの伸びる方向でわかるので、色の判別が不要になります。
+
+<SreGenericChart
+  chartType="bar"
+  chartData={{ 
+    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+    datasets: [
+      {
+        label: '目標比（%pt）',
+        data: [15, 2, -7, 8, -15, -2],
+        backgroundColor: [
+          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
+        ],
+      },
+    ],
+  }}
+  chartOptions={{
+    plugins: {
+      title: {
+        display: true,
+        text: '目標との差分を表すグラフ',
+      },
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        min: -20,
+        max: 20,
+      },
+    },
+  }}
+  referenceLines={[{ y: 0, label: '目標 70%' }]}
+/>
+
+### 迷った時に使えるパレット
+
+色以外も工夫したほうがいいですが、やはり色のインパクトは大きいので配色には気を使いたいです。  
+先人が色覚多様性を考慮したカラーパレットを作ってくれているので、どの色を使うか迷ったら活用してみましょう。  
+
+#### Okabe-Ito Scale
+
+![Okabe-Ito Scale](./assets/Okabe-Ito.jpg)
+Fig. 16 Okabe and Ito (2002)
+
+[Okabe-Ito Scale](https://jfly.uni-koeln.de/color/#pallet)は、岡部氏、伊藤氏によって考案された、色覚問わず見やすいカテゴリカルカラーパレットです。  
+オリジナル、P型、D型、T型の色覚でそれぞれどう見えるかというサンプルが上図に示されています。  
+どの色覚の人でも隣り合う色の差がわかりやすいことがわかります。
+
+#### ColorBrewer2
+
+![ColorBrewer2](./assets/color-brewer2.png)
+
+[ColorBrewer2](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)は、マップ上での見え方をシミュレーションできるツールで、シーケンシャルカラーやダイバージェントカラーも用意されています。  
+同じ配色でも3～12まで区分の数を変更でき、各色のカラーコードを確認できるのが便利です。  
+
+colorblind safeにチェックを入れると、色覚多様性を考慮した配色に絞り込むことができます。  
+マップでの見え方に特化していますが、通常のグラフの配色にも活用できます。
+
+#### COLORS
+
+![COLORS](./assets/COLORS.png)
+
+[COLORS](https://colors.design4u.jp/)は、任意の画像から色を抽出して配色を作成してくれる無料ツールです。  
+コーポレートカラーを使った配色を作ることも可能です。  
+1～10色までの配色を作成可能で、各色の明るさの差や色相の差を直感的に編集できるのが特徴です。  
+出来上がった配色のカラーコードも取得できますし、白黒で見たときにどう見えるかも確認できるため印刷物にも向いています。  
+
+デフォルトでたくさんのパレットが用意されており、それらも色覚多様性に対応しているものが多いので、どの色を使うか迷ったときに活用できます。
+
+## 色覚の違いをシミュレーションしてみよう
+
+実はChromeなどのブラウザ上で、色覚のシミュレーションをすることができます。  
+ご自身が作成したグラフをブラウザ上で確認できるなら試してみるといいでしょう。  
+
+### Chromeのデベロッパーツールを使う方法
+
+1. Chromeの右上のメニューから「その他のツール」>「デベロッパーツール」を選択（またはF12キーを押す）
+![手順1](./assets/sim1.png)
+
+2. デベロッパーツールが表示されるので、右上のメニューから「その他のツール」>「レンダリング」を選択
+![手順2](./assets/sim2.png)
+
+3. 下の段のメニューに「レンダリング」というタブが表示されるので選択し、下にスクロールすると「色覚異常をエミュレート」という項目があるので、この中からシミュレーションしたい色覚を選択する。
+![手順3](./assets/sim3.png)
+▲ 図のように、「2型2色覚（緑色の識別不可）」を選択すると、赤と緑が両方とも茶色っぽく見えるようになります。
+
+あくまでシミュレーションなので実際の見え方には個人差があります。  
+しかし、比較的簡単に色覚による見え方の違いを確認できるのでぜひ活用してみてください。
 
 ## まとめ
 
@@ -196,5 +565,6 @@ custom_react_root: true # コメント有無
 - [色覚バリアフリーなカラーパレット](https://note.com/masakudamatsu/n/nafb946d33ee0?sub_rt=share_sb)
 - [Okabe-Ito](https://jfly.uni-koeln.de/color/#pallet)
 - [ColorBrewer2](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
+- [COLORS](https://colors.design4u.jp/)
 - [Viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#the-color-scales)
 - [Paul Tol's Colour Schemes](https://sronpersonalpages.nl/~pault/data/colourschemes.pdf)
