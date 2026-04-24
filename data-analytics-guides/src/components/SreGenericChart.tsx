@@ -42,6 +42,7 @@ interface ReferenceLine {
   color?: string;
   dash?: number[];
   label?: string;
+  labelPosition?: 'left' | 'right'; // デフォルト: 'right'
 }
 
 interface ReferenceXLine {
@@ -49,6 +50,7 @@ interface ReferenceXLine {
   color?: string;
   dash?: number[];
   label?: string;
+  labelPosition?: 'top' | 'bottom'; // デフォルト: 'top'
 }
 
 interface SreGenericChartProps {
@@ -159,7 +161,14 @@ const SreGenericChart: React.FC<SreGenericChartProps> = ({ chartType, chartData,
             if (line.label) {
               ctx.fillStyle = line.color ?? '#555555';
               ctx.font = '11px sans-serif';
-              ctx.fillText(line.label, chartArea.right + 4, yPx + 4);
+              if (line.labelPosition === 'left') {
+                ctx.textAlign = 'left';
+                ctx.fillText(line.label, chartArea.left + 4, yPx - 4);
+              } else {
+                ctx.textAlign = 'right';
+                ctx.fillText(line.label, chartArea.right - 4, yPx - 4);
+              }
+              ctx.textAlign = 'start';
             }
           }
         }
@@ -179,7 +188,11 @@ const SreGenericChart: React.FC<SreGenericChartProps> = ({ chartType, chartData,
             if (line.label) {
               ctx.fillStyle = line.color ?? '#555555';
               ctx.font = '11px sans-serif';
-              ctx.fillText(line.label, xPx + 4, chartArea.top - 4);
+              if (line.labelPosition === 'bottom') {
+                ctx.fillText(line.label, xPx + 4, chartArea.bottom + 12);
+              } else {
+                ctx.fillText(line.label, xPx + 4, chartArea.top - 4);
+              }
             }
           }
         }
