@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 11
 title: 1-7. 戦略的に色を使おう
 description: グラフの色を意図的に使って、情報伝達を強化する方法を紹介します。
@@ -14,31 +14,35 @@ custom_react_root: true # コメント有無
 色は組み合わせることによってあらゆる効果を発揮し、グラフをよりわかりやすくすることができます。  
 さらに、カラーユニバーサルデザイン（CUD）を意識することで、見る人の色覚の違いにかかわらず情報を正しく伝えられます。  
 
-生成AIもグラフを作れるようになりましたが、何も指示しないと自分の意図と違う色の使い方で生成されることがあります。  
-そのような場合も、こちらが色使いの意図を指示することで目的に即したグラフにできます。  
+しかし、色は影響度が大きい分、雑に使うとかえって**見づらくなったり伝えたいことを阻害する**こともあります。  
+そこで、**目的に応じて戦略的に色を使う**ことで、色を効果的に使えるようになりましょう。
 
-この回で**目的に応じて戦略的に色を使う**ことで、グラフの情報伝達力を高める方法を学びましょう。
+## 色を使う目的と使い分け
 
-## 重要事項を色で強調する
+グラフで何を伝えたいかによって、適切な色の使い方は変わります。  
+ここでは主要な目的に合った色の使い方を紹介します。  
 
-### アクセントカラー
+### 1. 重要な情報を強調する（アクセントカラー）
 
-可視化で多用するテクニックに**重要事項を色で強調する**というものがあります。  
-いわゆる**アクセントカラー**です。  
-アクセントカラーは、**注目させたい要素とそれ以外を区別**するために使います。  
-一番シンプルな方法としては、**基本はグレー系で統一し、強調したい要素だけ有彩色（赤、青、黄など）で色をつける**方法があります。  
+<img
+  src={require('./assets/highlight-color.png').default}
+  alt="highlight color"
+  style={{ width: '60%' }}
+/>
 
-例：自社と他社の比較、目標達成した要素の強調、全体の中の賛成の割合など
+グラフでもっともよく使われる色の目的は、**重要な情報を強調すること**です。  
+これをシンプルに実現する方法が、**アクセントカラー**です。  
+**基本はグレーなどの目立ちにくい色で統一し、強調したい要素だけ赤・青などの目立つ色をつける**手法です。  
+人間の脳は周囲と異なる色を一瞬で認識できるため、アクセントカラーの部分に自然と目が向きます。
 
-  <img
-    src={require('./assets/highlight-color.png').default}
-    alt="highlight color"
-    style={{ width: '60%' }}
-  />
+**使用例：**
+- 自社と他社の比較
+- 目標達成した要素の強調
+- 全体の中の賛成の割合
 
 具体例を見てみましょう。
 
-以下は、事業所別の売上を比較したグラフです。  
+以下は、架空の事業所別の売上を比較したグラフです。  
 もし**事業者Bの立ち位置を把握したいという目的**であれば、事業者Bを強調した以下のグラフが適しています。  
 
 <SreGenericChart
@@ -150,110 +154,36 @@ custom_react_root: true # コメント有無
 />
 
 このように、**伝えたいメッセージによって強調すべき要素は変わります**。  
-自分がそのグラフで何を伝えたいのかを明確にしたうえで、強調すべき要素を選びましょう。  
+自分がそのグラフで何を伝えたいのかを明確にしたうえで、強調する要素を選びましょう。  
 
+### 2. データをグループで区別する（カテゴリカルカラー）
 
-## 3つの配色の使い分け
+<img
+  src={require('./assets/categorical-colors.png').default}
+  alt="categorical colors"
+  style={{ width: '60%' }}
+/>
 
-配色とは色の組み合わせのことですが、**組み合わせ方によって異なる効果**を生み出すことができます。  
-ここではグラフに効果的な3パターンを紹介します。  
-伝えたい内容や目的に応じて、適切な配色を選べるようになりましょう。
-
-### 1. カテゴリカルカラー（区別する）
-
-カテゴリカルカラーは、その名の通り**カテゴリーごとに区別**するための配色です。  
+**複雑なデータを分類・グループ化して理解を容易にしたい**ときに使う配色を**カテゴリカルカラー**といいます。  
 **色同士に順序や大小が存在しない**ため、**並列な関係性のデータを区別**するときに有効です。  
 
-例：居住地域、性別、事業別など
-  <img
-    src={require('./assets/categorical-colors.png').default}
-    alt="categorical colors"
-    style={{ width: '60%' }}
-  />
+**使用例：**
+- 居住地域
+- 商品カテゴリ
+- 事業別
 
-グラフでの使用例を見てみましょう。  
-
-<!-- <SreGenericChart
-  chartType="bar"
-  maxWidth="100%"
-  containerStyle={{ height: '960px' }}
-  chartData={{
-    labels: ['北海道', '青森', '岩手', '宮城', '秋田', '山形', '福島', '茨城', '栃木', '群馬', '埼玉', '千葉', '東京', '神奈川', '新潟', '富山', '石川', '福井', '山梨', '長野', '岐阜', '静岡', '愛知', '三重', '滋賀', '京都', '大阪', '兵庫', '奈良', '和歌山', '鳥取', '島根', '岡山', '広島', '山口', '徳島', '香川', '愛媛', '高知', '福岡', '佐賀', '長崎', '熊本', '大分', '宮崎', '鹿児島', '沖縄'],
-    datasets: [
-      {
-        label: '北海道・東北',
-        data: [226, 120, 81, 39, 104, 67, 122, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        backgroundColor: '#0072B2',
-      },
-      {
-        label: '関東',
-        data: [null, null, null, null, null, null, null, 39, 66, 98, 31, 95, 22, 36, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        backgroundColor: '#D55E00',
-      },
-      {
-        label: '中部',
-        data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, 135, 61, 48, 38, 29, 193, 55, 118, 35, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        backgroundColor: '#E69F00',
-      },
-      {
-        label: '近畿',
-        data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 74, 27, 37, 17, 78, 34, 50, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        backgroundColor: '#CC79A7',
-      },
-      {
-        label: '中国・四国',
-        data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 15, 41, 32, 56, 40, 25, 28, 37, 37, null, null, null, null, null, null, null, null],
-        backgroundColor: '#009E73',
-      },
-      {
-        label: '九州・沖縄',
-        data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 46, 21, 37, 55, 63, 29, 87, 15],
-        backgroundColor: '#56B4E9',
-      },
-    ],
-  }}
-  chartOptions={{
-    indexAxis: 'y',
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        stacked: true,
-        title: { display: true, text: '温泉地数（箇所）' },
-      },
-      y: {
-        stacked: true,
-        ticks: {
-          autoSkip: false,
-        },
-        grid: {
-          display: false,
-        },
-      },
-    },
-    plugins: {
-      title: {
-        display: true,
-        text: '都道府県別 温泉地数（令和6年度）',
-      },
-      legend: {
-        display: true,
-      },
-      datalabels: {
-        display: false,
-      },
-    },
-  }}
-/>
-出典：環境省「[令和6年度温泉利用状況](https://www.env.go.jp/nature/onsen/data/)」 -->
+具体例を見てみましょう。  
 
 以下は国・地域別のインターネット普及率、平均寿命、人口の関係を表したバブルチャートです。  
-横軸がインターネット普及率、縦軸が平均寿命、バブルのサイズが人口を表します。
+横軸がインターネット普及率、縦軸が平均寿命、バブルのサイズが人口を表します。  
+参考として、インターネット普及率と平均寿命の世界平均の補助線を入れています。  
 
-アジアやヨーロッパといった**地域区分で色分けすることで、地域ごとの傾向を視覚的に把握しやすく**なっています。  
+アジアやヨーロッパといった**地域区分で色分けすることで、地域区分同士で比較しやすくなります**。  
+それにより、以下のようなことがすぐに読み取れます。  
 
-- アフリカはインターネット普及率が低く、平均寿命も短い傾向がある
-- ヨーロッパと北アメリカはインターネット普及率・平均寿命ともに高い傾向がある
-- アジアはインターネット普及率にばらつきがある
+- アフリカはインターネット普及率が50%未満の国が多く、平均寿命も短い傾向がある
+- ヨーロッパと北アメリカはインターネット普及率が高く、平均寿命も長い傾向がある
+- アジアはヨーロッパよりばらつきが大きく、両方高い水準の国も多いが、平均付近の国も複数ある
 
 <SreGenericChart
   chartType="bubble"
@@ -324,54 +254,159 @@ custom_react_root: true # コメント有無
       },
     },
   }}
+  referenceXLines={[{ x: 71, label: '世界平均 71%', color: '#888888' }]}
+  referenceLines={[{ y: 73, label: '世界平均 73歳', labelPosition: 'left', color: '#888888' }]}
 />
 
-出典：World Bank「[World Development Indicators](https://databank.worldbank.org/source/world-development-indicators)」（2024年）
+[World Bank Open Data](https://data.worldbank.org/)のデータをもとに作成
 
-### 2. シーケンシャルカラー（大小を表す）
+### 3. 量の大小・順序を表す（シーケンシャルカラー）
 
-シーケンシャルカラーは、**色の明度によって量の大小を表す配色**です。  
-小さい値は淡い色、大きい値は濃い色といったように、色の濃淡で情報を伝えることができます。  
-特に、**順序尺度や量的データの大小を視覚的に比較**するのに適しています。  
+<img
+  src={require('./assets/sequential-colors.png').default}
+  alt="sequential colors"
+  style={{ width: '60%' }}
+/>
 
-例：頻度、人数、金額など
+**数値の大小や順序を表す**場合に使うのが**シーケンシャルカラー**です。  
+小さい値は淡い色、大きい値は濃い色といったように、**順序尺度や量的データの大小を視覚的に変換**するのに適しています。  
 
-  <img
-    src={require('./assets/sequential-colors.png').default}
-    alt="sequential colors"
-    style={{ width: '60%' }}
-  />
+**使用例：**
+- 頻度
+- 人数
+- 金額
 
-グラフでの使用例を見てみましょう。
+具体例を見てみましょう。  
 
-以下は、都道府県別の合計特殊出生率をマップ上で表したものです。  
-色が淡いほど出生率が低く、濃いほど出生率が高いことを表しています。  
-このように、シーケンシャルカラーで段階的に色を変えることで、量の大小が一目でわかります。  
+以下は架空のWebサイトのアクセス数を時間帯と曜日別に集計したヒートマップです。  
+ヒートマップはシーケンシャルカラーを用いた可視化の代表例で、行列データの値を色の濃淡で表現します。  
 
-![合計特殊出生率](../introduction/assets/choropleth-map.png)
-2023年度　都道府県別合計特殊出生率（e-Statのデータをもとに作成）
+ヒートマップにすることで以下のようなことがすぐに理解できます。
 
-### 3. ダイバージェントカラー（基準に対するプラス・マイナスを示す）
+- 全体的に午前より午後にアクセスが多い
+- 平日は12～15時、18～21時のアクセスが多いので、昼休みや帰宅後にアクセスが集中していると推測できる
+- 土日は平日と比べて特定の時間帯に集中する傾向が弱く、アクセスが分散している
+- 土日は0～3時のアクセスが平日より多く、休日で夜更かしする人が増えると推測できる
 
-ダイバージェントカラーは、中間に基準値を挟んで、そこから両方向にシーケンシャルカラーを配置する配色です。  
-満足～普通～不満の評価など、**プラスとマイナスに意味があるデータ**を表すのに適しています。  
-対照的な色のグラデーションを使用することで、両方向に意味があるという情報を視覚的に強調することができます。  
+<table style={{ borderCollapse: 'collapse', textAlign: 'center', margin: '0.5rem 0', color: '#333' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>時間帯</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>月</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>火</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>水</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>木</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>金</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>土</th>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>0〜3時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>8</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>7</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>6</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>7</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>12</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>22</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>20</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>3〜6時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>3</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>3</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>2</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>3</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>5</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>10</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>8</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>6〜9時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>18</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>20</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>17</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>19</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>22</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>20</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#eff3ff' }}>18</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>9〜12時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>25</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>22</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>20</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>24</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>28</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#6baed6' }}>55</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#6baed6' }}>52</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>12〜15時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>68</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>72</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>65</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>70</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>75</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>72</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>70</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>15〜18時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>35</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>30</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>32</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#bdd7e7' }}>38</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#6baed6' }}>42</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>75</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>78</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>18〜21時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#084594', color: '#fff' }}>88</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#084594', color: '#fff' }}>85</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#084594', color: '#fff' }}>90</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#084594', color: '#fff' }}>83</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#084594', color: '#fff' }}>92</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>70</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>65</td>
+    </tr>
+    <tr>
+      <th style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#f0f0f0' }}>21〜24時</th>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>65</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>62</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>60</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>68</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>78</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#2171b5', color: '#fff' }}>68</td>
+      <td style={{ padding: '6px 10px', border: '1px solid #ccc', background: '#6baed6' }}>58</td>
+    </tr>
+  </tbody>
+</table>
 
-例：利益の増減、賛否、満足度など  
-  <img
-    src={require('./assets/divergent-colors.png').default}
-    alt="divergent colors"
-    style={{ width: '60%' }}
-  />
+### 4. 基準値から両方向の差異を表す（ダイバージェントカラー）
 
-グラフでの使用例を見てみましょう。
+<img
+  src={require('./assets/divergent-colors.png').default}
+  alt="divergent colors"
+  style={{ width: '60%' }}
+/>
 
-以下は、家電のカテゴリ別の利益を表した棒グラフです。  
+黒字・赤字や賛成・反対など、**任意の基準値から両方向に意味があるデータ**を表す場合は、**ダイバージェントカラー**を使うのが効果的です。  
+ダイバージェントカラーは、基準値にニュートラルな色を置き、そこから両方向に異なる色のシーケンシャルカラーを配置する手法です。  
+これにより**色の違いを見るだけで両方向の差異を認識**でき、**色の濃淡でその強さも表現**できます。  
+
+**使用例：**
+- 利益
+- 賛否
+- 満足度
+
+具体例を見てみましょう。
+
+以下は、架空の家電カテゴリ別の利益を表した棒グラフです。  
 黒字であるほど青色が濃く、赤字であるほど赤色が濃くなっています。  
-このように、反対の意味を持つ値を対照的な色を使って表すことで、どのカテゴリが利益を出しているのか、どのカテゴリが損失を出しているのかが一目でわかります。  
-
-特に、利益のようなプラスとマイナスの関係を表す場合は色の持つイメージも重要です。  
-一般的に青系統はプラスのイメージ、赤系統はマイナスのイメージがあるため、**色のイメージとデータの意味が一致するように配色することが重要**です。
+このように、**反対の意味を持つ値を対照的な色で表現し、色の濃さでその強さを表す**ことで、どのカテゴリが利益・損失を出しているのか、その度合いがどのくらいかが一目でわかります。  
 
 <SreGenericChart
     chartType="bar"
@@ -433,15 +468,12 @@ custom_react_root: true # コメント有無
     }}
 />
 
-## 配色とアクセントカラーの使い分け
-
-配色したいけどその中で一部の値だけ目立たせたいということもあると思います。  
-そういった競合が発生する場合の使い分けを紹介します。  
-
-### 配色をグレー系にする  
-
-シーケンシャルカラーで配色する場合はグレー系にすることで、一部の目立たせたい部分にアクセントカラーで強調できます。  
-無彩色（白、グレー、黒）と有彩色（赤、青、緑など）を組み合わせることで、アクセントカラーがより際立ちます。  
+:::tip 色の持つイメージとデータの意味を一致させよう
+ダイバージェントカラーでは異なる2色を用いますが、**色自体に共通イメージがある**ため、**データの意味と色のイメージを一致**させることが重要です。  
+例えば、**青系統は「黒字」や「賛成」などのポジティブ**、**赤系統は「赤字」や「反対」などのネガティブ**を表すことが多いです。  
+気温であれば**青系統が「低温」**、 **赤系統が「高温」** を表すことが一般的です。  
+このように、色のイメージとデータの意味を一致させることで、**視覚的な理解がスムーズになり、認知的負荷を軽減**できます。
+:::
 
 ## さまざまな色覚への対応
 
@@ -451,140 +483,250 @@ custom_react_root: true # コメント有無
 色覚には個人差があり、人によっては**見分けづらい色の組み合わせ**があるからです。  
 
 以下に赤と緑を対比させるグラフを用意しました。  
-目標値の70％を超えていれば緑、下回れば赤にしています。  
+賛成と反対の5件法を可視化したもので、賛成であるほど緑が濃く、反対であるほど赤が濃いです。 
 
 一般的な色覚（C型）の人はぱっと見で赤と緑の対比を認識できて便利です。  
-しかし、色覚がP型（赤を認識しづらい）やD型（緑を認識しづらい）の人は**赤と緑がどちらも茶色っぽく見えるため、対比構造が認識しづらい**です。  
+しかし、色覚がP型（赤を認識しづらい）やD型（緑を認識しづらい）の人は**赤と緑がどちらも茶色っぽく見えるため、C型のように一瞬で賛成・反対を認識できません**。  
 しかも、この色覚の人は男性の20人に1人、女性の500人に1人程度いるとされます。  
-つまり、**赤と緑で対比を表そうとしても、約5%の人には意図が伝わらないのです**。  
+つまり、**赤と緑で対比を表そうとしても、約5%の人には伝わりづらい**のです。  
 
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#34a334', '#34a334', '#b32f2f', '#34a334', '#b32f2f', '#b32f2f'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#2d962d',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#7dc87d',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#f5ada0',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#e25441',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'C型色覚（一般的な色覚）の見え方' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'C型色覚（一般的な色覚）の見え方',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
 />
 
-
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#a89828', '#a89828', '#6e5530', '#a89828', '#6e5530', '#6e5530'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#91852e',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#cec071',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#c0ba9e',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#86753b',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'P型色覚の見え方（あくまで一例で、個人差があります。）' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'P型色覚の見え方（あくまで一例で、個人差があります。）',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
 />
 
-
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#a89828', '#a89828', '#756c24', '#9b8d27', '#756c24', '#756c24'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#917d3d',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#b6a56c',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#c5bc88',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#9e9233',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'D型色覚の見え方（あくまで一例で、個人差があります。）' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'D型色覚の見え方（あくまで一例で、個人差があります。）',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
 />
 
-そこで重要なのが、 **カラーユニバーサルデザイン（CUD）** の考え方です。  
+そこで重要なのが、 **カラーユニバーサルデザイン（CUD）** です。  
 CUDとは、**色覚多様性を考慮し、より多くの人に伝わりやすい配色を選ぶ**という考え方です。  
 
 CUDを意識することで、異なる色覚の人にも同じ意図を伝えやすくなります。  
-例えば、先ほどのグラフを赤と緑からオレンジと青に変えてみましょう。
+例えば、先ほどのグラフの緑を青に変えてみましょう。
 
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#3546a7',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#7d8bc8',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#f5ada0',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#e25441',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'C型色覚（一般的な色覚）の見え方' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'C型色覚（一般的な色覚）の見え方',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
@@ -592,30 +734,58 @@ CUDを意識することで、異なる色覚の人にも同じ意図を伝え�
 
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#5577aa', '#5577aa', '#aa8a34', '#5577aa', '#aa8a34', '#aa8a34'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#1f56a8',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#718fce',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#c0ba9e',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#86753b',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'P型色覚の見え方（あくまで一例で、個人差があります。）' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'P型色覚の見え方（あくまで一例で、個人差があります。）',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
@@ -623,30 +793,58 @@ CUDを意識することで、異なる色覚の人にも同じ意図を伝え�
 
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#4665a0', '#4665a0', '#ad9e26', '#4665a0', '#ad9e26', '#ad9e26'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#244ab4',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#6085ca',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#c5bc88',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#9e9233',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'D型色覚の見え方（あくまで一例で、個人差があります。）' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'D型色覚の見え方（あくまで一例で、個人差があります。）',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
@@ -654,121 +852,76 @@ CUDを意識することで、異なる色覚の人にも同じ意図を伝え�
 
 <SreGenericChart
   chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
+  chartData={{
+    labels: ['施策A', '施策B', '施策C', '施策D', '施策E'],
     datasets: [
       {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#1d7e8f', '#1d7e8f', '#f75252', '#1d7e8f', '#f75252', '#f75252'
-        ],
+        label: '強く賛成',
+        data: [20, 10, 35, 5, 18],
+        backgroundColor: '#16676d',
+      },
+      {
+        label: 'やや賛成',
+        data: [35, 22, 30, 15, 28],
+        backgroundColor: '#508485',
+      },
+      {
+        label: 'どちらでもない',
+        data: [20, 18, 15, 20, 24],
+        backgroundColor: '#dddddd',
+      },
+      {
+        label: 'やや反対',
+        data: [15, 28, 12, 30, 18],
+        backgroundColor: '#ff9c9c',
+      },
+      {
+        label: '強く反対',
+        data: [10, 22, 8, 30, 12],
+        backgroundColor: '#fd3758',
       },
     ],
   }}
   chartOptions={{
+    indexAxis: 'y',
     plugins: {
-      title: {
+      title: { display: true, text: 'T型色覚の見え方（あくまで一例で、個人差があります。）' },
+      legend: { display: true },
+      datalabels: {
         display: true,
-        text: 'T型色覚の見え方（あくまで一例で、個人差があります。）',
+        color: '#fff',
+        formatter: function(value) { return value > 8 ? value + '%' : ''; },
       },
-      legend: { display: false },
     },
     scales: {
-      y: {
+      x: {
+        stacked: true,
         min: 0,
         max: 100,
+        ticks: { callback: function(value) { return value + '%'; } },
+        grid: { display: false },
       },
-    },
-  }}
-/>
-
-オレンジと青に変更したことで、P型やD型の人も異なる色相として認識できるため、対比構造が認識しやすくなりました。  
-さらに少数派ですが、T型（青を認識しづらい）の人も認識できるので問題ないでしょう。
-
-### 配色以外も工夫しよう
-
-誰もが見分けられるようなカラーパレットを使うことは重要ですが、色以外の要素を工夫することも有効な手段です。  
-例えば、上記のグラフなら以下のような工夫ができます。
-
-#### ① 目標値のラインを補助として引く
-
-目標値を超えたかどうかで目標達成の有無を判別しやすくなります。
-
-<SreGenericChart
-  chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
-    datasets: [
-      {
-        label: 'KPI達成率（%）',
-        data: [85, 72, 63, 78, 55, 68],
-        backgroundColor: [
-          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
-        ],
-      },
-    ],
-  }}
-  chartOptions={{
-    plugins: {
-      title: {
-        display: true,
-        text: '目標値のラインを引いたグラフ',
-      },
-      legend: { display: false },
-    },
-    scales: {
       y: {
-        min: 0,
-        max: 100,
+        stacked: true,
+        grid: { display: false },
       },
     },
   }}
-  referenceLines={[{ y: 70, label: '目標 70%' }]}
 />
 
-#### ② 基準値からの差分を表すグラフにする
+緑を青に変更したことで、P型やD型の人も異なる色として認識できるため、対比構造が認識しやすくなりました。  
+さらに少数派ですが、T型（青を認識しづらい）の人も認識できるので問題ないでしょう。  
 
-目標値を超えたか下回ったかが棒グラフの上下方向でわかるので、色だけで判別するより直感的です。
+以上のように、赤と緑は人によっては見分けにくいです。  
+そのため、**赤と緑を対比のために用いたり、隣り合う配置にするのは避ける**ことをおすすめします。  
+どうしても隣り合う場合は明度差をつけるなど工夫しましょう。  
 
-<SreGenericChart
-  chartType="bar"
-  chartData={{ 
-    labels: ['A店', 'B店', 'C店', 'D店', 'E店', 'F店'],
-    datasets: [
-      {
-        label: '目標比（%pt）',
-        data: [15, 2, -7, 8, -15, -2],
-        backgroundColor: [
-          '#3471a3', '#3471a3', '#e97020', '#3471a3', '#e97020', '#e97020'
-        ],
-      },
-    ],
-  }}
-  chartOptions={{
-    plugins: {
-      title: {
-        display: true,
-        text: '目標との差分を表すグラフ',
-      },
-      legend: { display: false },
-    },
-    scales: {
-      y: {
-        min: -20,
-        max: 20,
-      },
-    },
-  }}
-  referenceLines={[{ y: 0, label: '目標 70%' }]}
-/>
-
-### 迷った時に使えるパレット
+## 迷った時に使えるパレット
 
 色以外も工夫したほうがいいですが、やはり色のインパクトは大きいので配色には気を使いたいです。  
-先人が色覚多様性を考慮したカラーパレットを作ってくれているので、どの色を使うか迷ったら活用してみましょう。  
+先人が色覚多様性を考慮したカラーパレットを作ってくれているので、配色に迷ったら活用しましょう。  
 
-#### Okabe-Ito Scale
+### Okabe-Ito Scale
 
 ![Okabe-Ito Scale](./assets/Okabe-Ito.jpg)
 Fig. 16 Okabe and Ito (2002)
@@ -777,7 +930,7 @@ Fig. 16 Okabe and Ito (2002)
 オリジナル、P型、D型、T型の色覚でそれぞれどう見えるかというサンプルが上図に示されています。  
 どの色覚の人でも隣り合う色の差がわかりやすいことがわかります。
 
-#### ColorBrewer2
+### ColorBrewer2
 
 ![ColorBrewer2](./assets/color-brewer2.png)
 
@@ -787,7 +940,7 @@ Fig. 16 Okabe and Ito (2002)
 colorblind safeにチェックを入れると、色覚多様性を考慮した配色に絞り込むことができます。  
 マップでの見え方に特化していますが、通常のグラフの配色にも活用できます。
 
-#### COLORS
+### COLORS
 
 ![COLORS](./assets/COLORS.png)
 
@@ -821,20 +974,20 @@ colorblind safeにチェックを入れると、色覚多様性を考慮した�
 ## まとめ
 
 色の使い方について紹介しましたが、一番大事なのは**なぜそのような色使いをしたのか説明できる**ことです。  
-説明できるということは目的をもって色を使えているということなので、まずはこの状態を目指しましょう。  
+説明できるということは**目的に応じて色を使えている**ということなので、まずはこの状態を目指しましょう。  
 
 また、色は見栄えにも影響しますが、**メッセージを的確に伝える目的で色を使うとおのずと見栄えもよくなります**。  
-なので、見栄えを気にするより先に、目的を果たせているかどうかを意識してみましょう。
-
+なので、**見栄えを気にするより先に、目的を果たせているかどうか**を意識してみましょう。
 
 ## 参考資料
 
 - [『データ視覚化のデザイン』](https://amzn.asia/d/eZEJuGJ)
 - [データの可視化 (Data Visualization)](https://note.com/s_s286/n/ndd9552d0a4e3?sub_rt=share_pw)
 - [デザイン知識がなくてもOK！グラフの配色術](https://note.com/macromill/n/nce5ada46f4ab?sub_rt=share_pw)
+- [World Bank Open Data](https://data.worldbank.org/)
+- [e-Stat](https://www.e-stat.go.jp/)
+- [カラーユニバーサルデザイン機構](https://cudo.jp/)
 - [色覚バリアフリーなカラーパレット](https://note.com/masakudamatsu/n/nafb946d33ee0?sub_rt=share_sb)
 - [Okabe-Ito](https://jfly.uni-koeln.de/color/#pallet)
 - [ColorBrewer2](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 - [COLORS](https://colors.design4u.jp/)
-- [Viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#the-color-scales)
-- [Paul Tol's Colour Schemes](https://sronpersonalpages.nl/~pault/data/colourschemes.pdf)
