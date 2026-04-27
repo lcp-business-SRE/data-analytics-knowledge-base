@@ -57,6 +57,3 @@ npm install --save-dev typescript @types/react @types/node @types/chart.js
 を作成しています。
 
 以上により、マークダウンファイルで直接グラフを表現する環境が整っています。
-
-
-
