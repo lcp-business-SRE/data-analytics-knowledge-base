@@ -96,6 +96,27 @@ const SreGenericChart: React.FC<SreGenericChartProps> = ({ chartType, chartData,
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const userScales = (chartOptions?.scales as any) ?? {};
+
+      if (chartType === 'radar') {
+        const userScale = userScales.r ?? {};
+        const mergedScales: Record<string, any> = {
+          r: {
+            ...userScale,
+            ticks:  { color: textColor, ...userScale.ticks },
+            grid:   { color: gridColor, ...userScale.grid },
+            border: { color: borderColor, ...userScale.border },
+            title:  { color: textColor, ...userScale.title },
+          },
+        };
+        // r 以外のスケールが指定されていればそのまま引き継ぐ
+        for (const key of Object.keys(userScales)) {
+          if (key !== 'r') {
+            mergedScales[key] = userScales[key];
+          }
+        }
+        return mergedScales;
+      }
+
       const mergedScales: Record<string, any> = {};
       // デフォルトの x/y をベースに生成
       for (const key of ['x', 'y']) {
