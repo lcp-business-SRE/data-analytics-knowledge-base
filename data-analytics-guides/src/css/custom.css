@@ -51,6 +51,18 @@
   
 }
 
+/* Mermaid フローチャートのノード背景色（ダークモード） */
+[data-theme='dark'] .startNode rect,
+[data-theme='dark'] .startNode path,
+[data-theme='dark'] .startNode polygon {
+  fill: #1a3a52 !important;
+}
+[data-theme='dark'] .resultNode rect,
+[data-theme='dark'] .resultNode path,
+[data-theme='dark'] .resultNode polygon {
+  fill: #1a3a22 !important;
+}
+
 /* Markdownコンテンツ内の画像を中央揃えにする */
 .markdown img {
   display: block; /* img要素をブロックレベル要素にする */
