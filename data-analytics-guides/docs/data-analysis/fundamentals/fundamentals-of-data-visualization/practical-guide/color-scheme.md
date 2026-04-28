@@ -8,6 +8,8 @@ custom_react_root: true # コメント有無
 
 # 1-7. 戦略的に色を使おう
 
+**投稿者：Yukina Matsumoto**
+
 ## 色は可視化の強い味方
 
 グラフを作成するときに重要なのが、色の使い方です。  
@@ -916,6 +918,13 @@ CUDを意識することで、異なる色覚の人にも同じ意図を伝え�
 そのため、**赤と緑を対比のために用いたり、隣り合う配置にするのは避ける**ことをおすすめします。  
 どうしても隣り合う場合は明度差をつけるなど工夫しましょう。  
 
+:::tip 他の組み合わせにも注意！
+赤と緑以外にも、**青と紫**、**水色とピンク**といった色の組み合わせも見分けづらいことがあるため要注意です。  
+詳しくは下記ページ等を参考にしてください。
+- [カラーユニバーサルデザイン機構](https://cudo.jp/)
+- [東京都カラーユニバーサルデザインガイドライン](https://www.fukushi.metro.tokyo.lg.jp/documents/d/fukushi/colorudguideline2)
+:::
+
 ## 迷った時に使えるパレット
 
 色以外も工夫したほうがいいですが、やはり色のインパクトは大きいので配色には気を使いたいです。  
@@ -987,6 +996,7 @@ colorblind safeにチェックを入れると、色覚多様性を考慮した�
 - [World Bank Open Data](https://data.worldbank.org/)
 - [e-Stat](https://www.e-stat.go.jp/)
 - [カラーユニバーサルデザイン機構](https://cudo.jp/)
+- [東京都カラーユニバーサルデザインガイドライン](https://www.fukushi.metro.tokyo.lg.jp/documents/d/fukushi/colorudguideline2)
 - [色覚バリアフリーなカラーパレット](https://note.com/masakudamatsu/n/nafb946d33ee0?sub_rt=share_sb)
 - [Okabe-Ito](https://jfly.uni-koeln.de/color/#pallet)
 - [ColorBrewer2](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
