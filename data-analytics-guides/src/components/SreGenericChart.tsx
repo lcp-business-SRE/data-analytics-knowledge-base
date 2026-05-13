@@ -2,6 +2,7 @@ import React from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 // Chart.js のコンポーネントをインポート
 import { Bar, Line, Pie, Doughnut, Scatter, Radar, Bubble } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.js の型定義をインポート
 import {
@@ -18,6 +19,7 @@ import {
   Tooltip,
   Legend,
   Title,
+  SubTitle,
   ChartOptions,
   ChartData,
 } from 'chart.js';
@@ -34,8 +36,13 @@ ChartJS.register(
   ScatterController,
   Tooltip,
   Legend,
-  Title
+  Title,
+  SubTitle,
+  ChartDataLabels
 );
+
+// datalabels はデフォルト非表示。chartOptions.plugins.datalabels.display で個別に有効化する
+ChartJS.defaults.set('plugins.datalabels', { display: false });
 
 interface ReferenceLine {
   y: number;
@@ -87,6 +94,14 @@ const SreGenericChart: React.FC<SreGenericChartProps> = ({ chartType, chartData,
       title: {
         color: textColor,
         ...chartOptions?.plugins?.title,
+      },
+      subtitle: {
+        color: textColor,
+        ...chartOptions?.plugins?.subtitle,
+      },
+      datalabels: {
+        color: textColor,
+        ...chartOptions?.plugins?.datalabels,
       },
     },
     scales: (() => {
