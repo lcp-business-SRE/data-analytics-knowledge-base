@@ -38,9 +38,12 @@
 cd data-analytics-guides
 
 // グラフ表示機能の依存関係をインストール
-// Chart.js、そのReactラッパー、およびTypeScriptの型定義ファイルをインストールします。
+// Chart.js v4 は型定義を同梱しているため、@types/chart.js は不要です。
 npm install chart.js react-chartjs-2
-npm install --save-dev typescript @types/react @types/node @types/chart.js
+npm install --save-dev typescript @types/react @types/node
+
+// 既存環境で @types/chart.js を入れている場合は削除
+npm uninstall @types/chart.js
 
 // データラベル表示プラグインのインストール
 npm install chartjs-plugin-datalabels
