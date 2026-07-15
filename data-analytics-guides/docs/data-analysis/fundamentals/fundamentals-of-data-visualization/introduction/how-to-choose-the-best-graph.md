@@ -647,15 +647,10 @@ flowchart LR
     Map --> MapChart[マップ]
     
     
-    style Start fill:#e1f5ff
-    style Bar fill:#c8e6c9
-    style Line fill:#c8e6c9
-    style Pie fill:#c8e6c9
-    style Stack fill:#c8e6c9
-    style Scatter fill:#c8e6c9
-    style Box fill:#c8e6c9
-    style Histogram fill:#c8e6c9
-    style MapChart fill:#c8e6c9
+    classDef startNode fill:#e1f5ff
+    classDef resultNode fill:#c8e6c9
+    class Start startNode
+    class Bar,Line,Pie,Stack,Scatter,Box,Histogram,MapChart resultNode
 ```
 
 <br/>

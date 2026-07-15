@@ -25,6 +25,8 @@
 
 - **補助線**: `referenceLines`（水平）と `referenceXLines`（垂直）プロパティで、目標値や平均値などの基準線をグラフに追加できます。各補助線には `y`/`x`（値）、`color`（色）、`label`（ラベルテキスト）、`labelPosition`（ラベル位置: 水平線は `'left'`/`'right'`、垂直線は `'top'`/`'bottom'`）を指定できます。
 
+- **データラベル**: `chartjs-plugin-datalabels` を組み込んでおり、`chartOptions.plugins.datalabels` でデータポイントへの直接ラベル表示が可能です。デフォルトは非表示（`display: false`）です。`display: true` または条件式で有効化できます。
+
 ### 2.2. セットアップ手順
 
 この機能を利用・開発するために必要な手順です。
@@ -36,9 +38,15 @@
 cd data-analytics-guides
 
 // グラフ表示機能の依存関係をインストール
-// Chart.js、そのReactラッパー、およびTypeScriptの型定義ファイルをインストールします。
+// Chart.js v4 は型定義を同梱しているため、@types/chart.js は不要です。
 npm install chart.js react-chartjs-2
-npm install --save-dev typescript @types/react @types/node @types/chart.js
+npm install --save-dev typescript @types/react @types/node
+
+// 既存環境で @types/chart.js を入れている場合は削除
+npm uninstall @types/chart.js
+
+// データラベル表示プラグインのインストール
+npm install chartjs-plugin-datalabels
 ```
 
 `package.json` と `package-lock.json` が更新されます。
@@ -57,3 +65,68 @@ npm install --save-dev typescript @types/react @types/node @types/chart.js
 を作成しています。
 
 以上により、マークダウンファイルで直接グラフを表現する環境が整っています。
+
+### 2.3. データラベルの使い方
+
+`chartjs-plugin-datalabels` を利用して、バーや折れ線の各データポイントに直接ラベルを表示できます。
+
+デフォルトは非表示です。`chartOptions.plugins.datalabels` で設定を追加することで有効化されます。
+
+**全ポイントに値を表示する例:**
+
+```jsx
+chartOptions={{
+  plugins: {
+    datalabels: {
+      display: true,
+      formatter: function(value) { return value + '千円'; },
+    },
+  },
+}}
+```
+
+**特定のポイントだけ表示する例（最後のポイントのみ）:**
+
+```jsx
+chartOptions={{
+  plugins: {
+    datalabels: {
+      display: function(context) {
+        return context.dataIndex === context.dataset.data.length - 1;
+      },
+      formatter: function(value, context) {
+        return context.dataset.label;
+      },
+      align: 'right',
+      anchor: 'end',
+    },
+  },
+}}
+```
+
+**最大値・最小値のみ表示する例:**
+
+```jsx
+chartOptions={{
+  plugins: {
+    datalabels: {
+      display: function(context) {
+        const data = context.dataset.data;
+        const value = data[context.dataIndex];
+        return value === Math.max(...data) || value === Math.min(...data);
+      },
+      formatter: function(value) { return value + '件'; },
+    },
+  },
+}}
+```
+
+主なオプションは以下のとおりです。詳細は [chartjs-plugin-datalabels 公式ドキュメント](https://chartjs-plugin-datalabels.netlify.app/) を参照してください。
+
+| オプション | 型 | 説明 |
+|---|---|---|
+| `display` | `boolean \| function` | 表示するかどうか。関数でコンテキスト（dataIndex など）に応じた制御が可能 |
+| `formatter` | `function(value, context)` | ラベルとして表示する文字列を返す関数 |
+| `color` | `string` | ラベルの文字色 |
+| `align` | `string` | アンカー点に対するラベルの方向（`'top'`, `'bottom'`, `'left'`, `'right'`, `'center'` など）|
+| `anchor` | `string` | データポイントのどこを基準にするか（`'start'`, `'center'`, `'end'`）|
